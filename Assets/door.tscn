@@ -1,0 +1,107 @@
+[gd_scene load_steps=10 format=3 uid="uid://baokw2tlcqpx1"]
+
+[ext_resource type="Script" path="res://Assets/Door.gd" id="1_eueqv"]
+[ext_resource type="Texture2D" uid="uid://dmode7n8bpsqd" path="res://Arta/InputButtons/White/tile_0057.png" id="2_gf5ia"]
+[ext_resource type="Texture2D" uid="uid://bi55n7oupfool" path="res://Arta/InputButtons/White/tile_0058.png" id="3_o3bjs"]
+[ext_resource type="Texture2D" uid="uid://xpuvcdoqdsce" path="res://Arta/Tilemap/monochrome_tilemap_transparent_packed.png" id="3_qn2dd"]
+[ext_resource type="Texture2D" uid="uid://875qdx0yhc6n" path="res://Arta/Info Board/Panel.png" id="4_aig81"]
+[ext_resource type="Theme" uid="uid://beoh5k5sb22ui" path="res://Arta/Theme.tres" id="5_ga5id"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3y3o"]
+atlas = ExtResource("3_qn2dd")
+region = Rect2(256, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3u6p4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gf5ia")
+}],
+"loop": true,
+"name": &"closed_key",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3y3o")
+}],
+"loop": true,
+"name": &"closed_no_key",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_o3bjs")
+}],
+"loop": true,
+"name": &"opened",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_di1g3"]
+size = Vector2(16, 16)
+
+[node name="Door" type="Area2D"]
+script = ExtResource("1_eueqv")
+
+[node name="DoorSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3u6p4")
+animation = &"closed_no_key"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_di1g3")
+
+[node name="PopUp" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Panel" type="TextureRect" parent="PopUp"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+texture = ExtResource("4_aig81")
+stretch_mode = 5
+
+[node name="Text" type="Label" parent="PopUp"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 188.0
+offset_top = 106.0
+offset_right = -189.0
+offset_bottom = -167.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_ga5id")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 56
+text = "You need a key to get past this door."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+text_overrun_behavior = 3
+
+[node name="Ok Button" type="Button" parent="PopUp"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -15.0
+offset_top = -115.0
+offset_right = 18.0
+offset_bottom = -86.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("5_ga5id")
+theme_override_font_sizes/font_size = 31
+text = "OK"
+flat = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="pressed" from="PopUp/Ok Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://f0f7lcy7e1tg"]
+
+[ext_resource type="Texture2D" uid="uid://rony6yfs0xsu" path="res://Arta/Tilemap/spritesheet_default.png" id="1_fppyr"]
+[ext_resource type="Script" path="res://Assets/movable_box.gd" id="1_lcp04"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pr4wj"]
+atlas = ExtResource("1_fppyr")
+region = Rect2(256, 320, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tok7j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pr4wj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0m7ly"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r26d0"]
+size = Vector2(48, 16)
+
+[node name="Movable_Box" type="RigidBody2D" groups=["Box"]]
+collision_layer = 12
+collision_mask = 5
+mass = 2.0
+lock_rotation = true
+linear_damp = 67.335
+script = ExtResource("1_lcp04")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_tok7j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0m7ly")
+
+[node name="Check_For_Player" type="Area2D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Check_For_Player"]
+shape = SubResource("RectangleShape2D_r26d0")
+debug_color = Color(0.133333, 0.627451, 0.462745, 0.419608)
+
+[connection signal="body_entered" from="Check_For_Player" to="." method="_on_check_for_player_body_entered"]
+[connection signal="body_exited" from="Check_For_Player" to="." method="_on_check_for_player_body_exited"]

@@ -1,0 +1,112 @@
+[gd_scene load_steps=9 format=3 uid="uid://dt3lqotk6oen5"]
+
+[ext_resource type="Texture2D" uid="uid://iiohcfd4jn7" path="res://Arta/Info Board/sheet-1.png" id="1_w85eh"]
+[ext_resource type="Script" path="res://Assets/Info_Board.gd" id="2_pigrg"]
+[ext_resource type="Texture2D" uid="uid://drqns68gt8n16" path="res://Arta/Info Board/ExclamationMark-16x16-1.png.png" id="3_xuru3"]
+[ext_resource type="Texture2D" uid="uid://875qdx0yhc6n" path="res://Arta/Info Board/Panel.png" id="4_fdiw1"]
+[ext_resource type="Theme" uid="uid://beoh5k5sb22ui" path="res://Arta/Theme.tres" id="5_pehuv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ftjru"]
+size = Vector2(36, 32)
+
+[sub_resource type="Animation" id="Animation_rwf7r"]
+resource_name = "Up-Down"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1.62451, 1.51572, 0.554785),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 1), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nvdu0"]
+_data = {
+"Up-Down": SubResource("Animation_rwf7r")
+}
+
+[node name="Info_Board" type="Sprite2D"]
+modulate = Color(0.992157, 0.694118, 0.572549, 0.827451)
+z_index = 1
+z_as_relative = false
+texture = ExtResource("1_w85eh")
+offset = Vector2(0, -32)
+script = ExtResource("2_pigrg")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_ftjru")
+debug_color = Color(0.572549, 0.447059, 0.85098, 0.0156863)
+
+[node name="Exclamation Mark" type="Sprite2D" parent="."]
+z_index = 11
+texture = ExtResource("3_xuru3")
+offset = Vector2(0, -80)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Exclamation Mark"]
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_nvdu0")
+}
+
+[node name="PopUp" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Panel" type="TextureRect" parent="PopUp"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+texture = ExtResource("4_fdiw1")
+stretch_mode = 5
+
+[node name="Text" type="Label" parent="PopUp"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 188.0
+offset_top = 106.0
+offset_right = -189.0
+offset_bottom = -167.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_pehuv")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 56
+text = "Placeholder"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+text_overrun_behavior = 3
+
+[node name="Ok Button" type="Button" parent="PopUp"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -15.0
+offset_top = -115.0
+offset_right = 18.0
+offset_bottom = -86.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("5_pehuv")
+theme_override_font_sizes/font_size = 31
+text = "OK"
+flat = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="pressed" from="PopUp/Ok Button" to="." method="_on_button_pressed"]

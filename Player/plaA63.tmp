@@ -1,0 +1,95 @@
+[gd_scene load_steps=12 format=3 uid="uid://c1mre2qrte5s2"]
+
+[ext_resource type="Script" path="res://Player/Player.gd" id="1_bbnet"]
+[ext_resource type="Texture2D" uid="uid://xpuvcdoqdsce" path="res://Arta/Tilemap/monochrome_tilemap_transparent_packed.png" id="2_l3dg1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3ff3"]
+atlas = ExtResource("2_l3dg1")
+region = Rect2(96, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hs0x1"]
+atlas = ExtResource("2_l3dg1")
+region = Rect2(0, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0liaw"]
+atlas = ExtResource("2_l3dg1")
+region = Rect2(80, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bymm"]
+atlas = ExtResource("2_l3dg1")
+region = Rect2(16, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6v857"]
+atlas = ExtResource("2_l3dg1")
+region = Rect2(32, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5gjc"]
+atlas = ExtResource("2_l3dg1")
+region = Rect2(48, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_soelw"]
+atlas = ExtResource("2_l3dg1")
+region = Rect2(64, 192, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_24ksa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3ff3")
+}],
+"loop": true,
+"name": &"Dead",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hs0x1")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0liaw")
+}],
+"loop": true,
+"name": &"Jumping",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8bymm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6v857")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5gjc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_soelw")
+}],
+"loop": true,
+"name": &"Running",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bh205"]
+size = Vector2(10, 9)
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_mask = 3
+script = ExtResource("1_bbnet")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_24ksa")
+animation = &"Running"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_bh205")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true

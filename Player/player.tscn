@@ -1,0 +1,109 @@
+[gd_scene load_steps=8 format=3 uid="uid://c1mre2qrte5s2"]
+
+[ext_resource type="Script" path="res://Player/Player_Dash.gd" id="1_fclto"]
+[ext_resource type="Texture2D" uid="uid://eiww8kcfd487" path="res://Arta/Vladutz.png" id="2_aqme3"]
+[ext_resource type="Texture2D" uid="uid://rony6yfs0xsu" path="res://Arta/Tilemap/spritesheet_default.png" id="3_gjvpq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_24ksa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_aqme3")
+}],
+"loop": true,
+"name": &"Dashing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_aqme3")
+}],
+"loop": true,
+"name": &"Dead",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_aqme3")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_aqme3")
+}],
+"loop": true,
+"name": &"Jumping",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_aqme3")
+}],
+"loop": true,
+"name": &"Running",
+"speed": 10.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_666ik"]
+atlas = ExtResource("3_gjvpq")
+region = Rect2(576, 192, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q4070"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_666ik")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bh205"]
+size = Vector2(30, 64)
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+z_index = 10
+z_as_relative = false
+collision_mask = 6
+script = ExtResource("1_fclto")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 2
+sprite_frames = SubResource("SpriteFrames_24ksa")
+animation = &"Running"
+
+[node name="Sprute" type="AnimatedSprite2D" parent="."]
+visible = false
+light_mask = 2
+z_index = 5
+scale = Vector2(0.5, 1)
+sprite_frames = SubResource("SpriteFrames_q4070")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bh205")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -32)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+
+[node name="Dash_Cooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="Dash_Time" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="Coyote_Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Remember_Jump_Timer" type="Timer" parent="."]
+wait_time = 0.075
+one_shot = true
+
+[connection signal="timeout" from="Dash_Cooldown" to="." method="_on_dash_cooldown_timeout"]
+[connection signal="timeout" from="Dash_Time" to="." method="_on_dash_time_timeout"]
