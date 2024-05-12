@@ -105,7 +105,7 @@ func _on_wait_before_jump_timer_timeout():
 	velocity.y -= jump_power
 
 func _on_check_for_player_to_follow_body_entered(body):
-	if body.is_in_group("Player"):
+	if body.is_in_group("Player") && state != State.ACTIVE:
 		can_move = false
 		change_state_cooldown.start()
 		exclamation_mark.set_visible(true)
@@ -113,7 +113,7 @@ func _on_check_for_player_to_follow_body_entered(body):
 		state = State.ACTIVE
 
 func _on_check_for_player_to_keep_following_body_exited(body):
-	if body.is_in_group("Player"):
+	if body.is_in_group("Player") && state != State.PASSIVE:
 		if (gets_stunned_after_lost_player == true):
 			velocity.x = 0
 			can_move = false

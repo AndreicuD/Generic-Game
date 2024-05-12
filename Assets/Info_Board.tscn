@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dt3lqotk6oen5"]
+[gd_scene load_steps=11 format=3 uid="uid://dt3lqotk6oen5"]
 
 [ext_resource type="Texture2D" uid="uid://iiohcfd4jn7" path="res://Arta/Info Board/sheet-1.png" id="1_w85eh"]
 [ext_resource type="Script" path="res://Assets/Info_Board.gd" id="2_pigrg"]
@@ -31,6 +31,15 @@ _data = {
 "Up-Down": SubResource("Animation_rwf7r")
 }
 
+[sub_resource type="Gradient" id="Gradient_2daq8"]
+offsets = PackedFloat32Array(0.12987, 0.75974)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2r6t7"]
+gradient = SubResource("Gradient_2daq8")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Info_Board" type="Sprite2D"]
 modulate = Color(0.992157, 0.694118, 0.572549, 0.827451)
 z_index = 1
@@ -56,6 +65,12 @@ reset_on_save = false
 libraries = {
 "": SubResource("AnimationLibrary_nvdu0")
 }
+
+[node name="PointLight2D" type="PointLight2D" parent="Exclamation Mark"]
+position = Vector2(0, -80)
+color = Color(0.756863, 0, 0.0117647, 1)
+energy = 2.5
+texture = SubResource("GradientTexture2D_2r6t7")
 
 [node name="PopUp" type="CanvasLayer" parent="."]
 visible = false

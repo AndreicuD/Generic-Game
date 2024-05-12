@@ -1,10 +1,10 @@
+PointLight2D
 CanvasModulate
 CanvasGroup
 CollisionShape2D
 Area2D
 Timer
 Sprite2D
-PointLight2D
 Node2D
 Node
 AnimationTree

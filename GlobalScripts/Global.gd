@@ -1,13 +1,38 @@
 extends Node
 
+# PLAYER THINGS
+
 var HEALTH = 100
 var MAX_HEALTH = 100
-var is_player_dead = false
+var DAMAGE_TAKEN_MULTIPLIER = 1.0
+var DAMAGE_MULTIPLIER = 1.0
+var CURRENT_DAMAGE_MULTIPLIER = 1.0
+var HEAL_MULTIPLIER = 0.0
+var is_player_dead : bool = false
+var can_damage_player : bool = true
 
 var spawn_point = Vector2(0,0)
 
 var default_max_health = 100
 var default_spawn_point = Vector2(0,0)
+
+var can_dash_horizontal : bool = false
+var can_dash_any_direction : bool = false
+var take_less_damage_when_dashing : bool = false
+var take_less_damage_when_dashing_multiplier = 0.5
+var invicibility_when_dashing : bool = false
+var damage_when_dashing : bool = false
+var damage_when_dashing_multiplier = 0.5
+
+var damage_level_1_upgrade : bool = false
+var damage_level_1_upgrade_multiplier = 1.5
+var damage_level_2_upgrade : bool = false
+var damage_level_2_upgrade_multiplier = 2
+
+var heal_when_kill_level_1 : bool = false
+var heal_level_1_upgrade = 10.0
+var heal_when_kill_level_2 : bool = false
+var heal_level_2_upgrade = 20.0
 
 #----------------------------------------------------------
 

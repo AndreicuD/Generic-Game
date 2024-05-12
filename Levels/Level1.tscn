@@ -32,11 +32,13 @@ texture_region_size = Vector2i(32, 32)
 3:0/1/transpose = true
 3:0/1/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:0/1/physics_layer_0/angular_velocity = 0.0
+3:0/1/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 3:0/2 = 2
 3:0/2/flip_h = true
 3:0/2/transpose = true
 3:0/2/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:0/2/physics_layer_0/angular_velocity = 0.0
+3:0/2/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 4:0/0 = 0
 4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:0/0/physics_layer_0/angular_velocity = 0.0
@@ -70,6 +72,7 @@ texture_region_size = Vector2i(32, 32)
 3:1/1/transpose = true
 3:1/1/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:1/1/physics_layer_0/angular_velocity = 0.0
+3:1/1/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 4:1/0 = 0
 4:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:1/0/physics_layer_0/angular_velocity = 0.0
@@ -1116,13 +1119,14 @@ texture = ExtResource("2_w27uy")
 sources/0 = SubResource("TileSetAtlasSource_s6y40")
 
 [sub_resource type="Gradient" id="Gradient_gnlh6"]
+offsets = PackedFloat32Array(0.402597, 0.571429)
 colors = PackedColorArray(0, 0, 0, 1, 0.74978, 0.74978, 0.74978, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_blblm"]
 gradient = SubResource("Gradient_gnlh6")
 width = 128
 fill_from = Vector2(0.279817, 0.46789)
-fill_to = Vector2(0.463303, 0.633027)
+fill_to = Vector2(0.724771, 0.87156)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_53tmt"]
 size = Vector2(672, 320)
@@ -1160,6 +1164,7 @@ layer_3/modulate = Color(0.721569, 0.721569, 0.721569, 1)
 layer_3/tile_data = PackedInt32Array(-131057, 65537, 6, -65521, 65537, 6, 15, 65537, 6, -196592, 65537, 6, -131056, 65537, 6, -65520, 65537, 6, 16, 65537, 6, -196591, 65537, 6, -131055, 65537, 6, -65519, 65537, 6, 17, 65537, 6, -196590, 65537, 6, -131054, 65537, 6, -65518, 65537, 6, 18, 65537, 6, -196593, 65537, 6)
 
 [node name="Grid Controale" type="TileMap" parent="Chestii Estetice"]
+light_mask = 512
 tile_set = SubResource("TileSet_tybos")
 format = 2
 layer_0/tile_data = PackedInt32Array(-262145, 262144, 2, -196609, 2162688, 4, -327680, 131072, 2, -262144, 2031616, 4, -327676, 1245184, 2, -327675, 65536, 11)
@@ -1177,35 +1182,36 @@ position = Vector2(640, 0)
 velocity = Vector2(50, 0)
 checkpoints = [Vector2(640, 16), Vector2(896, 16)]
 
-[node name="Torches" type="Node2D" parent="."]
-
-[node name="Torch" parent="Torches" instance=ExtResource("7_giw5s")]
-position = Vector2(16, -16)
-
-[node name="Torch2" parent="Torches" instance=ExtResource("7_giw5s")]
-position = Vector2(112, -16)
-
-[node name="Torch3" parent="Torches" instance=ExtResource("7_giw5s")]
-position = Vector2(208, -16)
-
-[node name="Torch4" parent="Torches" instance=ExtResource("7_giw5s")]
-position = Vector2(304, -16)
-
-[node name="Torch5" parent="Torches" instance=ExtResource("7_giw5s")]
-position = Vector2(400, -16)
-
-[node name="Room Light" type="PointLight2D" parent="Torches"]
-position = Vector2(240, -31)
-scale = Vector2(0.9375, 0.510285)
-color = Color(0.94902, 0.784314, 0.486275, 1)
-energy = 0.85
-texture = SubResource("GradientTexture2D_blblm")
-texture_scale = 4.0
-
 [node name="Castle_Zone" type="Area2D" parent="."]
 collision_layer = 32
 script = ExtResource("7_cr3wh")
-modulate_color = Color(0.372549, 0.635294, 0.694118, 1)
+modulate_color = Color(0.580392, 0.815686, 0.870588, 1)
+
+[node name="Torches" type="Node2D" parent="Castle_Zone"]
+
+[node name="Torch" parent="Castle_Zone/Torches" instance=ExtResource("7_giw5s")]
+position = Vector2(16, -16)
+
+[node name="Torch2" parent="Castle_Zone/Torches" instance=ExtResource("7_giw5s")]
+position = Vector2(112, -16)
+
+[node name="Torch3" parent="Castle_Zone/Torches" instance=ExtResource("7_giw5s")]
+position = Vector2(208, -16)
+
+[node name="Torch4" parent="Castle_Zone/Torches" instance=ExtResource("7_giw5s")]
+position = Vector2(304, -16)
+
+[node name="Torch5" parent="Castle_Zone/Torches" instance=ExtResource("7_giw5s")]
+position = Vector2(400, -16)
+
+[node name="Room Light" type="PointLight2D" parent="Castle_Zone/Torches"]
+position = Vector2(232, -31)
+scale = Vector2(0.96875, 0.510285)
+color = Color(0.94902, 0.784314, 0.486275, 1)
+energy = 2.07
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_blblm")
+texture_scale = 4.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Castle_Zone"]
 position = Vector2(144, -96)

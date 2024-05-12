@@ -31,6 +31,7 @@ func _physics_process(delta):
 		direction = Vector2(Input.get_axis("Left", "Right"), Input.get_axis("Up", "Down"))
 		velocity.y += gravity*delta
 		velocity.y = clamp(velocity.y, -300, 300)
+		current_speed = speed
 
 	if !is_on_floor():
 		if !is_dashing:
@@ -51,18 +52,23 @@ func _physics_process(delta):
 			current_speed = 50
 			is_moving_box = true
 
-		if !is_moving_box && !is_dashing:
-			current_speed = speed
 		velocity.x = direction.x * current_speed
 
-		if Input.is_action_just_pressed("Dash") && can_dash:
+		if Input.is_action_just_pressed("Dash") && can_dash && (Global.can_dash_horizontal || Global.can_dash_any_direction):
 			dash_time.start()
 			dash_cooldown.start()
 			can_dash = false
-			current_speed = dash_power
-			velocity = direction
-			velocity = velocity.normalized() * current_speed
+			if(Global.invicibility_when_dashing):
+				Global.can_damage_player = false
+			elif(Global.take_less_damage_when_dashing):
+				Global.DAMAGE_TAKEN_MULTIPLIER = Global.take_less_damage_when_dashing_multiplier
+			if Global.can_dash_any_direction:
+				velocity = direction
+				velocity = velocity.normalized() * current_speed
+			else:
+				velocity.x = direction.x * dash_power
 			anim.play("Dashing")
+			current_speed = dash_power
 			is_dashing = true
 
 	else:
@@ -86,6 +92,10 @@ func _on_dash_cooldown_timeout():
 
 func _on_dash_time_timeout():
 	current_speed = speed
+	if(Global.invicibility_when_dashing):
+		Global.can_damage_player = true
+	elif(Global.take_less_damage_when_dashing):
+		Global.DAMAGE_TAKEN_MULTIPLIER = 1.0
 	is_dashing = false
 
 func _on_check_for_box_body_entered(body):

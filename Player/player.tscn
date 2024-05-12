@@ -92,6 +92,7 @@ zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
 [node name="Dash_Cooldown" type="Timer" parent="."]
+wait_time = 2.0
 one_shot = true
 
 [node name="Dash_Time" type="Timer" parent="."]
