@@ -1,13 +1,23 @@
+<<<<<<< Updated upstream
 res://Levels/Level1.tscn
 res://Arta/Theme.tres
 res://Arta/Tilemap/Tilemap.tres
 res://Game.tscn
+=======
+res://Game.tscn
+res://Arta/Theme.tres
+res://Arta/Tilemap/Tilemap.tres
+res://Levels/Level1.tscn
+>>>>>>> Stashed changes
 res://Levels/Level2.tscn
 res://Player/player.tscn
 res://Assets/Info_Board.tscn
 res://Assets/enemy.tscn
 res://Assets/kill_zone.tscn
 res://Assets/torch.tscn
+<<<<<<< Updated upstream
 res://GlobalScripts/Global.gd
 res://Player/Player_Dash.gd
 res://Assets/Enemy.gd
+=======
+>>>>>>> Stashed changes
