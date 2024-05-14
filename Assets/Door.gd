@@ -9,7 +9,10 @@ var is_active : bool = false
 var player
 var is_opened : bool = false
 
+var TransitionManager
+
 func _ready():
+	TransitionManager = get_tree().get_first_node_in_group('screen_animator')
 	if needs_key:
 		anim.play("closed_key")
 	else:
@@ -22,13 +25,21 @@ func _process(_delta):
 				if player.has_key == true:
 					player.has_key = false
 					get_tree().get_first_node_in_group("active_key").queue_free()
-					is_opened = true
+					TransitionManager.play_transition("Fade_In")
+					await get_tree().create_timer(1).timeout
 					anim.play("opened")
+					TransitionManager.play_transition("Fade_Out")
+					is_opened = true
+					$AudioStreamPlayer.play(0)
 				else:
 					PopUp.set_visible(true)
 			else:
+				TransitionManager.play_transition("Fade_In")
+				await get_tree().create_timer(1).timeout
 				anim.play("opened")
+				TransitionManager.play_transition("Fade_Out")
 				is_opened = true
+				$AudioStreamPlayer.play(0)
 		elif is_opened:
 			get_tree().get_first_node_in_group("scene_manager").change_level(wanted_level)
 

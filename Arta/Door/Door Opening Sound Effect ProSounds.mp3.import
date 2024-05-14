@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ti8rryfiob0e"
+path="res://.godot/imported/Door Opening Sound Effect ProSounds.mp3-d709806a1982e164536aee5d49a5cb8a.mp3str"
+
+[deps]
+
+source_file="res://Arta/Door/Door Opening Sound Effect ProSounds.mp3"
+dest_files=["res://.godot/imported/Door Opening Sound Effect ProSounds.mp3-d709806a1982e164536aee5d49a5cb8a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

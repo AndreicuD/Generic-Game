@@ -1,9 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://baokw2tlcqpx1"]
+[gd_scene load_steps=10 format=3 uid="uid://baokw2tlcqpx1"]
 
 [ext_resource type="Script" path="res://Assets/Door.gd" id="1_eueqv"]
 [ext_resource type="Texture2D" uid="uid://dhq58b1ve6nnt" path="res://Arta/Door/Door_bright.png" id="2_0r8kh"]
+[ext_resource type="Texture2D" uid="uid://cvhoikbbn4w2w" path="res://Arta/Door/Deschisa_bright.png" id="3_vc2ij"]
 [ext_resource type="Texture2D" uid="uid://875qdx0yhc6n" path="res://Arta/Info Board/Panel.png" id="4_aig81"]
 [ext_resource type="Theme" uid="uid://beoh5k5sb22ui" path="res://Arta/Theme.tres" id="5_ga5id"]
+[ext_resource type="AudioStream" uid="uid://b50amadtysn83" path="res://Arta/Door/Door Opening Sound Effect ProSounds.wav" id="6_ehe7b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfyye"]
+atlas = ExtResource("3_vc2ij")
+region = Rect2(0, 0, 32, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3u6p4"]
 animations = [{
@@ -25,7 +31,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_0r8kh")
+"texture": SubResource("AtlasTexture_yfyye")
 }],
 "loop": true,
 "name": &"opened",
@@ -95,6 +101,9 @@ theme = ExtResource("5_ga5id")
 theme_override_font_sizes/font_size = 31
 text = "OK"
 flat = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ehe7b")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

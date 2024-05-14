@@ -2,16 +2,27 @@ extends Node
 
 # PLAYER THINGS
 
-enum Weapon {ascutita, arc, sabie}
-var weapon = Weapon.ascutita
+enum Weapon {spear, bow, sword}
+var weapon = Weapon.spear
 
 var HEALTH = 100
 var MAX_HEALTH = 100
 
-var DAMAGE = 50
+var DAMAGE = 10
 var DAMAGE_TAKEN_MULTIPLIER = 1.0
 var DAMAGE_MULTIPLIER = 1.0
 var CURRENT_DAMAGE_MULTIPLIER = 1.0
+var time_between_attacks = 0.1
+
+var spear_damage = 20
+var spear_time_between_attacks = 0.2
+var sword_damage = 50
+var sword_time_between_attacks = 0.4
+var bow_damage = 25
+var bow_time_between_attacks = 1
+
+var basic_enemy_damage = 20
+var bow_enemy_damage = 30
 
 var HEAL_MULTIPLIER = 0.0
 

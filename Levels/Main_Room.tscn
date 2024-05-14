@@ -952,7 +952,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(-327676, 1245184, 2, -327675, 65536, 11, -327689, 262144, 2, -262153, 2162688, 4, -327688, 131072, 2, -262152, 2031616, 4)
 
 [node name="Info_Board" parent="." instance=ExtResource("2_djwqg")]
-position = Vector2(80, 32)
+position = Vector2(80, 33)
 text = "Training Room 0"
 
 [node name="KillZone" parent="." instance=ExtResource("7_u6rm1")]
@@ -1014,14 +1014,14 @@ texture = SubResource("GradientTexture2D_blblm")
 texture_scale = 4.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Castle_Zone"]
-position = Vector2(408, -92)
+position = Vector2(408, -88)
 shape = SubResource("RectangleShape2D_53tmt")
 debug_color = Color(0, 0.6, 0.701961, 0)
 
 [node name="modulate" type="CanvasModulate" parent="Castle_Zone"]
 
 [node name="Door" parent="." instance=ExtResource("6_tvf68")]
-position = Vector2(-16, 0)
+position = Vector2(-16, 1)
 wanted_level = "Upgrade_Room"
 
 [node name="Exit_Zone" type="Area2D" parent="."]

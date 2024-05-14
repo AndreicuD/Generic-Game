@@ -1,10 +1,13 @@
-[gd_scene load_steps=32 format=3 uid="uid://c1mre2qrte5s2"]
+[gd_scene load_steps=53 format=3 uid="uid://c1mre2qrte5s2"]
 
 [ext_resource type="Script" path="res://Player/Player_Dash.gd" id="1_fclto"]
 [ext_resource type="Texture2D" uid="uid://eiww8kcfd487" path="res://Arta/Vladutz.png" id="2_aqme3"]
+[ext_resource type="PackedScene" uid="uid://5r8vnqynqlfu" path="res://Player/arrow.tscn" id="2_htiwj"]
 [ext_resource type="Texture2D" uid="uid://d0glofecdqrp4" path="res://Arta/Player/Vladutz.png" id="3_ayyjl"]
 [ext_resource type="Texture2D" uid="uid://rony6yfs0xsu" path="res://Arta/Tilemap/spritesheet_default.png" id="3_gjvpq"]
+[ext_resource type="Texture2D" uid="uid://dpaod1m5pqtum" path="res://Player/liliaac.png" id="3_pt6c8"]
 [ext_resource type="AudioStream" uid="uid://dl8bworiwmadx" path="res://Sounds/Hits/Whoosh Basic Airy Whistle-001.wav" id="5_2th8u"]
+[ext_resource type="Texture2D" uid="uid://djfbn0vud6nh6" path="res://Player/VladutzRun.png" id="5_dmehc"]
 [ext_resource type="AudioStream" uid="uid://bq5d4urflkbwt" path="res://Sounds/Hits/Whoosh Basic Airy Whistle-002.wav" id="6_cmg8o"]
 [ext_resource type="AudioStream" uid="uid://llaliavf6xau" path="res://Sounds/Hits/Whoosh Basic Airy Whistle-003.wav" id="7_lwjuj"]
 [ext_resource type="AudioStream" uid="uid://smx6xgu1ufah" path="res://Sounds/Hits/Armour Plate Hit Scrape Impact Thump-001.wav" id="8_2dyae"]
@@ -21,6 +24,47 @@
 [ext_resource type="AudioStream" uid="uid://5wgocuj0v5nj" path="res://Sounds/Footsteps/Stone/Hardwood_Boots_FullStep_04.wav" id="19_e4wjt"]
 [ext_resource type="AudioStream" uid="uid://dvpxcl8nmww0k" path="res://Sounds/Footsteps/Stone/Hardwood_Boots_FullStep_05.wav" id="20_wcpwg"]
 
+[sub_resource type="Curve" id="Curve_uppc4"]
+max_value = 3.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.866667, 0.824176), 0.0, 0.0, 0, 0, Vector2(1, 1.18681), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_x0uvx"]
+curve = SubResource("Curve_uppc4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_34fxk"]
+lifetime_randomness = 0.05
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -16.265, 0)
+emission_shape_scale = Vector3(2, 2, 1)
+emission_shape = 2
+emission_sphere_radius = 4.65
+angle_min = -64.7
+angle_max = 61.9
+spread = 180.0
+initial_velocity_min = 36.47
+initial_velocity_max = 89.89
+gravity = Vector3(0, 98, 0)
+radial_accel_min = 22.47
+radial_accel_max = 35.96
+scale_max = 1.2
+scale_over_velocity_min = 11.23
+scale_over_velocity_max = 22.47
+scale_over_velocity_curve = SubResource("CurveTexture_x0uvx")
+color = Color(1, 0.168627, 0.180392, 1)
+turbulence_enabled = true
+turbulence_noise_strength = 1.26
+turbulence_noise_scale = 1.632
+collision_mode = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7am7m"]
+atlas = ExtResource("3_pt6c8")
+region = Rect2(0, 0, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7iw5h"]
+atlas = ExtResource("3_pt6c8")
+region = Rect2(0, 24, 32, 24)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_m5pe4"]
 atlas = ExtResource("3_ayyjl")
 region = Rect2(0, 0, 32, 64)
@@ -29,15 +73,66 @@ region = Rect2(0, 0, 32, 64)
 atlas = ExtResource("3_ayyjl")
 region = Rect2(32, 0, 32, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgruk"]
+atlas = ExtResource("5_dmehc")
+region = Rect2(0, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1m82b"]
+atlas = ExtResource("5_dmehc")
+region = Rect2(48, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_soot3"]
+atlas = ExtResource("5_dmehc")
+region = Rect2(96, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsaaa"]
+atlas = ExtResource("5_dmehc")
+region = Rect2(144, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gc0w"]
+atlas = ExtResource("5_dmehc")
+region = Rect2(0, 64, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ue7n1"]
+atlas = ExtResource("5_dmehc")
+region = Rect2(48, 64, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_785vi"]
+atlas = ExtResource("5_dmehc")
+region = Rect2(96, 64, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_108wp"]
+atlas = ExtResource("5_dmehc")
+region = Rect2(144, 64, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylnlh"]
+atlas = ExtResource("5_dmehc")
+region = Rect2(0, 128, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqvtj"]
+atlas = ExtResource("5_dmehc")
+region = Rect2(48, 128, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpb0g"]
+atlas = ExtResource("5_dmehc")
+region = Rect2(96, 128, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_773oh"]
+atlas = ExtResource("5_dmehc")
+region = Rect2(144, 128, 48, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_24ksa"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_aqme3")
+"texture": SubResource("AtlasTexture_7am7m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7iw5h")
 }],
 "loop": true,
 "name": &"Dashing",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -68,11 +163,44 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_aqme3")
+"texture": SubResource("AtlasTexture_pgruk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1m82b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_soot3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dsaaa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gc0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ue7n1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_785vi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_108wp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ylnlh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqvtj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpb0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_773oh")
 }],
 "loop": true,
 "name": &"Running",
-"speed": 10.0
+"speed": 13.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_666ik"]
@@ -94,6 +222,10 @@ animations = [{
 size = Vector2(24, 61)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_wkj2t"]
+b = Vector2(-0.00011041, 15.25)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_66k36"]
+b = Vector2(-6.33498e-05, 8.75)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_mjglt"]
 streams_count = 3
@@ -145,12 +277,25 @@ z_as_relative = false
 collision_mask = 6
 floor_constant_speed = true
 script = ExtResource("1_fclto")
+arrow = ExtResource("2_htiwj")
+
+[node name="Blood_Particles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_34fxk")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.59
+trail_enabled = true
+trail_lifetime = 0.05
+trail_sections = 2
+trail_section_subdivisions = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
 sprite_frames = SubResource("SpriteFrames_24ksa")
 animation = &"Idle"
-frame_progress = 0.368075
+frame_progress = 0.97578
 
 [node name="Sprute" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -169,25 +314,38 @@ position = Vector2(0, -32)
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
+[node name="Time_Between_Attacks" type="Timer" parent="."]
+one_shot = true
+
 [node name="Dash_Cooldown" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 2.2
 one_shot = true
 
 [node name="Dash_Time" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 0.45
 one_shot = true
 
 [node name="Footsteps_Timer" type="Timer" parent="."]
 wait_time = 0.3
 one_shot = true
 
-[node name="AreaOfAttack" type="Area2D" parent="."]
+[node name="Spear_Attack_Check" type="Area2D" parent="."]
 collision_mask = 66
+monitoring = false
 
-[node name="Attack Check" type="CollisionShape2D" parent="AreaOfAttack"]
+[node name="Attack Check" type="CollisionShape2D" parent="Spear_Attack_Check"]
 rotation = -1.5708
 scale = Vector2(2, 4)
 shape = SubResource("SegmentShape2D_wkj2t")
+
+[node name="Sword_Attack_Check" type="Area2D" parent="."]
+collision_mask = 66
+monitoring = false
+
+[node name="Attack Check" type="CollisionShape2D" parent="Sword_Attack_Check"]
+rotation = -1.5708
+scale = Vector2(2, 4)
+shape = SubResource("SegmentShape2D_66k36")
 
 [node name="Swoosh_AudioPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_mjglt")
@@ -208,7 +366,16 @@ bus = &"Footsteps"
 stream = SubResource("AudioStreamRandomizer_ojbyu")
 bus = &"Footsteps"
 
+[node name="Arrow_Spawn_Point" type="Node2D" parent="."]
+position = Vector2(16, -16)
+
+[node name="point" type="Node2D" parent="Arrow_Spawn_Point"]
+position = Vector2(12, 0)
+
+[connection signal="timeout" from="Time_Between_Attacks" to="." method="_on_time_between_attacks_timeout"]
 [connection signal="timeout" from="Dash_Cooldown" to="." method="_on_dash_cooldown_timeout"]
 [connection signal="timeout" from="Dash_Time" to="." method="_on_dash_time_timeout"]
-[connection signal="body_entered" from="AreaOfAttack" to="." method="_on_area_of_attack_body_entered"]
-[connection signal="body_exited" from="AreaOfAttack" to="." method="_on_area_of_attack_body_exited"]
+[connection signal="body_entered" from="Spear_Attack_Check" to="." method="_on_spear_attack_check_body_entered"]
+[connection signal="body_exited" from="Spear_Attack_Check" to="." method="_on_spear_attack_check_body_exited"]
+[connection signal="body_entered" from="Sword_Attack_Check" to="." method="_on_sword_attack_check_body_entered"]
+[connection signal="body_exited" from="Sword_Attack_Check" to="." method="_on_sword_attack_check_body_exited"]

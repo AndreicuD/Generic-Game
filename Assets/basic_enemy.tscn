@@ -1,9 +1,42 @@
-[gd_scene load_steps=9 format=3 uid="uid://qgox2rj7nweo"]
+[gd_scene load_steps=12 format=3 uid="uid://qgox2rj7nweo"]
 
 [ext_resource type="Script" path="res://Assets/Enemy.gd" id="1_5cry7"]
 [ext_resource type="Texture2D" uid="uid://d2pku8huvp2tt" path="res://Arta/Torch/sheet.png" id="2_0k5jk"]
 [ext_resource type="Texture2D" uid="uid://rony6yfs0xsu" path="res://Arta/Tilemap/spritesheet_default.png" id="2_5kqb0"]
 [ext_resource type="Texture2D" uid="uid://drqns68gt8n16" path="res://Arta/Info Board/ExclamationMark-16x16-1.png.png" id="3_frlbg"]
+
+[sub_resource type="Curve" id="Curve_5mwr6"]
+max_value = 3.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.866667, 0.824176), 0.0, 0.0, 0, 0, Vector2(1, 1.18681), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_52rqs"]
+curve = SubResource("Curve_5mwr6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vp7v4"]
+lifetime_randomness = 0.05
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -16.265, 0)
+emission_shape_scale = Vector3(2, 2, 1)
+emission_shape = 2
+emission_sphere_radius = 4.65
+angle_min = -64.7
+angle_max = 61.9
+spread = 180.0
+initial_velocity_min = 36.47
+initial_velocity_max = 89.89
+gravity = Vector3(0, 98, 0)
+radial_accel_min = 22.47
+radial_accel_max = 35.96
+scale_max = 1.2
+scale_over_velocity_min = 11.23
+scale_over_velocity_max = 22.47
+scale_over_velocity_curve = SubResource("CurveTexture_52rqs")
+color = Color(1, 0.168627, 0.180392, 1)
+turbulence_enabled = true
+turbulence_noise_strength = 1.26
+turbulence_noise_scale = 1.632
+collision_mode = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ydcea"]
 size = Vector2(20, 64)
@@ -36,11 +69,23 @@ size = Vector2(48, 64)
 
 [node name="Basic_Enemy" type="CharacterBody2D"]
 collision_layer = 66
-collision_mask = 71
+collision_mask = 5
 platform_floor_layers = 4294967044
 script = ExtResource("1_5cry7")
 jump_power = 275.0
 checkpoints = [null]
+
+[node name="Blood_Particles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_vp7v4")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.59
+trail_enabled = true
+trail_lifetime = 0.05
+trail_sections = 2
+trail_section_subdivisions = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ydcea")

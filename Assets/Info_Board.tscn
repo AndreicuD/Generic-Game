@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://dt3lqotk6oen5"]
 
-[ext_resource type="Texture2D" uid="uid://cqkrbx0mek7r2" path="res://Arta/Info Board/Sign2.png" id="1_r42vf"]
+[ext_resource type="Texture2D" uid="uid://cjwmqkc5u3e8f" path="res://Arta/Info Board/Sign32x32.png" id="1_c76al"]
 [ext_resource type="Script" path="res://Assets/Info_Board.gd" id="2_pigrg"]
 [ext_resource type="Texture2D" uid="uid://drqns68gt8n16" path="res://Arta/Info Board/ExclamationMark-16x16-1.png.png" id="3_xuru3"]
 [ext_resource type="Texture2D" uid="uid://vwparmxn7rsw" path="res://Arta/UI/PNG/Default/Divider Fade/divider-fade-003.png" id="4_fdl7g"]
@@ -45,7 +45,7 @@ fill_from = Vector2(0.5, 0.5)
 [node name="Info_Board" type="Sprite2D"]
 z_index = 1
 z_as_relative = false
-texture = ExtResource("1_r42vf")
+texture = ExtResource("1_c76al")
 offset = Vector2(0, -32)
 script = ExtResource("2_pigrg")
 
@@ -74,6 +74,7 @@ energy = 2.5
 texture = SubResource("GradientTexture2D_2r6t7")
 
 [node name="PopUp" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Panel2" type="Panel" parent="PopUp"]
 anchors_preset = 15

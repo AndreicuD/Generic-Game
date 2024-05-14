@@ -3,7 +3,7 @@ extends CharacterBody2D
 enum State {PASSIVE, ACTIVE}
 var state = State.PASSIVE
 
-@export var health = 100.0
+@export var health = 120.0
 
 var can_move = true
 var is_dead = false
@@ -34,16 +34,24 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var check_for_player_to_follow_right = $Check_For_Player_To_Follow_Right
 @onready var check_for_player_to_keep_following_right = $Check_For_Player_To_Keep_Following_Right
 
+@onready var blood : GPUParticles2D = $Blood_Particles
+
 func _ready():
 	target_checkpoint = checkpoints[curr_check_ind]
+	player = get_tree().get_first_node_in_group('Player')
 
 func damage(val):
+	state = State.ACTIVE
+	blood.emitting = true
 	health = health - val
 	anim.rotation = -0.1
 	await get_tree().create_timer(0.05).timeout
 	anim.rotation = 0
 	if(health<=0):
 		die()
+	current_speed = 0.2 * following_speed
+	await get_tree().create_timer(0.1).timeout
+	current_speed = following_speed
 
 func die():
 	anim.play('dead')
@@ -75,8 +83,7 @@ func _physics_process(delta):
 				curr_check_ind += 1
 				curr_check_ind %= checkpoints.size()
 		elif(state == State.ACTIVE):
-			current_speed = following_speed
-			target_checkpoint = player.position
+			target_checkpoint = player.global_position
 			if(target_checkpoint.x - global_position.x > 5):
 				velocity.x = 1
 			elif(target_checkpoint.x - global_position.x < -5):
@@ -127,6 +134,7 @@ func _on_check_for_player_to_follow_body_entered(body):
 		exclamation_mark.set_visible(true)
 		player = body
 		state = State.ACTIVE
+		current_speed = following_speed
 
 func _on_check_for_player_to_keep_following_body_exited(body):
 	if body.is_in_group("Player") && state != State.PASSIVE:

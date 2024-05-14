@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://Assets/Zone_Check.gd" id="6_rm453"]
 [ext_resource type="PackedScene" uid="uid://dc6ird4x0xlrq" path="res://Assets/torch.tscn" id="7_y21se"]
 [ext_resource type="PackedScene" uid="uid://c3qwyoqm8tesf" path="res://Assets/no_moving_enemy.tscn" id="7_yt0fq"]
-[ext_resource type="Script" path="res://Levels/buy_weapons.gd" id="8_rqgac"]
+[ext_resource type="Script" path="res://GlobalScripts/buy_weapons.gd" id="8_rqgac"]
 [ext_resource type="Texture2D" uid="uid://cemefowst2a48" path="res://Arta/Weapon Hanger/weapon_hanger.png" id="8_vr3uc"]
 [ext_resource type="Theme" uid="uid://beoh5k5sb22ui" path="res://Arta/Theme.tres" id="10_nmpv7"]
 [ext_resource type="Texture2D" uid="uid://vwparmxn7rsw" path="res://Arta/UI/PNG/Default/Divider Fade/divider-fade-003.png" id="11_4jnyp"]
@@ -1293,7 +1293,6 @@ position = Vector2(312, -128)
 script = ExtResource("8_rqgac")
 
 [node name="PopUp" type="CanvasLayer" parent="Weapons"]
-visible = false
 
 [node name="Panel" type="Panel" parent="Weapons/PopUp"]
 anchors_preset = 15
@@ -1312,6 +1311,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 32.0
+offset_right = -16.0
 offset_bottom = -280.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -1319,7 +1321,7 @@ theme = ExtResource("10_nmpv7")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_fonts/font = ExtResource("11_vxjq0")
-theme_override_font_sizes/font_size = 56
+theme_override_font_sizes/font_size = 50
 text = "What weapon do you want to buy?"
 horizontal_alignment = 1
 autowrap_mode = 3

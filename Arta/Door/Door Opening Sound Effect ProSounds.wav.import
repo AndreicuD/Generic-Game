@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b50amadtysn83"
+path="res://.godot/imported/Door Opening Sound Effect ProSounds.wav-86c5d2f880db7c4ac071ec44eb7da472.sample"
+
+[deps]
+
+source_file="res://Arta/Door/Door Opening Sound Effect ProSounds.wav"
+dest_files=["res://.godot/imported/Door Opening Sound Effect ProSounds.wav-86c5d2f880db7c4ac071ec44eb7da472.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
