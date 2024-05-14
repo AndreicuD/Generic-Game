@@ -5,7 +5,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m0iny"]
 
 [resource]
-Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_color = Color(0.980392, 0.980392, 0.980392, 1)
 Button/fonts/font = ExtResource("1_7u3ge")
 Button/styles/focus = SubResource("StyleBoxEmpty_m0iny")
 Label/colors/font_shadow_color = Color(0, 0, 0, 0.2)

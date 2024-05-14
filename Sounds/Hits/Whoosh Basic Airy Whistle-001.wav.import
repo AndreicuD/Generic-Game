@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dl8bworiwmadx"
+path="res://.godot/imported/Whoosh Basic Airy Whistle-001.wav-6ab7bc49a45f17a8e8c38ec70a700f0a.sample"
+
+[deps]
+
+source_file="res://Sounds/Hits/Whoosh Basic Airy Whistle-001.wav"
+dest_files=["res://.godot/imported/Whoosh Basic Airy Whistle-001.wav-6ab7bc49a45f17a8e8c38ec70a700f0a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,8 +1,33 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1mre2qrte5s2"]
+[gd_scene load_steps=32 format=3 uid="uid://c1mre2qrte5s2"]
 
 [ext_resource type="Script" path="res://Player/Player_Dash.gd" id="1_fclto"]
 [ext_resource type="Texture2D" uid="uid://eiww8kcfd487" path="res://Arta/Vladutz.png" id="2_aqme3"]
+[ext_resource type="Texture2D" uid="uid://d0glofecdqrp4" path="res://Arta/Player/Vladutz.png" id="3_ayyjl"]
 [ext_resource type="Texture2D" uid="uid://rony6yfs0xsu" path="res://Arta/Tilemap/spritesheet_default.png" id="3_gjvpq"]
+[ext_resource type="AudioStream" uid="uid://dl8bworiwmadx" path="res://Sounds/Hits/Whoosh Basic Airy Whistle-001.wav" id="5_2th8u"]
+[ext_resource type="AudioStream" uid="uid://bq5d4urflkbwt" path="res://Sounds/Hits/Whoosh Basic Airy Whistle-002.wav" id="6_cmg8o"]
+[ext_resource type="AudioStream" uid="uid://llaliavf6xau" path="res://Sounds/Hits/Whoosh Basic Airy Whistle-003.wav" id="7_lwjuj"]
+[ext_resource type="AudioStream" uid="uid://smx6xgu1ufah" path="res://Sounds/Hits/Armour Plate Hit Scrape Impact Thump-001.wav" id="8_2dyae"]
+[ext_resource type="AudioStream" uid="uid://dk6cpvr8t17qp" path="res://Sounds/Hits/Armour Plate Hit Scrape Impact Thump-002.wav" id="9_v4ife"]
+[ext_resource type="AudioStream" uid="uid://c6mve2mbmlwgk" path="res://Sounds/Hits/Armour Plate Hit Scrape Impact Thump-003.wav" id="10_346cc"]
+[ext_resource type="AudioStream" uid="uid://btomkt0amrbv" path="res://Sounds/Footsteps/Grass/Grass_Boots_FullStep_01.wav" id="11_h0vl5"]
+[ext_resource type="AudioStream" uid="uid://cllq886qoy7rk" path="res://Sounds/Footsteps/Grass/Grass_Boots_FullStep_02.wav" id="12_el2ea"]
+[ext_resource type="AudioStream" uid="uid://b372i35e24ksr" path="res://Sounds/Footsteps/Grass/Grass_Boots_FullStep_03.wav" id="13_bjgfo"]
+[ext_resource type="AudioStream" uid="uid://cddvud6b0v8q4" path="res://Sounds/Footsteps/Grass/Grass_Boots_FullStep_04.wav" id="14_l2dpc"]
+[ext_resource type="AudioStream" uid="uid://8yomb3xf760q" path="res://Sounds/Footsteps/Grass/Grass_Boots_FullStep_05.wav" id="15_kxrno"]
+[ext_resource type="AudioStream" uid="uid://cmeol213dfigc" path="res://Sounds/Footsteps/Stone/Hardwood_Boots_FullStep_01.wav" id="16_e6x3f"]
+[ext_resource type="AudioStream" uid="uid://dyuxbhpf3lunf" path="res://Sounds/Footsteps/Stone/Hardwood_Boots_FullStep_02.wav" id="17_6q6ve"]
+[ext_resource type="AudioStream" uid="uid://ybn7na64726" path="res://Sounds/Footsteps/Stone/Hardwood_Boots_FullStep_03.wav" id="18_w6w5x"]
+[ext_resource type="AudioStream" uid="uid://5wgocuj0v5nj" path="res://Sounds/Footsteps/Stone/Hardwood_Boots_FullStep_04.wav" id="19_e4wjt"]
+[ext_resource type="AudioStream" uid="uid://dvpxcl8nmww0k" path="res://Sounds/Footsteps/Stone/Hardwood_Boots_FullStep_05.wav" id="20_wcpwg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5pe4"]
+atlas = ExtResource("3_ayyjl")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hyi6"]
+atlas = ExtResource("3_ayyjl")
+region = Rect2(32, 0, 32, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_24ksa"]
 animations = [{
@@ -24,11 +49,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_aqme3")
+"texture": SubResource("AtlasTexture_m5pe4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hyi6")
 }],
 "loop": true,
 "name": &"Idle",
-"speed": 1.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -63,18 +91,66 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bh205"]
-size = Vector2(30, 64)
+size = Vector2(24, 61)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_wkj2t"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_mjglt"]
+streams_count = 3
+stream_0/stream = ExtResource("5_2th8u")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("6_cmg8o")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("7_lwjuj")
+stream_2/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_gxbdp"]
+streams_count = 3
+stream_0/stream = ExtResource("8_2dyae")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("9_v4ife")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("10_346cc")
+stream_2/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_khjbt"]
+streams_count = 5
+stream_0/stream = ExtResource("11_h0vl5")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("12_el2ea")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("13_bjgfo")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("14_l2dpc")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("15_kxrno")
+stream_4/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ojbyu"]
+streams_count = 5
+stream_0/stream = ExtResource("16_e6x3f")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("17_6q6ve")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("18_w6w5x")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("19_e4wjt")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("20_wcpwg")
+stream_4/weight = 1.0
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 z_index = 10
 z_as_relative = false
 collision_mask = 6
+floor_constant_speed = true
 script = ExtResource("1_fclto")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
 sprite_frames = SubResource("SpriteFrames_24ksa")
-animation = &"Running"
+animation = &"Idle"
+frame_progress = 0.368075
 
 [node name="Sprute" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -84,7 +160,9 @@ scale = Vector2(0.5, 1)
 sprite_frames = SubResource("SpriteFrames_q4070")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_bh205")
+debug_color = Color(0.545098, 0.901961, 0.415686, 0.109804)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -32)
@@ -99,12 +177,38 @@ one_shot = true
 wait_time = 0.25
 one_shot = true
 
-[node name="Coyote_Timer" type="Timer" parent="."]
+[node name="Footsteps_Timer" type="Timer" parent="."]
+wait_time = 0.3
 one_shot = true
 
-[node name="Remember_Jump_Timer" type="Timer" parent="."]
-wait_time = 0.075
-one_shot = true
+[node name="AreaOfAttack" type="Area2D" parent="."]
+collision_mask = 66
+
+[node name="Attack Check" type="CollisionShape2D" parent="AreaOfAttack"]
+rotation = -1.5708
+scale = Vector2(2, 4)
+shape = SubResource("SegmentShape2D_wkj2t")
+
+[node name="Swoosh_AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_mjglt")
+volume_db = -14.054
+max_polyphony = 5
+bus = &"Hit_Sounds"
+
+[node name="Hits_AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_gxbdp")
+max_polyphony = 5
+bus = &"Hit_Sounds"
+
+[node name="Grass_Foot_AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_khjbt")
+bus = &"Footsteps"
+
+[node name="Stone_Foot_AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_ojbyu")
+bus = &"Footsteps"
 
 [connection signal="timeout" from="Dash_Cooldown" to="." method="_on_dash_cooldown_timeout"]
 [connection signal="timeout" from="Dash_Time" to="." method="_on_dash_time_timeout"]
+[connection signal="body_entered" from="AreaOfAttack" to="." method="_on_area_of_attack_body_entered"]
+[connection signal="body_exited" from="AreaOfAttack" to="." method="_on_area_of_attack_body_exited"]

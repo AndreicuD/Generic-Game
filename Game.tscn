@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c1mre2qrte5s2" path="res://Player/player.tscn" id="3_3i4ib"]
 [ext_resource type="Script" path="res://GlobalScripts/Transition_Manager.gd" id="3_8mv83"]
 [ext_resource type="Theme" uid="uid://beoh5k5sb22ui" path="res://Arta/Theme.tres" id="4_2mq4s"]
-[ext_resource type="PackedScene" uid="uid://dasb6pgsbw6lt" path="res://Levels/Level1.tscn" id="6_8ggml"]
+[ext_resource type="PackedScene" uid="uid://dasb6pgsbw6lt" path="res://Levels/Main_Room.tscn" id="6_8ggml"]
 
 [sub_resource type="Animation" id="Animation_ewint"]
 resource_name = "Death_Fade_In"
@@ -112,10 +112,10 @@ libraries = {
 script = ExtResource("3_8mv83")
 
 [node name="Player" parent="." instance=ExtResource("3_3i4ib")]
+position = Vector2(-123, -33)
 
 [node name="Fade" type="CanvasLayer" parent="."]
 layer = 128
-visible = false
 
 [node name="BlackScreen" type="ColorRect" parent="Fade"]
 anchors_preset = 15
@@ -124,9 +124,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0)
 
 [node name="Dead_Text" type="Label" parent="Fade"]
+visible = false
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

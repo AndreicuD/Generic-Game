@@ -1,13 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://dt3lqotk6oen5"]
+[gd_scene load_steps=13 format=3 uid="uid://dt3lqotk6oen5"]
 
-[ext_resource type="Texture2D" uid="uid://iiohcfd4jn7" path="res://Arta/Info Board/sheet-1.png" id="1_w85eh"]
+[ext_resource type="Texture2D" uid="uid://cqkrbx0mek7r2" path="res://Arta/Info Board/Sign2.png" id="1_r42vf"]
 [ext_resource type="Script" path="res://Assets/Info_Board.gd" id="2_pigrg"]
 [ext_resource type="Texture2D" uid="uid://drqns68gt8n16" path="res://Arta/Info Board/ExclamationMark-16x16-1.png.png" id="3_xuru3"]
-[ext_resource type="Texture2D" uid="uid://875qdx0yhc6n" path="res://Arta/Info Board/Panel.png" id="4_fdiw1"]
+[ext_resource type="Texture2D" uid="uid://vwparmxn7rsw" path="res://Arta/UI/PNG/Default/Divider Fade/divider-fade-003.png" id="4_fdl7g"]
+[ext_resource type="Texture2D" uid="uid://crb7oliknuxt6" path="res://Arta/Info Board/Panelo2.png" id="4_hvo62"]
 [ext_resource type="Theme" uid="uid://beoh5k5sb22ui" path="res://Arta/Theme.tres" id="5_pehuv"]
+[ext_resource type="FontFile" uid="uid://bhw7vaathklta" path="res://Arta/cloister_black/CloisterBlack.ttf" id="6_ruvxv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ftjru"]
-size = Vector2(36, 32)
+size = Vector2(48, 48)
 
 [sub_resource type="Animation" id="Animation_rwf7r"]
 resource_name = "Up-Down"
@@ -31,27 +33,26 @@ _data = {
 "Up-Down": SubResource("Animation_rwf7r")
 }
 
-[sub_resource type="Gradient" id="Gradient_2daq8"]
+[sub_resource type="Gradient" id="Gradient_knnqw"]
 offsets = PackedFloat32Array(0.12987, 0.75974)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_2r6t7"]
-gradient = SubResource("Gradient_2daq8")
+gradient = SubResource("Gradient_knnqw")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [node name="Info_Board" type="Sprite2D"]
-modulate = Color(0.992157, 0.694118, 0.572549, 0.827451)
 z_index = 1
 z_as_relative = false
-texture = ExtResource("1_w85eh")
+texture = ExtResource("1_r42vf")
 offset = Vector2(0, -32)
 script = ExtResource("2_pigrg")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -16)
+position = Vector2(0, -24)
 shape = SubResource("RectangleShape2D_ftjru")
 debug_color = Color(0.572549, 0.447059, 0.85098, 0.0156863)
 
@@ -73,16 +74,135 @@ energy = 2.5
 texture = SubResource("GradientTexture2D_2r6t7")
 
 [node name="PopUp" type="CanvasLayer" parent="."]
-visible = false
+
+[node name="Panel2" type="Panel" parent="PopUp"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 104.0
+offset_top = 64.0
+offset_right = -104.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="Control" parent="PopUp/Panel2"]
+modulate = Color(0.764706, 0.592157, 0.427451, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -816.0
+offset_bottom = -448.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RightUp" type="TextureRect" parent="PopUp/Panel2/Container"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 720.0
+offset_top = -20.0
+offset_right = 816.0
+offset_bottom = 20.0
+grow_horizontal = 0
+texture = ExtResource("4_fdl7g")
+
+[node name="RightUp2" type="TextureRect" parent="PopUp/Panel2/Container"]
+layout_mode = 2
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 796.0
+offset_top = 96.0
+offset_right = 892.0
+offset_bottom = 136.0
+grow_horizontal = 0
+rotation = -1.5708
+texture = ExtResource("4_fdl7g")
+
+[node name="LeftUp" type="TextureRect" parent="PopUp/Panel2/Container"]
+layout_mode = 2
+offset_top = -20.0
+offset_right = 96.0
+offset_bottom = 20.0
+texture = ExtResource("4_fdl7g")
+flip_h = true
+
+[node name="LeftUp2" type="TextureRect" parent="PopUp/Panel2/Container"]
+layout_mode = 2
+offset_left = 20.0
+offset_right = 116.0
+offset_bottom = 40.0
+rotation = 1.5708
+texture = ExtResource("4_fdl7g")
+flip_h = true
+
+[node name="RightDown" type="TextureRect" parent="PopUp/Panel2/Container"]
+layout_mode = 2
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 720.0
+offset_top = 428.0
+offset_right = 816.0
+offset_bottom = 468.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("4_fdl7g")
+flip_v = true
+
+[node name="RightDown2" type="TextureRect" parent="PopUp/Panel2/Container"]
+layout_mode = 2
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 796.0
+offset_top = 448.0
+offset_right = 892.0
+offset_bottom = 488.0
+grow_horizontal = 0
+grow_vertical = 0
+rotation = -1.5708
+texture = ExtResource("4_fdl7g")
+flip_h = true
+flip_v = true
+
+[node name="LeftDown" type="TextureRect" parent="PopUp/Panel2/Container"]
+layout_mode = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = 428.0
+offset_right = 96.0
+offset_bottom = 468.0
+grow_vertical = 0
+texture = ExtResource("4_fdl7g")
+flip_h = true
+
+[node name="LeftDown2" type="TextureRect" parent="PopUp/Panel2/Container"]
+layout_mode = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 352.0
+offset_right = 116.0
+offset_bottom = 392.0
+grow_vertical = 0
+rotation = 1.5708
+texture = ExtResource("4_fdl7g")
+flip_v = true
 
 [node name="Panel" type="TextureRect" parent="PopUp"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
-texture = ExtResource("4_fdiw1")
+texture = ExtResource("4_hvo62")
 stretch_mode = 5
 
 [node name="Text" type="Label" parent="PopUp"]
@@ -96,8 +216,9 @@ offset_bottom = -167.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("5_pehuv")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("6_ruvxv")
 theme_override_font_sizes/font_size = 56
 text = "Placeholder"
 horizontal_alignment = 1
@@ -118,6 +239,7 @@ offset_bottom = -86.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("5_pehuv")
+theme_override_fonts/font = ExtResource("6_ruvxv")
 theme_override_font_sizes/font_size = 31
 text = "OK"
 flat = true

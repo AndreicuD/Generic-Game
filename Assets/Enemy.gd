@@ -3,6 +3,8 @@ extends CharacterBody2D
 enum State {PASSIVE, ACTIVE}
 var state = State.PASSIVE
 
+@export var health = 100.0
+
 var can_move = true
 var is_dead = false
 
@@ -17,6 +19,7 @@ var curr_check_ind = 0
 var player
 
 @onready var cooldown_timer = $Cooldown_Timer
+#general cooldown for how much to sit at checkpint
 @onready var wait_before_jump_timer = $Wait_Before_Jump_Timer
 @onready var change_state_cooldown = $Change_State_Cooldown
 @onready var exclamation_mark = $excl_mark
@@ -34,9 +37,27 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _ready():
 	target_checkpoint = checkpoints[curr_check_ind]
 
+func damage(val):
+	health = health - val
+	anim.rotation = -0.1
+	await get_tree().create_timer(0.05).timeout
+	anim.rotation = 0
+	if(health<=0):
+		die()
+
+func die():
+	anim.play('dead')
+	can_move = false
+	is_dead = true
+	$CollisionShape2D.set_disabled(true)
+	$Dead_Timer.start()
+	#Global.has_killed_enemy()
+
 func _physics_process(delta):
-	velocity.y += gravity*delta
-	velocity.y = clamp(velocity.y, -300, 300)
+	if !is_dead:
+		velocity.y += gravity*delta
+		velocity.y = clamp(velocity.y, -300, 300)
+	velocity.x = 0
 
 	if(can_move):
 		if(state == State.PASSIVE):
@@ -85,23 +106,18 @@ func _physics_process(delta):
 	velocity.x *= current_speed
 	move_and_slide()
 
-	#for index in get_slide_collision_count():
-	#	var collision = get_slide_collision(index)
-	#	var body = collision.get_collider()
-	#	if body.is_in_group("Danger"):
-	#		#can_move = false
-	#		#anim.play("Dead")
-	#		Global.player_death()
-
 func _on_change_state_cooldown_timeout():
-	can_move = true
+	if !is_dead:
+		can_move = true
 	exclamation_mark.set_visible(false)
 
 func _on_cooldown_timer_timeout():
-	can_move = true
+	if !is_dead:
+		can_move = true
 
 func _on_wait_before_jump_timer_timeout():
-	can_move = true
+	if !is_dead:
+		can_move = true
 	velocity.y -= jump_power
 
 func _on_check_for_player_to_follow_body_entered(body):
@@ -119,3 +135,7 @@ func _on_check_for_player_to_keep_following_body_exited(body):
 			can_move = false
 			cooldown_timer.start()
 		state = State.PASSIVE
+
+
+func _on_dead_timer_timeout():
+	self.queue_free()

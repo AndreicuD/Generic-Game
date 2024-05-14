@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3qwyoqm8tesf"]
+
+[ext_resource type="Script" path="res://Assets/no_moving_enemy.gd" id="1_3ibx2"]
+[ext_resource type="Texture2D" uid="uid://c06ei6ct5brop" path="res://Arta/Enemies/Non-Mobile-Enemy.png" id="1_3tcvk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fqesj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3tcvk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_loxxg"]
+size = Vector2(16, 64)
+
+[node name="No_Moving_Enemy" type="CharacterBody2D"]
+collision_layer = 64
+collision_mask = 0
+platform_floor_layers = 4294967044
+script = ExtResource("1_3ibx2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 2
+sprite_frames = SubResource("SpriteFrames_fqesj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_loxxg")
+debug_color = Color(0.992157, 0, 0.254902, 0)

@@ -2,12 +2,20 @@ extends Node
 
 # PLAYER THINGS
 
+enum Weapon {ascutita, arc, sabie}
+var weapon = Weapon.ascutita
+
 var HEALTH = 100
 var MAX_HEALTH = 100
+
+var DAMAGE = 50
 var DAMAGE_TAKEN_MULTIPLIER = 1.0
 var DAMAGE_MULTIPLIER = 1.0
 var CURRENT_DAMAGE_MULTIPLIER = 1.0
+
 var HEAL_MULTIPLIER = 0.0
+
+var CURRENCY = 0
 var is_player_dead : bool = false
 var can_damage_player : bool = true
 
@@ -16,11 +24,10 @@ var spawn_point = Vector2(0,0)
 var default_max_health = 100
 var default_spawn_point = Vector2(0,0)
 
-var can_dash_horizontal : bool = false
+var can_dash_horizontal : bool = true
 var can_dash_any_direction : bool = false
 var take_less_damage_when_dashing : bool = false
 var take_less_damage_when_dashing_multiplier = 0.5
-var invicibility_when_dashing : bool = false
 var damage_when_dashing : bool = false
 var damage_when_dashing_multiplier = 0.5
 
