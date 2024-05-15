@@ -30,11 +30,14 @@ var player
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var anim : AnimatedSprite2D = $AnimatedSprite2D
+@onready var weapon_anim : AnimatedSprite2D = $AnimatedSprite2D/weapon
 
 @onready var check_for_player_to_follow_left = $Check_For_Player_To_Follow_Left
 @onready var check_for_player_to_keep_following_left = $Check_For_Player_To_Keep_Following_Left
 @onready var check_for_player_to_follow_right = $Check_For_Player_To_Follow_Right
 @onready var check_for_player_to_keep_following_right = $Check_For_Player_To_Keep_Following_Right
+
+var anim_idle = 'Idle_weapon'
 
 @onready var blood : GPUParticles2D = $Blood_Particles
 
@@ -57,6 +60,7 @@ func damage(val):
 
 func die():
 	anim.play('dead')
+	velocity.y = 0
 	can_move = false
 	is_dead = true
 	$CollisionShape2D.set_disabled(true)
@@ -71,6 +75,7 @@ func _physics_process(delta):
 
 	if(can_move):
 		if(state == State.PASSIVE):
+			anim.play('Walking')
 			current_speed = speed
 			target_checkpoint = checkpoints[curr_check_ind]
 			if(target_checkpoint.x - global_position.x > 5):
@@ -78,13 +83,14 @@ func _physics_process(delta):
 			elif(target_checkpoint.x - global_position.x < -5):
 				velocity.x = -1
 			else:
+				anim.play(anim_idle)
 				velocity.x = 0
-				anim.play("default")
 				can_move = false
 				cooldown_timer.start()
 				curr_check_ind += 1
 				curr_check_ind %= checkpoints.size()
 		elif(state == State.ACTIVE):
+			anim.play('Running')
 			target_checkpoint = player.global_position
 			if(target_checkpoint.x - global_position.x > 5):
 				velocity.x = 1
@@ -106,7 +112,8 @@ func _physics_process(delta):
 		check_for_player_to_keep_following_right.monitoring = true
 		check_for_player_to_follow_left.monitoring = true
 		check_for_player_to_keep_following_left.monitoring = true
-
+	if velocity.x != 0:
+		anim.scale.x = velocity.x
 
 	if(is_on_wall() && is_on_floor()):
 		can_move = false
@@ -149,3 +156,12 @@ func _on_check_for_player_to_keep_following_body_exited(body):
 
 func _on_dead_timer_timeout():
 	self.queue_free()
+
+func _on_sword_attack_check_body_entered(body):
+	anim_idle = 'Idle'
+	weapon_anim.set_visible(true)
+	weapon_anim.play('sword')
+
+func _on_weapon_animation_finished():
+	anim_idle = 'Idle_weapon'
+	weapon_anim.set_visible(false)

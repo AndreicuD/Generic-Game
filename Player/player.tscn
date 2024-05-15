@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://c1mre2qrte5s2"]
+[gd_scene load_steps=65 format=3 uid="uid://c1mre2qrte5s2"]
 
 [ext_resource type="Script" path="res://Player/Player_Dash.gd" id="1_fclto"]
 [ext_resource type="Texture2D" uid="uid://eiww8kcfd487" path="res://Arta/Vladutz.png" id="2_aqme3"]
@@ -7,10 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://dpaod1m5pqtum" path="res://Player/liliaac.png" id="3_pt6c8"]
 [ext_resource type="AudioStream" uid="uid://dl8bworiwmadx" path="res://Sounds/Hits/Whoosh Basic Airy Whistle-001.wav" id="5_2th8u"]
 [ext_resource type="Texture2D" uid="uid://djfbn0vud6nh6" path="res://Player/VladutzRun.png" id="5_dmehc"]
+[ext_resource type="Texture2D" uid="uid://dmyn0vt1m3y7u" path="res://Player/VladutzSabiutza.png" id="5_hfsyg"]
 [ext_resource type="AudioStream" uid="uid://bq5d4urflkbwt" path="res://Sounds/Hits/Whoosh Basic Airy Whistle-002.wav" id="6_cmg8o"]
 [ext_resource type="Texture2D" uid="uid://co7u4uwxehcbk" path="res://Player/VladutzJump.png" id="6_lr0ks"]
 [ext_resource type="AudioStream" uid="uid://llaliavf6xau" path="res://Sounds/Hits/Whoosh Basic Airy Whistle-003.wav" id="7_lwjuj"]
 [ext_resource type="AudioStream" uid="uid://smx6xgu1ufah" path="res://Sounds/Hits/Armour Plate Hit Scrape Impact Thump-001.wav" id="8_2dyae"]
+[ext_resource type="Texture2D" uid="uid://otvo8etf0co" path="res://Arta/Player/SabieSerios.png" id="9_hheqi"]
 [ext_resource type="AudioStream" uid="uid://dk6cpvr8t17qp" path="res://Sounds/Hits/Armour Plate Hit Scrape Impact Thump-002.wav" id="9_v4ife"]
 [ext_resource type="AudioStream" uid="uid://c6mve2mbmlwgk" path="res://Sounds/Hits/Armour Plate Hit Scrape Impact Thump-003.wav" id="10_346cc"]
 [ext_resource type="AudioStream" uid="uid://btomkt0amrbv" path="res://Sounds/Footsteps/Grass/Grass_Boots_FullStep_01.wav" id="11_h0vl5"]
@@ -71,6 +73,14 @@ region = Rect2(0, 0, 32, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2hyi6"]
 atlas = ExtResource("3_ayyjl")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q864t"]
+atlas = ExtResource("5_hfsyg")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sy4kt"]
+atlas = ExtResource("5_hfsyg")
 region = Rect2(32, 0, 32, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bvvxc"]
@@ -167,6 +177,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_q864t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sy4kt")
+}],
+"loop": true,
+"name": &"Idle_Sword",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_bvvxc")
 }, {
 "duration": 1.0,
@@ -177,7 +198,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Jumping",
-"speed": 9.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -219,6 +240,49 @@ animations = [{
 "loop": true,
 "name": &"Running",
 "speed": 15.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlwv8"]
+atlas = ExtResource("9_hheqi")
+region = Rect2(0, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4o1vo"]
+atlas = ExtResource("9_hheqi")
+region = Rect2(96, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wv6f1"]
+atlas = ExtResource("9_hheqi")
+region = Rect2(0, 64, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dh5e2"]
+atlas = ExtResource("9_hheqi")
+region = Rect2(96, 64, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5i0d1"]
+atlas = ExtResource("9_hheqi")
+region = Rect2(0, 128, 96, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f173o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlwv8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4o1vo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wv6f1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dh5e2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5i0d1")
+}],
+"loop": false,
+"name": &"sword",
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qmccy"]
@@ -300,8 +364,14 @@ trail_section_subdivisions = 1
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
 sprite_frames = SubResource("SpriteFrames_24ksa")
-animation = &"Jumping"
-frame = 2
+animation = &"Idle_Sword"
+
+[node name="weapon" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+visible = false
+position = Vector2(3, 0)
+sprite_frames = SubResource("SpriteFrames_f173o")
+animation = &"sword"
+frame = 4
 frame_progress = 1.0
 
 [node name="CollisionShape2D_Dash" type="CollisionShape2D" parent="."]
@@ -378,6 +448,7 @@ position = Vector2(16, -16)
 position = Vector2(12, 0)
 
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
+[connection signal="animation_finished" from="AnimatedSprite2D/weapon" to="." method="_on_weapon_animation_finished"]
 [connection signal="timeout" from="Time_Between_Attacks" to="." method="_on_time_between_attacks_timeout"]
 [connection signal="timeout" from="Dash_Cooldown" to="." method="_on_dash_cooldown_timeout"]
 [connection signal="timeout" from="Dash_Time" to="." method="_on_dash_time_timeout"]

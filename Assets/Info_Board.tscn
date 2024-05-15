@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://vwparmxn7rsw" path="res://Arta/UI/PNG/Default/Divider Fade/divider-fade-003.png" id="4_fdl7g"]
 [ext_resource type="Texture2D" uid="uid://crb7oliknuxt6" path="res://Arta/Info Board/Panelo2.png" id="4_hvo62"]
 [ext_resource type="Theme" uid="uid://beoh5k5sb22ui" path="res://Arta/Theme.tres" id="5_pehuv"]
-[ext_resource type="FontFile" uid="uid://bhw7vaathklta" path="res://Arta/cloister_black/CloisterBlack.ttf" id="6_ruvxv"]
+[ext_resource type="FontFile" uid="uid://k1hdt5ygqgb6" path="res://Arta/UI/Salium.ttf" id="7_531r7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ftjru"]
 size = Vector2(48, 48)
@@ -74,7 +74,6 @@ energy = 2.5
 texture = SubResource("GradientTexture2D_2r6t7")
 
 [node name="PopUp" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Panel2" type="Panel" parent="PopUp"]
 anchors_preset = 15
@@ -219,7 +218,7 @@ grow_vertical = 2
 theme = ExtResource("5_pehuv")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
-theme_override_fonts/font = ExtResource("6_ruvxv")
+theme_override_fonts/font = ExtResource("7_531r7")
 theme_override_font_sizes/font_size = 56
 text = "Placeholder"
 horizontal_alignment = 1
@@ -240,7 +239,7 @@ offset_bottom = -86.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("5_pehuv")
-theme_override_fonts/font = ExtResource("6_ruvxv")
+theme_override_fonts/font = ExtResource("7_531r7")
 theme_override_font_sizes/font_size = 31
 text = "OK"
 flat = true

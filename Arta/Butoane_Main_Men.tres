@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://duqt24herp7yx"]
+
+[ext_resource type="FontFile" uid="uid://k1hdt5ygqgb6" path="res://Arta/UI/Salium.ttf" id="1_1k20t"]
+
+[resource]
+Button/colors/font_color = Color(0.87451, 0.87451, 0.87451, 1)
+Button/colors/font_hover_color = Color(0.654902, 0.654902, 0.654902, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 5
+Button/font_sizes/font_size = 60
+Button/fonts/font = ExtResource("1_1k20t")

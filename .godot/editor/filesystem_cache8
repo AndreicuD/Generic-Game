@@ -1,16 +1,17 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1715766594
+::res://::1715803666
 default_bus_layout.tres::AudioBusLayout::7524231253441413396::1715633237::0::1::::<><>::
-Game.tscn::PackedScene::4349118999441556088::1715766594::0::1::::<><>::res://GlobalScripts/scene_switcher.gd<>uid://g1nb3d5trphu::::res://GlobalScripts/Global.tscn<>uid://c1mre2qrte5s2::::res://Player/player.tscn<>res://GlobalScripts/Transition_Manager.gd<>uid://beoh5k5sb22ui::::res://Arta/Theme.tres<>uid://dasb6pgsbw6lt::::res://Levels/Main_Room.tscn
+Game.tscn::PackedScene::4349118999441556088::1715803666::0::1::::<><>::res://GlobalScripts/scene_switcher.gd<>uid://g1nb3d5trphu::::res://GlobalScripts/Global.tscn<>uid://c1mre2qrte5s2::::res://Player/player.tscn<>res://GlobalScripts/Transition_Manager.gd<>uid://beoh5k5sb22ui::::res://Arta/Theme.tres<>uid://dasb6pgsbw6lt::::res://Levels/Main_Room.tscn
 icon.svg::CompressedTexture2D::5060282293507579014::1715578037::1715578128::1::::<><>::
 README.md::TextFile::-1::1699430710::0::1::::<><>::
-::res://Arta/::1715759965
+::res://Arta/::1715802566
 Background.png::CompressedTexture2D::5688630030310340157::1715717489::1715717494::1::::<><>::
 icon2.png::CompressedTexture2D::7896042182258925065::1715578018::1715578128::1::::<><>::
 icon.png::CompressedTexture2D::8523738198082883744::1715578115::1715578128::1::::<><>::
+Butoane_Main_Men.tres::Theme::8597272341398774159::1715802566::0::1::::<><>::uid://k1hdt5ygqgb6::::res://Arta/UI/Salium.ttf
 Retro Gaming.ttf::FontFile::5807472743460164071::1699175401::1699175404::1::::<><>::
 Sign.png::CompressedTexture2D::4933799133161513496::1715623291::1715623295::1::::<><>::
-Theme.tres::Theme::2696556511966480580::1715751380::0::1::::<><>::uid://co0gh0dxjwg04::::res://Arta/Retro Gaming.ttf
+Theme.tres::Theme::2696556511966480580::1715788660::0::1::::<><>::uid://co0gh0dxjwg04::::res://Arta/Retro Gaming.ttf
 Vladutz.png::CompressedTexture2D::298647206707681694::1715371995::1715372001::1::::<><>::
 ::res://Arta/cloister_black/::1715624562
 CloisterBlack.ttf::FontFile::2925139346062206290::1715624544::1715624562::1::::<><>::
@@ -22,9 +23,18 @@ Door Opening Sound Effect ProSounds.wav::AudioStreamWAV::4543716871742907746::17
 Door.jpg::CompressedTexture2D::6511621446842996951::1715539824::1715542672::1::::<><>::
 Door.png::CompressedTexture2D::2862067202964259215::1715542796::1715542798::1::::<><>::
 Door_bright.png::CompressedTexture2D::7685494535241329881::1715726312::1715726316::1::::<><>::
-::res://Arta/Enemies/::1715723179
+::res://Arta/Enemies/::1715804329
+Basic Idle Weapon.png::CompressedTexture2D::5418124016122072953::1715803257::1715804333::1::::<><>::
+Basic Idle.png::CompressedTexture2D::4523012181304213775::1715804329::1715804333::1::::<><>::
+Basic Run.png::CompressedTexture2D::8121084972753004995::1715795398::1715795404::1::::<><>::
+Bow Idle.png::CompressedTexture2D::661569800311222491::1715795352::1715795404::1::::<><>::
+Bow Run.png::CompressedTexture2D::4237579096341464308::1715795575::1715795715::1::::<><>::
 enemy_arrow.png::CompressedTexture2D::5416556826236354536::1715723171::1715723179::1::::<><>::
+GCanon Idle.png::CompressedTexture2D::6502403788826521169::1715795374::1715795404::1::::<><>::
+GCanon Run.png::CompressedTexture2D::1225183176637424916::1715795589::1715795715::1::::<><>::
 Non-Mobile-Enemy.png::CompressedTexture2D::6591816955252055671::1715587705::1715587710::1::::<><>::
+Tank Idle.png::CompressedTexture2D::6598616452574120721::1715795335::1715795404::1::::<><>::
+Tank Run.png::CompressedTexture2D::1960569597275096696::1715795496::1715795715::1::::<><>::
 ::res://Arta/Info Board/::1715725738
 ExclamationMark-16x16-1.png.png::CompressedTexture2D::8386325581688778367::1715286870::1715286872::1::::<><>::
 Panel.png::CompressedTexture2D::2384142204939241931::1699262353::1699262416::1::::<><>::
@@ -1254,7 +1264,9 @@ tile_0396.png::CompressedTexture2D::7997066316062972928::1699123402::1713941240:
 tile_0397.png::CompressedTexture2D::7312866697067256288::1699123402::1713941240::1::::<><>::
 tile_0398.png::CompressedTexture2D::4369157251012651014::1699123402::1713941240::1::::<><>::
 tile_0399.png::CompressedTexture2D::8337639335209268655::1699123402::1713941240::1::::<><>::
-::res://Arta/Parallax/::1715544787
+::res://Arta/Parallax/::1715798643
+back512.png::CompressedTexture2D::5195456584149953932::1715798640::1715798643::1::::<><>::
+TutorialBackground.png::CompressedTexture2D::7357747473092587331::1715797849::1715797854::1::::<><>::
 ::res://Arta/Parallax/parallax_mountain_pack/::1715541043
 license.txt::TextFile::-1::1715541043::0::1::::<><>::
 ::res://Arta/Parallax/parallax_mountain_pack/layers/::1715541060
@@ -1263,14 +1275,15 @@ parallax-mountain-foreground-trees.png::CompressedTexture2D::211714750597743766:
 parallax-mountain-montain-far.png::CompressedTexture2D::4531688048938662192::1715541044::1715541060::1::::<><>::
 parallax-mountain-mountains.png::CompressedTexture2D::1252541468675430522::1715541044::1715541060::1::::<><>::
 parallax-mountain-trees.png::CompressedTexture2D::2733877307173667791::1715541044::1715541060::1::::<><>::
-::res://Arta/Player/::1715712241
+::res://Arta/Player/::1715803286
+SabieSerios.png::CompressedTexture2D::30093199604207822::1715803281::1715803286::1::::<><>::
 Vladutz.png::CompressedTexture2D::8927062565481068367::1715543536::1715543541::1::::<><>::
 ::res://Arta/Player/Arrow/::1715712246
 arow.png::CompressedTexture2D::6691214790254040636::1715712113::1715712246::1::::<><>::
 Arrow.png::CompressedTexture2D::5720318958893358815::1715711775::1715712246::1::::<><>::
-::res://Arta/Tilemap/::1715763588
-Castle.tres::TileSet::5074339484320395452::1715751380::0::1::::<><>::uid://bnmdoitq0f6n2::::res://Arta/Tilemap/Tron.png<>uid://bsk1l02nre8hs::::res://Arta/Tilemap/sheet.png
-Grass.tres::TileSet::6940092656862445270::1715763588::0::1::::<><>::uid://b62qcbyoqw633::::res://Arta/Tilemap/free-swamp-game-tileset-pixel-art/1 Tiles/Tileset.png
+::res://Arta/Tilemap/::1715792202
+Castle.tres::TileSet::5074339484320395452::1715788660::0::1::::<><>::uid://bnmdoitq0f6n2::::res://Arta/Tilemap/Tron.png<>uid://bsk1l02nre8hs::::res://Arta/Tilemap/sheet.png
+Grass.tres::TileSet::6940092656862445270::1715792202::0::1::::<><>::uid://b62qcbyoqw633::::res://Arta/Tilemap/free-swamp-game-tileset-pixel-art/1 Tiles/Tileset.png<>uid://dqws28keyhkal::::res://Arta/Tilemap/free-swamp-game-tileset-pixel-art/1 Tiles/TilesetCave.png
 monochrome_tilemap_transparent_packed.png::CompressedTexture2D::1646561021851703208::1699179219::1699179220::1::::<><>::
 sheet.png::CompressedTexture2D::3672063287670210324::1715670351::1715670353::1::::<><>::
 spritesheet_default.png::CompressedTexture2D::1222945475914470364::1713942306::1713942633::1::::<><>::
@@ -1280,8 +1293,9 @@ Tron.png::CompressedTexture2D::3323855786427900361::1715578730::1715578733::1:::
 ::res://Arta/Tilemap/free-swamp-game-tileset-pixel-art/::1715632091
 Font.txt::TextFile::-1::1715632091::0::1::::<><>::
 License.txt::TextFile::-1::1715632091::0::1::::<><>::
-::res://Arta/Tilemap/free-swamp-game-tileset-pixel-art/1 Tiles/::1715632105
+::res://Arta/Tilemap/free-swamp-game-tileset-pixel-art/1 Tiles/::1715792553
 Tileset.png::CompressedTexture2D::4618988169560827072::1715632088::1715632105::1::::<><>::
+TilesetCave.png::CompressedTexture2D::8328842731115064299::1715792551::1715792553::1::::<><>::
 Tile_01.png::CompressedTexture2D::3168910195805874455::1715632088::1715632105::1::::<><>::
 Tile_02.png::CompressedTexture2D::4849345100151646969::1715632088::1715632105::1::::<><>::
 Tile_03.png::CompressedTexture2D::2232379761584341000::1715632088::1715632105::1::::<><>::
@@ -1428,12 +1442,13 @@ Key.png::CompressedTexture2D::5753666562620950027::1715632091::1715632105::1::::
 Rune.png::CompressedTexture2D::4421773405301362659::1715632091::1715632105::1::::<><>::
 ::res://Arta/Torch/::1715367222
 sheet.png::CompressedTexture2D::9085971126444415373::1715367220::1715367222::1::::<><>::
-::res://Arta/UI/::1715763390
+::res://Arta/UI/::1715802144
 Bow.png::CompressedTexture2D::1794453381230833754::1715763386::1715763390::1::::<><>::
 License.txt::TextFile::-1::1715673040::0::1::::<><>::
-Preview.png::CompressedTexture2D::441935654414807221::1715673040::1715673064::1::::<><>::
-Sample.png::CompressedTexture2D::4783346711615913169::1715673040::1715673064::1::::<><>::
+Salium.ttf::FontFile::755993679703847225::1715802059::1715802144::1::::<><>::
+Spear.png::CompressedTexture2D::6237094120365571050::1715800326::1715800329::1::::<><>::
 Sword.png::CompressedTexture2D::686439379083143505::1715762101::1715762106::1::::<><>::
+Vlad_Tepes.png::CompressedTexture2D::7790918336916437175::1715789801::1715789804::1::::<><>::
 ::res://Arta/UI/PNG/::1715673037
 ::res://Arta/UI/PNG/Default/::1715673036
 ::res://Arta/UI/PNG/Default/Border/::1715673064
@@ -1733,54 +1748,59 @@ panel-transparent-center-031.png::CompressedTexture2D::8281573701094694261::1715
 fantasy-ui-borders.svg::CompressedTexture2D::1621467594051557365::1715673040::1715673064::1::::<><>::
 ::res://Arta/Weapon Hanger/::1715671638
 weapon_hanger.png::CompressedTexture2D::5078621842084528707::1715671635::1715671638::1::::<><>::
-::res://Assets/::1715766595
-basic_enemy.tscn::PackedScene::1136300320735766966::1715766595::0::1::::<><>::res://Assets/Enemy.gd<>uid://d2pku8huvp2tt::::res://Arta/Torch/sheet.png<>uid://rony6yfs0xsu::::res://Arta/Tilemap/spritesheet_default.png<>uid://drqns68gt8n16::::res://Arta/Info Board/ExclamationMark-16x16-1.png.png
-bow_enemy.gd::GDScript::-1::1715751741::0::1::::<>CharacterBody2D<>::
-bow_enemy.tscn::PackedScene::8590083874575766619::1715754829::0::1::::<><>::res://Assets/bow_enemy.gd<>uid://knrylrr4rfq1::::res://Assets/enemy_arrow.tscn<>uid://d2pku8huvp2tt::::res://Arta/Torch/sheet.png<>uid://rony6yfs0xsu::::res://Arta/Tilemap/spritesheet_default.png<>uid://drqns68gt8n16::::res://Arta/Info Board/ExclamationMark-16x16-1.png.png
+::res://Assets/::1715804198
+basic_enemy.tscn::PackedScene::1136300320735766966::1715804198::0::1::::<><>::res://Assets/Enemy.gd<>uid://d2pku8huvp2tt::::res://Arta/Torch/sheet.png<>uid://dnx6c27cm6nih::::res://Arta/Enemies/Basic Run.png<>uid://drqns68gt8n16::::res://Arta/Info Board/ExclamationMark-16x16-1.png.png<>uid://b5o8l5m08xjwx::::res://Arta/Enemies/Basic Idle.png<>uid://otvo8etf0co::::res://Arta/Player/SabieSerios.png
+bow_enemy.gd::GDScript::-1::1715797115::0::1::::<>CharacterBody2D<>::
+bow_enemy.tscn::PackedScene::8590083874575766619::1715801337::0::1::::<><>::res://Assets/bow_enemy.gd<>uid://knrylrr4rfq1::::res://Assets/enemy_arrow.tscn<>uid://d2pku8huvp2tt::::res://Arta/Torch/sheet.png<>uid://jop7tnpf8rt0::::res://Arta/Enemies/Bow Idle.png<>uid://b1mykq0fskt37::::res://Arta/Enemies/Bow Run.png<>uid://drqns68gt8n16::::res://Arta/Info Board/ExclamationMark-16x16-1.png.png
 Coin.gd::GDScript::-1::1715760266::0::1::::<>Area2D<>::
-coin.tscn::PackedScene::3530272788745620537::1715766595::0::1::::<><>::uid://ew73ofcu3nib::::res://Arta/Coin/coin.png<>res://Assets/Coin.gd
+coin.tscn::PackedScene::3530272788745620537::1715801337::0::1::::<><>::uid://ew73ofcu3nib::::res://Arta/Coin/coin.png<>res://Assets/Coin.gd
 Door.gd::GDScript::-1::1715757469::0::1::::<>Area2D<>::
 door.tscn::PackedScene::2415969877628357412::1715757533::0::1::::<><>::res://Assets/Door.gd<>uid://dhq58b1ve6nnt::::res://Arta/Door/Door_bright.png<>uid://cvhoikbbn4w2w::::res://Arta/Door/Deschisa_bright.png<>uid://875qdx0yhc6n::::res://Arta/Info Board/Panel.png<>uid://beoh5k5sb22ui::::res://Arta/Theme.tres<>uid://b50amadtysn83::::res://Arta/Door/Door Opening Sound Effect ProSounds.wav
-Enemy.gd::GDScript::-1::1715763787::0::1::::<>CharacterBody2D<>::
+Enemy.gd::GDScript::-1::1715804198::0::1::::<>CharacterBody2D<>::
 enemy_arrow.gd::GDScript::-1::1715724017::0::1::::<>CharacterBody2D<>::
 enemy_arrow.tscn::PackedScene::729800999944205446::1715755909::0::1::::<><>::res://Assets/enemy_arrow.gd<>uid://cjf25t5joh3ng::::res://Arta/Enemies/enemy_arrow.png
 Exit_Zone.gd::GDScript::-1::1715632337::0::1::::<>Area2D<>::
 Info_Board.gd::GDScript::-1::1704917478::0::1::::<>Sprite2D<>::
-Info_Board.tscn::PackedScene::8551349882113023560::1715727155::0::1::::<><>::uid://cjwmqkc5u3e8f::::res://Arta/Info Board/Sign32x32.png<>res://Assets/Info_Board.gd<>uid://drqns68gt8n16::::res://Arta/Info Board/ExclamationMark-16x16-1.png.png<>uid://vwparmxn7rsw::::res://Arta/UI/PNG/Default/Divider Fade/divider-fade-003.png<>uid://crb7oliknuxt6::::res://Arta/Info Board/Panelo2.png<>uid://beoh5k5sb22ui::::res://Arta/Theme.tres<>uid://bhw7vaathklta::::res://Arta/cloister_black/CloisterBlack.ttf
+Info_Board.tscn::PackedScene::8551349882113023560::1715802478::0::1::::<><>::uid://cjwmqkc5u3e8f::::res://Arta/Info Board/Sign32x32.png<>res://Assets/Info_Board.gd<>uid://drqns68gt8n16::::res://Arta/Info Board/ExclamationMark-16x16-1.png.png<>uid://vwparmxn7rsw::::res://Arta/UI/PNG/Default/Divider Fade/divider-fade-003.png<>uid://crb7oliknuxt6::::res://Arta/Info Board/Panelo2.png<>uid://beoh5k5sb22ui::::res://Arta/Theme.tres<>uid://k1hdt5ygqgb6::::res://Arta/UI/Salium.ttf
+Intro.gd::GDScript::-1::1715766474::0::1::::<>CanvasLayer<>::
 key.gd::GDScript::-1::1699352615::0::1::::<>Area2D<>::
 key.tscn::PackedScene::3292402032618132829::1713941237::0::1::::<><>::res://Assets/key.gd<>uid://bt4mnfwcgg17x::::res://Arta/InputButtons/White/tile_0096.png
-kill_zone.tscn::PackedScene::5192094292260506175::1715727349::0::1::::<><>::
+kill_zone.gd::GDScript::-1::1715767362::0::1::::<>Area2D<>::
+kill_zone.tscn::PackedScene::5192094292260506175::1715801337::0::1::::<><>::res://Assets/kill_zone.gd
 movable_box.gd::GDScript::-1::1714230554::0::1::::<>RigidBody2D<>::
 movable_box.tscn::PackedScene::402914974390306580::1715280447::0::1::::<><>::uid://rony6yfs0xsu::::res://Arta/Tilemap/spritesheet_default.png<>res://Assets/movable_box.gd
 new_zone.tscn::PackedScene::1403545021493705952::1715374729::0::1::::<><>::res://Assets/Zone_Check.gd
 no_moving_enemy.gd::GDScript::-1::1715754850::0::1::::<>CharacterBody2D<>::
 no_moving_enemy.tscn::PackedScene::6772538426844493857::1715754867::0::1::::<><>::res://Assets/no_moving_enemy.gd<>uid://c06ei6ct5brop::::res://Arta/Enemies/Non-Mobile-Enemy.png
-Intro.gd::GDScript::-1::1715766474::0::1::::<>CanvasLayer<>::
+vlad_speaking.gd::GDScript::-1::1715790825::0::1::::<>Area2D<>::
+vlad_speaking.tscn::PackedScene::7339937067228379640::1715802434::0::1::::<><>::res://Assets/vlad_speaking.gd<>uid://di88j0qdee2tf::::res://Arta/UI/Vlad_Tepes.png
 sign_text.tres::Theme::1883171128399345282::1715624052::0::1::::<><>::
 torch.gd::GDScript::-1::1715370660::0::1::::<>Node2D<>::
 torch.tscn::PackedScene::7364151746618454886::1715375847::0::1::::<><>::uid://d2pku8huvp2tt::::res://Arta/Torch/sheet.png<>res://Assets/torch.gd
-Zone_Check.gd::GDScript::-1::1715627481::0::1::::<>Area2D<>::
-::res://GlobalScripts/::1715764788
+Zone_Check.gd::GDScript::-1::1715793006::0::1::::<>Area2D<>::
+::res://GlobalScripts/::1715800057
 buy_weapons.gd::GDScript::-1::1715762980::0::1::::<>Area2D<>::
-Global.gd::GDScript::-1::1715764788::0::1::::<>Node<>::
+Global.gd::GDScript::-1::1715800057::0::1::::<>Node<>::
 Global.tscn::PackedScene::475599466810973558::1713900477::0::1::::<><>::res://GlobalScripts/Global.gd
 scene_switcher.gd::GDScript::-1::1715756012::0::1::::<>Node<>::
 Transition_Manager.gd::GDScript::-1::1705271412::0::1::::<>AnimationPlayer<>::
-::res://Levels/::1715766684
+::res://Levels/::1715803666
 Blur.gdshader::Shader::-1::1715727413::0::1::::<><>::
-Level1.tscn::PackedScene::5202391109705887590::1715766684::0::1::::<><>::uid://c543ku1ygqlva::::res://Arta/Tilemap/Grass.tres<>res://Assets/Intro.gd<>uid://bhw7vaathklta::::res://Arta/cloister_black/CloisterBlack.ttf<>uid://bsk1l02nre8hs::::res://Arta/Tilemap/sheet.png<>uid://dbon143upl8dl::::res://Arta/InputButtons/controls_tilemap_white_packed.png<>uid://cf8dbf12ovh64::::res://Assets/kill_zone.tscn<>uid://dundoq5yx4i4j::::res://Assets/bow_enemy.tscn<>uid://qgox2rj7nweo::::res://Assets/basic_enemy.tscn<>res://Assets/Zone_Check.gd
-Main_Room.tscn::PackedScene::7196537725195350917::1715766594::0::1::::<><>::uid://cekbvoha2cdui::::res://Arta/Tilemap/Castle.tres<>uid://bsk1l02nre8hs::::res://Arta/Tilemap/sheet.png<>uid://dbon143upl8dl::::res://Arta/InputButtons/controls_tilemap_white_packed.png<>uid://ccj77lhvk6ov5::::res://Arta/Sign.png<>uid://baokw2tlcqpx1::::res://Assets/door.tscn<>res://Assets/Zone_Check.gd<>uid://dc6ird4x0xlrq::::res://Assets/torch.tscn<>uid://bhw7vaathklta::::res://Arta/cloister_black/CloisterBlack.ttf<>uid://cf8dbf12ovh64::::res://Assets/kill_zone.tscn<>res://Assets/Exit_Zone.gd
-Tutorial.tscn::PackedScene::7719854253364870885::1715766729::0::1::::<><>::res://Assets/Intro.gd<>uid://bhw7vaathklta::::res://Arta/cloister_black/CloisterBlack.ttf<>uid://c543ku1ygqlva::::res://Arta/Tilemap/Grass.tres<>uid://bsk1l02nre8hs::::res://Arta/Tilemap/sheet.png<>uid://dbon143upl8dl::::res://Arta/InputButtons/controls_tilemap_white_packed.png<>uid://cf8dbf12ovh64::::res://Assets/kill_zone.tscn<>res://Assets/Zone_Check.gd<>uid://dundoq5yx4i4j::::res://Assets/bow_enemy.tscn<>uid://qgox2rj7nweo::::res://Assets/basic_enemy.tscn
-Upgrade_Room.tscn::PackedScene::7673245534394602065::1715766595::0::1::::<><>::uid://bsk1l02nre8hs::::res://Arta/Tilemap/sheet.png<>uid://dbon143upl8dl::::res://Arta/InputButtons/controls_tilemap_white_packed.png<>uid://cf8dbf12ovh64::::res://Assets/kill_zone.tscn<>uid://baokw2tlcqpx1::::res://Assets/door.tscn<>res://Assets/Zone_Check.gd<>uid://dc6ird4x0xlrq::::res://Assets/torch.tscn<>uid://c3qwyoqm8tesf::::res://Assets/no_moving_enemy.tscn<>res://GlobalScripts/buy_weapons.gd<>uid://cemefowst2a48::::res://Arta/Weapon Hanger/weapon_hanger.png<>uid://beoh5k5sb22ui::::res://Arta/Theme.tres<>uid://vwparmxn7rsw::::res://Arta/UI/PNG/Default/Divider Fade/divider-fade-003.png<>uid://j1rs6cfupubh::::res://Arta/UI/Sword.png<>uid://bhw7vaathklta::::res://Arta/cloister_black/CloisterBlack.ttf<>uid://0tindcwxaqg5::::res://Arta/UI/Bow.png<>uid://drqns68gt8n16::::res://Arta/Info Board/ExclamationMark-16x16-1.png.png
-::res://Player/::1715766595
+Level1.tscn::PackedScene::5202391109705887590::1715801337::0::1::::<><>::uid://c543ku1ygqlva::::res://Arta/Tilemap/Grass.tres<>res://Assets/Intro.gd<>uid://bhw7vaathklta::::res://Arta/cloister_black/CloisterBlack.ttf<>uid://bsk1l02nre8hs::::res://Arta/Tilemap/sheet.png<>uid://dbon143upl8dl::::res://Arta/InputButtons/controls_tilemap_white_packed.png<>uid://cf8dbf12ovh64::::res://Assets/kill_zone.tscn<>uid://dundoq5yx4i4j::::res://Assets/bow_enemy.tscn<>uid://qgox2rj7nweo::::res://Assets/basic_enemy.tscn<>res://Assets/Zone_Check.gd
+Main_Room.tscn::PackedScene::7196537725195350917::1715803666::0::1::::<><>::uid://cekbvoha2cdui::::res://Arta/Tilemap/Castle.tres<>uid://bsk1l02nre8hs::::res://Arta/Tilemap/sheet.png<>uid://dbon143upl8dl::::res://Arta/InputButtons/controls_tilemap_white_packed.png<>uid://ccj77lhvk6ov5::::res://Arta/Sign.png<>uid://baokw2tlcqpx1::::res://Assets/door.tscn<>res://Assets/Zone_Check.gd<>uid://dc6ird4x0xlrq::::res://Assets/torch.tscn<>uid://cf8dbf12ovh64::::res://Assets/kill_zone.tscn<>res://Assets/Exit_Zone.gd<>uid://k1hdt5ygqgb6::::res://Arta/UI/Salium.ttf
+Main_Menu.tscn::PackedScene::8365797481547421396::1715803666::0::1::::<><>::uid://cnbu51y8qasgj::::res://Arta/Background.png<>uid://duqt24herp7yx::::res://Arta/Butoane_Main_Men.tres<>uid://k1hdt5ygqgb6::::res://Arta/UI/Salium.ttf
+Tutorial.tscn::PackedScene::7719854253364870885::1715801337::0::1::::<><>::res://Assets/Intro.gd<>uid://bhw7vaathklta::::res://Arta/cloister_black/CloisterBlack.ttf<>uid://c543ku1ygqlva::::res://Arta/Tilemap/Grass.tres<>uid://bsk1l02nre8hs::::res://Arta/Tilemap/sheet.png<>uid://dbon143upl8dl::::res://Arta/InputButtons/controls_tilemap_white_packed.png<>uid://cf8dbf12ovh64::::res://Assets/kill_zone.tscn<>res://Assets/Zone_Check.gd<>uid://dundoq5yx4i4j::::res://Assets/bow_enemy.tscn<>uid://qgox2rj7nweo::::res://Assets/basic_enemy.tscn<>uid://dctrxq60h66bs::::res://Assets/vlad_speaking.tscn<>uid://cgayn78bm47d5::::res://Arta/Parallax/back512.png
+Upgrade_Room.tscn::PackedScene::7673245534394602065::1715803666::0::1::::<><>::uid://bsk1l02nre8hs::::res://Arta/Tilemap/sheet.png<>uid://dbon143upl8dl::::res://Arta/InputButtons/controls_tilemap_white_packed.png<>uid://cf8dbf12ovh64::::res://Assets/kill_zone.tscn<>uid://baokw2tlcqpx1::::res://Assets/door.tscn<>res://Assets/Zone_Check.gd<>uid://dc6ird4x0xlrq::::res://Assets/torch.tscn<>uid://c3qwyoqm8tesf::::res://Assets/no_moving_enemy.tscn<>res://GlobalScripts/buy_weapons.gd<>uid://cemefowst2a48::::res://Arta/Weapon Hanger/weapon_hanger.png<>uid://k1hdt5ygqgb6::::res://Arta/UI/Salium.ttf<>uid://beoh5k5sb22ui::::res://Arta/Theme.tres<>uid://vwparmxn7rsw::::res://Arta/UI/PNG/Default/Divider Fade/divider-fade-003.png<>uid://j1rs6cfupubh::::res://Arta/UI/Sword.png<>uid://cu4ka8oltikow::::res://Arta/UI/Spear.png<>uid://bhw7vaathklta::::res://Arta/cloister_black/CloisterBlack.ttf<>uid://0tindcwxaqg5::::res://Arta/UI/Bow.png<>uid://drqns68gt8n16::::res://Arta/Info Board/ExclamationMark-16x16-1.png.png
+::res://Player/::1715803667
 arrow.tscn::PackedScene::2142801602022170682::1715756044::0::1::::<><>::res://Player/Player_Arrow.gd<>uid://c2ljlhqgtdkpo::::res://Arta/Player/Arrow/arow.png<>uid://smx6xgu1ufah::::res://Sounds/Hits/Armour Plate Hit Scrape Impact Thump-001.wav<>uid://dk6cpvr8t17qp::::res://Sounds/Hits/Armour Plate Hit Scrape Impact Thump-002.wav<>uid://c6mve2mbmlwgk::::res://Sounds/Hits/Armour Plate Hit Scrape Impact Thump-003.wav<>uid://cpbuddqdrv783::::res://Sounds/Hits/arrow_hit-001.mp3<>uid://c2o2gfyew77y6::::res://Sounds/Hits/arrow_hit-002.mp3<>uid://fop2n4o6083c::::res://Sounds/Hits/arrow_hit-003.mp3
 liliaac.png::CompressedTexture2D::8212951486458750128::1715726570::1715726574::1::::<><>::
 Player.gd::GDScript::-1::1715315128::0::1::::<>CharacterBody2D<>::
-player.tscn::PackedScene::6623564610721720551::1715766595::0::1::::<><>::res://Player/Player_Dash.gd<>uid://eiww8kcfd487::::res://Arta/Vladutz.png<>uid://5r8vnqynqlfu::::res://Player/arrow.tscn<>uid://d0glofecdqrp4::::res://Arta/Player/Vladutz.png<>uid://dpaod1m5pqtum::::res://Player/liliaac.png<>uid://dl8bworiwmadx::::res://Sounds/Hits/Whoosh Basic Airy Whistle-001.wav<>uid://djfbn0vud6nh6::::res://Player/VladutzRun.png<>uid://bq5d4urflkbwt::::res://Sounds/Hits/Whoosh Basic Airy Whistle-002.wav<>uid://co7u4uwxehcbk::::res://Player/VladutzJump.png<>uid://llaliavf6xau::::res://Sounds/Hits/Whoosh Basic Airy Whistle-003.wav<>uid://smx6xgu1ufah::::res://Sounds/Hits/Armour Plate Hit Scrape Impact Thump-001.wav<>uid://dk6cpvr8t17qp::::res://Sounds/Hits/Armour Plate Hit Scrape Impact Thump-002.wav<>uid://c6mve2mbmlwgk::::res://Sounds/Hits/Armour Plate Hit Scrape Impact Thump-003.wav<>uid://btomkt0amrbv::::res://Sounds/Footsteps/Grass/Grass_Boots_FullStep_01.wav<>uid://cllq886qoy7rk::::res://Sounds/Footsteps/Grass/Grass_Boots_FullStep_02.wav<>uid://b372i35e24ksr::::res://Sounds/Footsteps/Grass/Grass_Boots_FullStep_03.wav<>uid://cddvud6b0v8q4::::res://Sounds/Footsteps/Grass/Grass_Boots_FullStep_04.wav<>uid://8yomb3xf760q::::res://Sounds/Footsteps/Grass/Grass_Boots_FullStep_05.wav<>uid://cmeol213dfigc::::res://Sounds/Footsteps/Stone/Hardwood_Boots_FullStep_01.wav<>uid://dyuxbhpf3lunf::::res://Sounds/Footsteps/Stone/Hardwood_Boots_FullStep_02.wav<>uid://ybn7na64726::::res://Sounds/Footsteps/Stone/Hardwood_Boots_FullStep_03.wav<>uid://5wgocuj0v5nj::::res://Sounds/Footsteps/Stone/Hardwood_Boots_FullStep_04.wav<>uid://dvpxcl8nmww0k::::res://Sounds/Footsteps/Stone/Hardwood_Boots_FullStep_05.wav
+player.tscn::PackedScene::6623564610721720551::1715803667::0::1::::<><>::res://Player/Player_Dash.gd<>uid://eiww8kcfd487::::res://Arta/Vladutz.png<>uid://5r8vnqynqlfu::::res://Player/arrow.tscn<>uid://d0glofecdqrp4::::res://Arta/Player/Vladutz.png<>uid://dpaod1m5pqtum::::res://Player/liliaac.png<>uid://dl8bworiwmadx::::res://Sounds/Hits/Whoosh Basic Airy Whistle-001.wav<>uid://djfbn0vud6nh6::::res://Player/VladutzRun.png<>uid://dmyn0vt1m3y7u::::res://Player/VladutzSabiutza.png<>uid://bq5d4urflkbwt::::res://Sounds/Hits/Whoosh Basic Airy Whistle-002.wav<>uid://co7u4uwxehcbk::::res://Player/VladutzJump.png<>uid://llaliavf6xau::::res://Sounds/Hits/Whoosh Basic Airy Whistle-003.wav<>uid://smx6xgu1ufah::::res://Sounds/Hits/Armour Plate Hit Scrape Impact Thump-001.wav<>uid://otvo8etf0co::::res://Arta/Player/SabieSerios.png<>uid://dk6cpvr8t17qp::::res://Sounds/Hits/Armour Plate Hit Scrape Impact Thump-002.wav<>uid://c6mve2mbmlwgk::::res://Sounds/Hits/Armour Plate Hit Scrape Impact Thump-003.wav<>uid://btomkt0amrbv::::res://Sounds/Footsteps/Grass/Grass_Boots_FullStep_01.wav<>uid://cllq886qoy7rk::::res://Sounds/Footsteps/Grass/Grass_Boots_FullStep_02.wav<>uid://b372i35e24ksr::::res://Sounds/Footsteps/Grass/Grass_Boots_FullStep_03.wav<>uid://cddvud6b0v8q4::::res://Sounds/Footsteps/Grass/Grass_Boots_FullStep_04.wav<>uid://8yomb3xf760q::::res://Sounds/Footsteps/Grass/Grass_Boots_FullStep_05.wav<>uid://cmeol213dfigc::::res://Sounds/Footsteps/Stone/Hardwood_Boots_FullStep_01.wav<>uid://dyuxbhpf3lunf::::res://Sounds/Footsteps/Stone/Hardwood_Boots_FullStep_02.wav<>uid://ybn7na64726::::res://Sounds/Footsteps/Stone/Hardwood_Boots_FullStep_03.wav<>uid://5wgocuj0v5nj::::res://Sounds/Footsteps/Stone/Hardwood_Boots_FullStep_04.wav<>uid://dvpxcl8nmww0k::::res://Sounds/Footsteps/Stone/Hardwood_Boots_FullStep_05.wav
 Player_Arrow.gd::GDScript::-1::1715755817::0::1::::<>CharacterBody2D<>::
-Player_Dash.gd::GDScript::-1::1715765521::0::1::::<>CharacterBody2D<>::
+Player_Dash.gd::GDScript::-1::1715803657::0::1::::<>CharacterBody2D<>::
 VladutzJump.png::CompressedTexture2D::5822812479830477196::1715764848::1715764858::1::::<><>::
 VladutzRun.png::CompressedTexture2D::7801368811344021161::1715724237::1715724240::1::::<><>::
+VladutzSabiutza.png::CompressedTexture2D::8051908340126836180::1715801978::1715801996::1::::<><>::
 ::res://Sounds/::1715637484
 ::res://Sounds/Footsteps/::1715629855
 ::res://Sounds/Footsteps/Grass/::1715629376

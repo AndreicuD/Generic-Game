@@ -27,9 +27,9 @@ var bow_enemy_damage = 30
 var HEAL_MULTIPLIER = 0.0
 
 var CURRENCY = 0
-var spear_cost = '0'
-var sword_cost = '100'
-var bow_cost = '200'
+var sword_cost = '0'
+var bow_cost = '100'
+var spear_cost = '200'
 
 var is_player_dead : bool = false
 var can_damage_player : bool = true

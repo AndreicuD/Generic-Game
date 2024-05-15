@@ -1023,12 +1023,12 @@ collision_layer = 32
 script = ExtResource("8_lhjcq")
 modulate_color = Color(1, 1, 1, 1)
 
+[node name="modulate" type="CanvasModulate" parent="Outside" groups=["color_modulate"]]
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Outside"]
 position = Vector2(0, -68)
 shape = SubResource("RectangleShape2D_5i7ht")
 debug_color = Color(0, 0.6, 0.701961, 0)
-
-[node name="modulate" type="CanvasModulate" parent="Outside"]
 
 [node name="Bow_Enemy" parent="." instance=ExtResource("6_djxjf")]
 position = Vector2(616, 0)

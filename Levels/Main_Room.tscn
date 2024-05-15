@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://baokw2tlcqpx1" path="res://Assets/door.tscn" id="6_tvf68"]
 [ext_resource type="Script" path="res://Assets/Zone_Check.gd" id="7_cr3wh"]
 [ext_resource type="PackedScene" uid="uid://dc6ird4x0xlrq" path="res://Assets/torch.tscn" id="7_giw5s"]
-[ext_resource type="FontFile" uid="uid://bhw7vaathklta" path="res://Arta/cloister_black/CloisterBlack.ttf" id="7_lxok4"]
 [ext_resource type="PackedScene" uid="uid://cf8dbf12ovh64" path="res://Assets/kill_zone.tscn" id="7_u6rm1"]
 [ext_resource type="Script" path="res://Assets/Exit_Zone.gd" id="9_qk6sj"]
+[ext_resource type="FontFile" uid="uid://k1hdt5ygqgb6" path="res://Arta/UI/Salium.ttf" id="10_ckb4x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gd2tq"]
 texture = ExtResource("1_j8teq")
@@ -895,12 +895,12 @@ texture = ExtResource("3_714kn")
 [sub_resource type="TileSet" id="TileSet_tybos"]
 sources/0 = SubResource("TileSetAtlasSource_sfhbh")
 
-[sub_resource type="Gradient" id="Gradient_oef11"]
+[sub_resource type="Gradient" id="Gradient_sx2sj"]
 offsets = PackedFloat32Array(0.402597, 0.571429)
 colors = PackedColorArray(0, 0, 0, 1, 0.74978, 0.74978, 0.74978, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_blblm"]
-gradient = SubResource("Gradient_oef11")
+gradient = SubResource("Gradient_sx2sj")
 width = 193
 fill_from = Vector2(0.279817, 0.46789)
 fill_to = Vector2(0.724771, 0.87156)
@@ -948,7 +948,7 @@ layer_3/tile_data = PackedInt32Array()
 z_index = 280
 tile_set = SubResource("TileSet_tybos")
 format = 2
-layer_0/tile_data = PackedInt32Array(-327689, 262144, 2, -262153, 2162688, 4, -327688, 131072, 2, -262152, 2031616, 4, -262146, 1245184, 2, -262145, 65536, 11)
+layer_0/tile_data = PackedInt32Array(-327689, 262144, 2, -262153, 2162688, 4, -327688, 131072, 2, -262152, 2031616, 4, -262146, 1245184, 2, -262145, 327680, 9, -327665, 1245184, 2, -327664, 327680, 9)
 
 [node name="KillZone" parent="." instance=ExtResource("7_u6rm1")]
 position = Vector2(368, 328)
@@ -990,7 +990,7 @@ position = Vector2(408, -88)
 shape = SubResource("RectangleShape2D_53tmt")
 debug_color = Color(0, 0.6, 0.701961, 0)
 
-[node name="modulate" type="CanvasModulate" parent="Castle_Zone"]
+[node name="modulate" type="CanvasModulate" parent="Castle_Zone" groups=["color_modulate"]]
 
 [node name="Exit_Zone" type="Area2D" parent="."]
 position = Vector2(640, -32)
@@ -1020,8 +1020,8 @@ offset_bottom = 61.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.3, 0.3)
-theme_override_colors/font_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
-theme_override_fonts/font = ExtResource("7_lxok4")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_ckb4x")
 theme_override_font_sizes/font_size = 32
 text = "Armory"
 horizontal_alignment = 1
@@ -1047,8 +1047,8 @@ offset_bottom = 61.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.3, 0.3)
-theme_override_colors/font_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
-theme_override_fonts/font = ExtResource("7_lxok4")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_ckb4x")
 theme_override_font_sizes/font_size = 32
 text = "Tutorial"
 horizontal_alignment = 1

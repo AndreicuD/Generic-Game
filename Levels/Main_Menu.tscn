@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://drgppym1nj5lo"]
+
+[ext_resource type="Texture2D" uid="uid://cnbu51y8qasgj" path="res://Arta/Background.png" id="1_qqj5h"]
+[ext_resource type="Theme" uid="uid://duqt24herp7yx" path="res://Arta/Butoane_Main_Men.tres" id="2_p5kei"]
+[ext_resource type="FontFile" uid="uid://k1hdt5ygqgb6" path="res://Arta/UI/Salium.ttf" id="4_stxv6"]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_qqj5h")
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+offset_left = 64.0
+offset_top = 408.0
+offset_right = 178.0
+offset_bottom = 487.0
+theme = ExtResource("2_p5kei")
+theme_override_font_sizes/font_size = 36
+text = "Quit
+"
+flat = true
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 1
+offset_left = 64.0
+offset_top = 208.0
+offset_right = 105.0
+offset_bottom = 239.0
+theme = ExtResource("2_p5kei")
+text = "Play"
+flat = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 78.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_stxv6")
+theme_override_font_sizes/font_size = 66
+text = "Vladutz In Aventura"
+horizontal_alignment = 1
+vertical_alignment = 1

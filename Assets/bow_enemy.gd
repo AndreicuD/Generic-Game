@@ -62,6 +62,7 @@ func damage(val):
 
 func die():
 	anim.play('dead')
+	velocity.y = 0
 	can_move = false
 	is_dead = true
 	$CollisionShape2D.set_disabled(true)
@@ -76,6 +77,7 @@ func _physics_process(delta):
 
 	if(can_move):
 		if(state == State.PASSIVE):
+			anim.play('Walking')
 			current_speed = speed
 			target_checkpoint = checkpoints[curr_check_ind]
 			if(target_checkpoint.x - global_position.x > 5):
@@ -84,12 +86,13 @@ func _physics_process(delta):
 				velocity.x = -1
 			else:
 				velocity.x = 0
-				anim.play("default")
+				anim.play('Idle')
 				can_move = false
 				cooldown_timer.start()
 				curr_check_ind += 1
 				curr_check_ind %= checkpoints.size()
 		elif(state == State.ACTIVE):
+			anim.play('Running')
 			target_checkpoint = player.global_position
 			if(need_to_run):
 				velocity.x = 1 if target_checkpoint.x <= global_position.x else -1
@@ -113,7 +116,8 @@ func _physics_process(delta):
 		check_to_shoot_right.monitoring = true
 		check_to_run_left.monitoring = true
 		check_to_shoot_left.monitoring = true
-
+	if velocity.x != 0:
+		anim.scale.x = velocity.x
 
 	if(is_on_wall() && is_on_floor()):
 		can_move = false

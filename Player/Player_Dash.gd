@@ -33,6 +33,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var stone_audio = $Stone_Foot_AudioPlayer
 
 @onready var anim : AnimatedSprite2D = $AnimatedSprite2D
+@onready var weapon_anim : AnimatedSprite2D = $AnimatedSprite2D/weapon
 @onready var dash_cooldown : Timer = $Dash_Cooldown
 @onready var dash_time : Timer = $Dash_Time
 @onready var footsteps_timer : Timer = $Footsteps_Timer
@@ -43,11 +44,15 @@ var can_attack = true
 @onready var sword_check = $Sword_Attack_Check
 @export var arrow : PackedScene
 
+var idle_anim
+var last_idle_anim
+var weapon
+
 var has_key : bool = false
 var jump_anim_played = false
 
 func _ready():
-	choose_weapon('spear')
+	choose_weapon('sword')
 
 func _input(event):
 	if(event is InputEventKey):
@@ -68,6 +73,11 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("Attack") && can_attack:
 		can_attack = false
 		attack_timer.start()
+		if anim.animation == 'Idle_Sword' or anim.animation == 'Idle_Bow' or anim.animation == 'Idle_Spear':
+			last_idle_anim = anim.animation
+			idle_anim = 'Idle'
+		weapon_anim.set_visible(true)
+		weapon_anim.play(weapon)
 		if Global.weapon != Global.Weapon.bow:
 			swoosh_audio.play()
 			if enemy:
@@ -157,7 +167,7 @@ func _physics_process(delta):
 			current_speed = dash_power
 	else:
 		if is_on_floor() && !is_dashing:
-			anim.play("Idle")
+			anim.play(idle_anim)
 		if !is_dashing:
 			velocity.x = move_toward(velocity.x, 0, current_speed)
 
@@ -176,21 +186,25 @@ func choose_weapon(weapon_name : String):
 	spear_check.monitoring = false
 	sword_check.monitoring = false
 	weapon_name = weapon_name.to_lower()
+	weapon = weapon_name
 	match weapon_name:
 		'spear':
 			spear_check.monitoring = true
 			Global.weapon = Global.Weapon.spear
 			Global.time_between_attacks = Global.spear_time_between_attacks
 			Global.DAMAGE = Global.spear_damage
+			idle_anim = 'Idle'
 		'sword':
 			sword_check.monitoring = true
 			Global.weapon = Global.Weapon.sword
 			Global.time_between_attacks = Global.sword_time_between_attacks
 			Global.DAMAGE = Global.sword_damage
+			idle_anim = 'Idle_Sword'
 		'bow':
 			Global.weapon = Global.Weapon.bow
 			Global.time_between_attacks = Global.bow_time_between_attacks
 			Global.DAMAGE = Global.bow_damage
+			idle_anim = 'Idle'
 	attack_timer.set_wait_time(Global.time_between_attacks)
 
 func change_scale(x):
@@ -241,3 +255,7 @@ func _on_time_between_attacks_timeout():
 
 func _on_animated_sprite_2d_animation_looped():
 	anim.pause()
+
+func _on_weapon_animation_finished():
+	weapon_anim.set_visible(false)
+	idle_anim = last_idle_anim
