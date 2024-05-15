@@ -2,20 +2,20 @@
 
 **Controale:**
 
-Tastatura:
--deplasare: WASD si sageti
--sarit: space
--interactiune: E
--dash: shift
--atac: click stanga sau 'J'
+    -Tastatura:
+    -deplasare: WASD si sageti
+    -sarit: space
+    -interactiune: E
+    -dash: shift
+    -atac: click stanga sau 'J'
     
-Controller:
--deplasare: joystick stanga sau d-pad
--sarit: buton jos
--interactiune: buton dreapta
--dash: buton stanga
--atac: RT sau RB
--tinta cu arcul: joystick dreapta
+    -Controller:
+    -deplasare: joystick stanga sau d-pad
+    -sarit: buton jos
+    -interactiune: buton dreapta
+    -dash: buton stanga
+    -atac: RT sau RB
+    -tinta cu arcul: joystick dreapta
 
 **Tehnologia utilizata:**
 
