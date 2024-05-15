@@ -28,8 +28,8 @@ var HEAL_MULTIPLIER = 0.0
 
 var CURRENCY = 0
 var spear_cost = '0'
-var sword_cost = '0'
-var bow_cost = '0'
+var sword_cost = '100'
+var bow_cost = '200'
 
 var is_player_dead : bool = false
 var can_damage_player : bool = true
@@ -186,10 +186,15 @@ func take_damage(damage):
 
 func has_killed_enemy(enemy_class : String):
 	enemy_class = enemy_class.to_lower()
+	var val
 	match enemy_class:
 		'basic':
-			CURRENCY += randi_range(5, 10)
+			val = randi_range(5, 10)
+			#intre 5 si 10 banuti
 		'bow':
-			CURRENCY += randi_range(10, 20)
+			val = randi_range(10, 20)
+			#intre 10 si 20
 		_:
-			CURRENCY += randi_range(20, 30)
+			val =  randi_range(20, 30)
+			#intre 20 si 30
+	CURRENCY += val

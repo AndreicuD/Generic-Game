@@ -126,7 +126,7 @@ collision_layer = 16
 
 [node name="Check_For_Player" type="CollisionPolygon2D" parent="Check_For_Player_To_Keep_Following_Right"]
 modulate = Color(0.258824, 0.258824, 0.258824, 1)
-polygon = PackedVector2Array(8, 32, 152, 96, 152, -112, 8, -32)
+polygon = PackedVector2Array(8, 32, 192, 96, 192, -112, 8, -32)
 
 [node name="Check_For_Player_To_Follow_Left" type="Area2D" parent="."]
 scale = Vector2(-1, 1)
@@ -143,7 +143,7 @@ collision_layer = 16
 
 [node name="Check_For_Player" type="CollisionPolygon2D" parent="Check_For_Player_To_Keep_Following_Left"]
 modulate = Color(0.258824, 0.258824, 0.258824, 1)
-polygon = PackedVector2Array(8, 32, 152, 96, 152, -112, 8, -32)
+polygon = PackedVector2Array(8, 32, 184, 95.9995, 184, -112, 8, -32)
 
 [node name="Check_For_Player_Ball" type="Area2D" parent="."]
 collision_layer = 16

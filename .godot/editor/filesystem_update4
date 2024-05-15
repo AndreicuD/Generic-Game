@@ -18,3 +18,12 @@ res://Assets/enemy_arrow.tscn
 res://GlobalScripts/scene_switcher.gd
 res://Assets/Door.gd
 res://Assets/door.tscn
+res://Levels/Main_Room.tscn
+res://Assets/coin.tscn
+res://Assets/Coin.gd
+res://Levels/Level1.tscn
+res://Arta/Tilemap/Grass.tres
+res://Assets/Intro.gd
+res://Levels/Tutorial.tscn
+res://Assets/kill_zone.tscn
+res://Assets/kill_zone.gd

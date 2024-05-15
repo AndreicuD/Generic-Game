@@ -1,8 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://dasb6pgsbw6lt"]
+[gd_scene load_steps=19 format=3 uid="uid://dasb6pgsbw6lt"]
 
 [ext_resource type="TileSet" uid="uid://cekbvoha2cdui" path="res://Arta/Tilemap/Castle.tres" id="1_1r5jy"]
 [ext_resource type="Texture2D" uid="uid://bsk1l02nre8hs" path="res://Arta/Tilemap/sheet.png" id="1_j8teq"]
-[ext_resource type="PackedScene" uid="uid://dt3lqotk6oen5" path="res://Assets/Info_Board.tscn" id="2_djwqg"]
 [ext_resource type="Texture2D" uid="uid://dbon143upl8dl" path="res://Arta/InputButtons/controls_tilemap_white_packed.png" id="3_714kn"]
 [ext_resource type="Texture2D" uid="uid://ccj77lhvk6ov5" path="res://Arta/Sign.png" id="6_hgmgg"]
 [ext_resource type="PackedScene" uid="uid://baokw2tlcqpx1" path="res://Assets/door.tscn" id="6_tvf68"]
@@ -949,37 +948,10 @@ layer_3/tile_data = PackedInt32Array()
 z_index = 280
 tile_set = SubResource("TileSet_tybos")
 format = 2
-layer_0/tile_data = PackedInt32Array(-327676, 1245184, 2, -327675, 65536, 11, -327689, 262144, 2, -262153, 2162688, 4, -327688, 131072, 2, -262152, 2031616, 4)
-
-[node name="Info_Board" parent="." instance=ExtResource("2_djwqg")]
-position = Vector2(80, 33)
-text = "Training Room 0"
+layer_0/tile_data = PackedInt32Array(-327689, 262144, 2, -262153, 2162688, 4, -327688, 131072, 2, -262152, 2031616, 4, -262146, 1245184, 2, -262145, 65536, 11)
 
 [node name="KillZone" parent="." instance=ExtResource("7_u6rm1")]
 position = Vector2(368, 328)
-
-[node name="Sign" type="Sprite2D" parent="."]
-position = Vector2(-16, -48)
-texture = ExtResource("6_hgmgg")
-
-[node name="Label" type="Label" parent="Sign"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -16.0
-offset_top = -17.0
-offset_right = 59.0
-offset_bottom = 61.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.3, 0.3)
-theme_override_colors/font_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
-theme_override_fonts/font = ExtResource("7_lxok4")
-theme_override_font_sizes/font_size = 32
-text = "Armory"
-horizontal_alignment = 1
-vertical_alignment = 1
-clip_text = true
 
 [node name="Castle_Zone" type="Area2D" parent="."]
 collision_layer = 32
@@ -1020,10 +992,6 @@ debug_color = Color(0, 0.6, 0.701961, 0)
 
 [node name="modulate" type="CanvasModulate" parent="Castle_Zone"]
 
-[node name="Door" parent="." instance=ExtResource("6_tvf68")]
-position = Vector2(-16, 1)
-wanted_level = "Upgrade_Room"
-
 [node name="Exit_Zone" type="Area2D" parent="."]
 position = Vector2(640, -32)
 collision_layer = 32
@@ -1032,6 +1000,60 @@ script = ExtResource("9_qk6sj")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit_Zone"]
 position = Vector2(128, 0)
 shape = SubResource("RectangleShape2D_4kgrb")
+
+[node name="Door" parent="." instance=ExtResource("6_tvf68")]
+position = Vector2(-16, 1)
+wanted_level = "Upgrade_Room"
+
+[node name="Sign" type="Sprite2D" parent="Door"]
+position = Vector2(0, -49)
+texture = ExtResource("6_hgmgg")
+
+[node name="Label" type="Label" parent="Door/Sign"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -17.0
+offset_right = 59.0
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+theme_override_colors/font_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
+theme_override_fonts/font = ExtResource("7_lxok4")
+theme_override_font_sizes/font_size = 32
+text = "Armory"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="Door2" parent="." instance=ExtResource("6_tvf68")]
+position = Vector2(256, 1)
+wanted_level = "Tutorial"
+
+[node name="Sign" type="Sprite2D" parent="Door2"]
+position = Vector2(0, -48)
+texture = ExtResource("6_hgmgg")
+
+[node name="Label" type="Label" parent="Door2/Sign"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -17.0
+offset_right = 59.0
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+theme_override_colors/font_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
+theme_override_fonts/font = ExtResource("7_lxok4")
+theme_override_font_sizes/font_size = 32
+text = "Tutorial"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
 
 [connection signal="body_entered" from="Castle_Zone" to="Castle_Zone" method="_on_body_entered"]
 [connection signal="body_exited" from="Castle_Zone" to="Castle_Zone" method="_on_body_exited"]

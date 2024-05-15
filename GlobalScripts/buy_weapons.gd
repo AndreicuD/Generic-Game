@@ -36,25 +36,43 @@ func _on_area_2d_body_exited(body):
 
 func _on_ok_button_pressed():
 	PopUp.set_visible(false)
+	$PopUp/Panel/Spear_Panel/Buy_Spear.text = 'Buy'
+	$PopUp/Panel/Sword_Panel/Buy_Sword.text = 'Buy'
+	$PopUp/Panel/Bow_Panel/Buy_Bow.text = 'Buy'
 
 func _on_buy_spear_pressed():
 	var spear_cost = $PopUp/Panel/Spear_Panel/Weapon_Cost
-	if Global.CURRENCY >= int(spear_cost.text):
-		Global.spear_cost = 0
+	var cost = int(spear_cost.text)
+	#print('Cost:')
+	#print(cost)
+	if Global.CURRENCY >= cost:
+		Global.CURRENCY -= cost
+		Global.spear_cost = '0'
 		spear_cost.text = Global.spear_cost
 		player.choose_weapon('spear')
 
 func _on_buy_sword_pressed():
 	var sword_cost = $PopUp/Panel/Sword_Panel/Weapon_Cost
-	print(typeof(int(sword_cost.text)))
-	if Global.CURRENCY >= int(sword_cost.text):
-		Global.spear_cost = 0
+	var cost = int(sword_cost.text)
+	#print('Cost:')
+	#print(cost)
+	if Global.CURRENCY >= cost:
+		Global.CURRENCY -= cost
+		Global.sword_cost = '0'
 		sword_cost.text = Global.sword_cost
 		player.choose_weapon('sword')
+	else:
+		$PopUp/Panel/Sword_Panel/Buy_Sword.text = "Can't afford!"
 
 func _on_buy_bow_pressed():
 	var bow_cost = $PopUp/Panel/Bow_Panel/Weapon_Cost
-	if Global.CURRENCY >= int(bow_cost.text):
-		Global.spear_cost = 0
+	var cost = int(bow_cost.text)
+	#print('Cost:')
+	#print(cost)
+	if Global.CURRENCY >= cost:
+		Global.CURRENCY -= cost
+		Global.bow_cost = '0'
 		bow_cost.text = Global.bow_cost
 		player.choose_weapon('bow')
+	else:
+		$PopUp/Panel/Bow_Panel/Buy_Bow.text = "Can't afford!"

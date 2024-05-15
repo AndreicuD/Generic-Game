@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dhk8h6g77l7hl"]
+[gd_scene load_steps=37 format=3 uid="uid://dhk8h6g77l7hl"]
 
 [ext_resource type="Texture2D" uid="uid://bsk1l02nre8hs" path="res://Arta/Tilemap/sheet.png" id="1_wodof"]
 [ext_resource type="Texture2D" uid="uid://dbon143upl8dl" path="res://Arta/InputButtons/controls_tilemap_white_packed.png" id="2_8n114"]
@@ -11,7 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://cemefowst2a48" path="res://Arta/Weapon Hanger/weapon_hanger.png" id="8_vr3uc"]
 [ext_resource type="Theme" uid="uid://beoh5k5sb22ui" path="res://Arta/Theme.tres" id="10_nmpv7"]
 [ext_resource type="Texture2D" uid="uid://vwparmxn7rsw" path="res://Arta/UI/PNG/Default/Divider Fade/divider-fade-003.png" id="11_4jnyp"]
+[ext_resource type="Texture2D" uid="uid://j1rs6cfupubh" path="res://Arta/UI/Sword.png" id="11_6y85q"]
 [ext_resource type="FontFile" uid="uid://bhw7vaathklta" path="res://Arta/cloister_black/CloisterBlack.ttf" id="11_vxjq0"]
+[ext_resource type="Texture2D" uid="uid://0tindcwxaqg5" path="res://Arta/UI/Bow.png" id="12_unanx"]
 [ext_resource type="Texture2D" uid="uid://drqns68gt8n16" path="res://Arta/Info Board/ExclamationMark-16x16-1.png.png" id="13_5v8ve"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pac0c"]
@@ -1184,7 +1186,7 @@ fill_to = Vector2(0.534188, 0.0299145)
 size = Vector2(672, 320)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xhae6"]
-bg_color = Color(0.121569, 0.121569, 0.121569, 0.466667)
+bg_color = Color(0.764706, 0.592157, 0.427451, 0.278431)
 
 [sub_resource type="Gradient" id="Gradient_fo6ej"]
 
@@ -1192,7 +1194,7 @@ bg_color = Color(0.121569, 0.121569, 0.121569, 0.466667)
 gradient = SubResource("Gradient_fo6ej")
 
 [sub_resource type="LabelSettings" id="LabelSettings_6b5f7"]
-font_size = 21
+font_size = 42
 
 [sub_resource type="LabelSettings" id="LabelSettings_sgw3s"]
 
@@ -1327,7 +1329,6 @@ position = Vector2(312, -128)
 script = ExtResource("8_rqgac")
 
 [node name="PopUp" type="CanvasLayer" parent="Weapons"]
-visible = false
 
 [node name="Panel" type="Panel" parent="Weapons/PopUp"]
 anchors_preset = 15
@@ -1402,29 +1403,33 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("11_vxjq0")
+theme_override_font_sizes/font_size = 26
 text = "Buy
 "
-vertical_icon_alignment = 0
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Weapons/PopUp/Panel/Spear_Panel"]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -115.0
-offset_bottom = -27.0
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.0921986
+anchor_right = 0.8
+anchor_bottom = 0.404255
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_80bvi")
+metadata/_edit_use_anchors_ = true
 
 [node name="Weapon_Name" type="Label" parent="Weapons/PopUp/Panel/Spear_Panel"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 23.0
+offset_right = 160.0
+offset_bottom = 51.0
 grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("11_vxjq0")
 text = "Spear"
 label_settings = SubResource("LabelSettings_6b5f7")
 horizontal_alignment = 1
@@ -1432,11 +1437,16 @@ horizontal_alignment = 1
 [node name="Weapon_Cost" type="Label" parent="Weapons/PopUp/Panel/Spear_Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.716312
-anchor_right = 1.0
-anchor_bottom = 0.820857
+anchor_top = 0.745224
+anchor_right = 0.9975
+anchor_bottom = 0.847352
+offset_top = -8.1532
+offset_right = -26.6
+offset_bottom = -12.9532
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(1.2, 1.2)
+theme_override_fonts/font = ExtResource("11_vxjq0")
 text = "0"
 label_settings = SubResource("LabelSettings_sgw3s")
 horizontal_alignment = 1
@@ -1451,6 +1461,7 @@ anchor_right = 1.0
 anchor_bottom = 0.76412
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("11_vxjq0")
 text = "Cost:"
 label_settings = SubResource("LabelSettings_sgw3s")
 horizontal_alignment = 1
@@ -1464,6 +1475,8 @@ anchor_left = 0.05
 anchor_top = 0.404255
 anchor_right = 0.95
 anchor_bottom = 0.687943
+theme_override_fonts/font = ExtResource("11_vxjq0")
+theme_override_font_sizes/font_size = 21
 text = "Good range and a fast weapon, but weak."
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
@@ -1492,31 +1505,33 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Buy
-"
-vertical_icon_alignment = 0
+theme_override_fonts/font = ExtResource("11_vxjq0")
+theme_override_font_sizes/font_size = 26
+text = "Buy"
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Weapons/PopUp/Panel/Sword_Panel"]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -115.0
-offset_bottom = -27.0
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.0921986
+anchor_right = 0.8
+anchor_bottom = 0.404255
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture2D_80bvi")
+texture = ExtResource("11_6y85q")
+metadata/_edit_use_anchors_ = true
 
 [node name="Weapon_Name" type="Label" parent="Weapons/PopUp/Panel/Sword_Panel"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 23.0
+offset_right = 160.0
+offset_bottom = 51.0
 grow_horizontal = 2
-text = "Sword
-"
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("11_vxjq0")
+text = "Sword"
 label_settings = SubResource("LabelSettings_6b5f7")
 horizontal_alignment = 1
 
@@ -1524,10 +1539,14 @@ horizontal_alignment = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.716312
-anchor_right = 1.0
-anchor_bottom = 0.820857
+anchor_right = 0.9975
+anchor_bottom = 0.81844
+offset_right = -26.6
+offset_bottom = -4.8
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(1.2, 1.2)
+theme_override_fonts/font = ExtResource("11_vxjq0")
 text = "0"
 label_settings = SubResource("LabelSettings_sgw3s")
 horizontal_alignment = 1
@@ -1542,6 +1561,7 @@ anchor_right = 1.0
 anchor_bottom = 0.76412
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("11_vxjq0")
 text = "Cost:"
 label_settings = SubResource("LabelSettings_sgw3s")
 horizontal_alignment = 1
@@ -1555,6 +1575,8 @@ anchor_left = 0.05
 anchor_top = 0.404255
 anchor_right = 0.95
 anchor_bottom = 0.687943
+theme_override_fonts/font = ExtResource("11_vxjq0")
+theme_override_font_sizes/font_size = 21
 text = "Great damage, but slow and with no range."
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
@@ -1583,29 +1605,33 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("11_vxjq0")
+theme_override_font_sizes/font_size = 26
 text = "Buy
 "
-vertical_icon_alignment = 0
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Weapons/PopUp/Panel/Bow_Panel"]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -115.0
-offset_bottom = -27.0
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.0921986
+anchor_right = 0.8
+anchor_bottom = 0.404255
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture2D_80bvi")
+texture = ExtResource("12_unanx")
+metadata/_edit_use_anchors_ = true
 
 [node name="Weapon_Name" type="Label" parent="Weapons/PopUp/Panel/Bow_Panel"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 23.0
+offset_right = 160.0
+offset_bottom = 51.0
 grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("11_vxjq0")
 text = "Bow"
 label_settings = SubResource("LabelSettings_6b5f7")
 horizontal_alignment = 1
@@ -1614,10 +1640,14 @@ horizontal_alignment = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.716312
-anchor_right = 1.0
-anchor_bottom = 0.820857
+anchor_right = 0.9975
+anchor_bottom = 0.81844
+offset_right = -26.6
+offset_bottom = -4.8
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(1.2, 1.2)
+theme_override_fonts/font = ExtResource("11_vxjq0")
 text = "0"
 label_settings = SubResource("LabelSettings_sgw3s")
 horizontal_alignment = 1
@@ -1632,6 +1662,7 @@ anchor_right = 1.0
 anchor_bottom = 0.76412
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("11_vxjq0")
 text = "Cost:"
 label_settings = SubResource("LabelSettings_sgw3s")
 horizontal_alignment = 1
@@ -1644,6 +1675,8 @@ offset_left = 8.0
 offset_top = 114.0
 offset_right = 152.0
 offset_bottom = 194.0
+theme_override_fonts/font = ExtResource("11_vxjq0")
+theme_override_font_sizes/font_size = 20
 text = "Slow and with okay damage, but excellent range."
 autowrap_mode = 2
 

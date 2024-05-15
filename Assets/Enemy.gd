@@ -13,7 +13,7 @@ var is_dead = false
 var current_speed = 50.0
 @export var speed = 50.0
 @export var following_speed = 80.0
-@export var jump_power = 225.0
+@export var jump_power = 260.0
 @export var gets_stunned_after_lost_player = false
 @export var checkpoints = []
 var target_checkpoint : Vector2

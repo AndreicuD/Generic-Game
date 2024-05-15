@@ -4,8 +4,10 @@ var can_move = true
 var can_move_also_vertically = true
 var can_move_box = false
 var can_dash = true
+var on_controller = false
 
 var direction
+var attack_direction
 var is_dead = false
 var is_dashing : bool = false
 var is_moving_box : bool = false
@@ -42,9 +44,16 @@ var can_attack = true
 @export var arrow : PackedScene
 
 var has_key : bool = false
+var jump_anim_played = false
 
 func _ready():
 	choose_weapon('spear')
+
+func _input(event):
+	if(event is InputEventKey):
+		on_controller = false
+	elif(event is InputEventJoypadButton):
+		on_controller = true
 
 func _physics_process(delta):
 	is_moving_box = false
@@ -67,25 +76,40 @@ func _physics_process(delta):
 		else:
 			can_move = false
 			var new_arrow = arrow.instantiate()
-			if(get_global_mouse_position().x < $Arrow_Spawn_Point/point.global_position.x):
-				change_scale(-1)
+			var target
+			if on_controller:
+				target = $Arrow_Spawn_Point/point.global_position + attack_direction * 100
+				if(target.x < $Arrow_Spawn_Point/point.global_position.x):
+					change_scale(-1)
+				else:
+					change_scale(1)
+				await get_tree().create_timer(0.5).timeout
+				new_arrow.global_position = $Arrow_Spawn_Point/point.global_position
+				new_arrow.set_target_location(target)
 			else:
-				change_scale(1)
-			await get_tree().create_timer(0.5).timeout
-			new_arrow.global_position = $Arrow_Spawn_Point/point.global_position
-			new_arrow.set_target_location(get_global_mouse_position())
+				if(get_global_mouse_position().x < $Arrow_Spawn_Point/point.global_position.x):
+					change_scale(-1)
+				else:
+					change_scale(1)
+				await get_tree().create_timer(0.5).timeout
+				new_arrow.global_position = $Arrow_Spawn_Point/point.global_position
+				new_arrow.set_target_location(get_global_mouse_position())
 			add_sibling(new_arrow)
 			can_move = true
 
 	if !is_dashing:
 		direction = Vector2(Input.get_axis("Left", "Right"), Input.get_axis("Up", "Down"))
+		attack_direction = Vector2(Input.get_axis("Bow_Controller_Left", "Bow_Controller_Right"), Input.get_axis("Bow_Controller_Up", "Bow_Controller_Down"))
 		velocity.y += gravity*delta
 		velocity.y = clamp(velocity.y, -300, 300)
 		current_speed = speed
 
 	if !is_on_floor():
-		if !is_dashing:
+		if !is_dashing && jump_anim_played == false:
 			anim.play("Jumping")
+			jump_anim_played = true
+	else:
+		jump_anim_played = false
 
 	if Input.is_action_just_pressed("Jump") and is_on_floor() && can_move:
 		velocity.y -= jump_power
@@ -140,13 +164,13 @@ func _physics_process(delta):
 	if can_move_also_vertically:
 		move_and_slide()
 
-	for index in get_slide_collision_count():
-		var collision = get_slide_collision(index)
-		var body = collision.get_collider()
-		if body.is_in_group("Danger"):
+	#for index in get_slide_collision_count():
+	#	var collision = get_slide_collision(index)
+	#	var body = collision.get_collider()
+	#	if body.is_in_group("Danger"):
 			#can_move = false
 			#anim.play("Dead")
-			Global.player_death()
+	#		Global.player_death()
 
 func choose_weapon(weapon_name : String):
 	spear_check.monitoring = false
@@ -167,16 +191,13 @@ func choose_weapon(weapon_name : String):
 			Global.weapon = Global.Weapon.bow
 			Global.time_between_attacks = Global.bow_time_between_attacks
 			Global.DAMAGE = Global.bow_damage
-	print(weapon_name)
-	print(Global.weapon)
-	print(Global.DAMAGE)
 	attack_timer.set_wait_time(Global.time_between_attacks)
 
 func change_scale(x):
-	anim.scale.x = x
-	spear_check.scale.x = x
-	sword_check.scale.x = x
-	$Arrow_Spawn_Point.scale.x = x
+	anim.scale.x = 1 if x>=0 else -1
+	spear_check.scale.x = 1 if x>=0 else -1
+	sword_check.scale.x = 1 if x>=0 else -1
+	$Arrow_Spawn_Point.scale.x = 1 if x>=0 else -1
 
 func change_zone(zn_name : String):
 	current_zone = zn_name
@@ -216,3 +237,7 @@ func _on_sword_attack_check_body_exited(_body):
 
 func _on_time_between_attacks_timeout():
 	can_attack = true
+
+
+func _on_animated_sprite_2d_animation_looped():
+	anim.pause()
