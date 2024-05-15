@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://c1mre2qrte5s2"]
+[gd_scene load_steps=54 format=3 uid="uid://c1mre2qrte5s2"]
 
 [ext_resource type="Script" path="res://Player/Player_Dash.gd" id="1_fclto"]
 [ext_resource type="Texture2D" uid="uid://eiww8kcfd487" path="res://Arta/Vladutz.png" id="2_aqme3"]
@@ -200,7 +200,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Running",
-"speed": 13.0
+"speed": 15.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_666ik"]
@@ -217,6 +217,9 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qmccy"]
+size = Vector2(20, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bh205"]
 size = Vector2(24, 61)
@@ -294,8 +297,8 @@ trail_section_subdivisions = 1
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
 sprite_frames = SubResource("SpriteFrames_24ksa")
-animation = &"Idle"
-frame_progress = 0.97578
+animation = &"Dashing"
+frame_progress = 0.864001
 
 [node name="Sprute" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -304,7 +307,12 @@ z_index = 5
 scale = Vector2(0.5, 1)
 sprite_frames = SubResource("SpriteFrames_q4070")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D_Dash" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_qmccy")
+disabled = true
+
+[node name="CollisionShape2D_Normal" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_bh205")
 debug_color = Color(0.545098, 0.901961, 0.415686, 0.109804)
@@ -326,7 +334,7 @@ wait_time = 0.45
 one_shot = true
 
 [node name="Footsteps_Timer" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 0.43
 one_shot = true
 
 [node name="Spear_Attack_Check" type="Area2D" parent="."]

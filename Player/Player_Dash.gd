@@ -22,6 +22,9 @@ var current_speed = 150.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+@onready var normal_col_shape = $CollisionShape2D_Normal
+@onready var dash_col_shape = $CollisionShape2D_Dash
+
 @onready var swoosh_audio = $Swoosh_AudioPlayer
 @onready var hit_audio = $Hits_AudioPlayer
 @onready var grass_audio = $Grass_Foot_AudioPlayer
@@ -111,6 +114,8 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("Dash") && can_dash && (Global.can_dash_horizontal || Global.can_dash_any_direction):
 			dash_time.start()
 			dash_cooldown.start()
+			normal_col_shape.disabled = true
+			dash_col_shape.disabled = false
 			can_dash = false
 			if(Global.take_less_damage_when_dashing):
 				Global.DAMAGE_TAKEN_MULTIPLIER = Global.take_less_damage_when_dashing_multiplier
@@ -126,7 +131,6 @@ func _physics_process(delta):
 			await get_tree().create_timer(0.2).timeout
 			can_move_also_vertically = true
 			current_speed = dash_power
-
 	else:
 		if is_on_floor() && !is_dashing:
 			anim.play("Idle")
@@ -182,6 +186,8 @@ func _on_dash_time_timeout():
 	if(Global.take_less_damage_when_dashing):
 		Global.DAMAGE_TAKEN_MULTIPLIER = 1.0
 	is_dashing = false
+	normal_col_shape.disabled = false
+	dash_col_shape.disabled = true
 
 func _on_check_for_box_body_entered(body):
 	if body.is_in_group("Box"):

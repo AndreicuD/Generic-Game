@@ -102,7 +102,11 @@ position = Vector2(0, -48)
 texture = ExtResource("4_pl3gp")
 
 [node name="Shoot_Timer" type="Timer" parent="."]
-wait_time = 1.5
+wait_time = 1.8
+one_shot = true
+
+[node name="Show_ExclMark_Timer" type="Timer" parent="."]
+wait_time = 0.3
 one_shot = true
 
 [node name="Change_State_Cooldown" type="Timer" parent="."]
@@ -117,7 +121,7 @@ wait_time = 0.2
 one_shot = true
 
 [node name="Dead_Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 5.0
 one_shot = true
 
 [node name="Check_To_Run_Right" type="Area2D" parent="."]
@@ -158,6 +162,7 @@ collision_layer = 16
 shape = SubResource("RectangleShape2D_c1a0b")
 debug_color = Color(0.298039, 0, 0.113725, 0.419608)
 
+[connection signal="timeout" from="Show_ExclMark_Timer" to="." method="_on_show_excl_mark_timer_timeout"]
 [connection signal="timeout" from="Change_State_Cooldown" to="." method="_on_change_state_cooldown_timeout"]
 [connection signal="timeout" from="Cooldown_Timer" to="." method="_on_cooldown_timer_timeout"]
 [connection signal="timeout" from="Wait_Before_Jump_Timer" to="." method="_on_wait_before_jump_timer_timeout"]

@@ -30,6 +30,8 @@ var player
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var shoot_timer : Timer = $Shoot_Timer
+@onready var show_exclmark_timer : Timer = $Show_ExclMark_Timer
+var can_shoot = true
 @onready var anim : AnimatedSprite2D = $AnimatedSprite2D
 
 @onready var check_to_run_right = $Check_To_Run_Right
@@ -93,11 +95,8 @@ func _physics_process(delta):
 				velocity.x = 1 if target_checkpoint.x <= global_position.x else -1
 			if shoot_timer.is_stopped():
 				shoot_timer.start()
-				var new_arrow = arrow.instantiate()
-				new_arrow.global_position = global_position
-				new_arrow.set_target_location(Vector2(target_checkpoint.x, global_position.y))
-				add_sibling(new_arrow)
-
+				exclamation_mark.set_visible(true)
+				show_exclmark_timer.start()
 
 	if velocity.x == 1:
 		check_to_run_right.monitoring = true
@@ -126,7 +125,6 @@ func _physics_process(delta):
 func _on_change_state_cooldown_timeout():
 	if !is_dead:
 		can_move = true
-	exclamation_mark.set_visible(false)
 
 func _on_cooldown_timer_timeout():
 	if !is_dead:
@@ -141,7 +139,6 @@ func _on_check_for_player_to_shoot_body_entered(body):
 	if body.is_in_group("Player") && state != State.ACTIVE:
 		can_move = false
 		change_state_cooldown.start()
-		exclamation_mark.set_visible(true)
 		player = body
 		state = State.ACTIVE
 		current_speed = following_speed
@@ -163,3 +160,10 @@ func _on_check_to_run_body_exited(_body):
 
 func _on_dead_timer_timeout():
 	self.queue_free()
+
+func _on_show_excl_mark_timer_timeout():
+	exclamation_mark.set_visible(false)
+	var new_arrow = arrow.instantiate()
+	new_arrow.global_position = global_position
+	new_arrow.set_target_location(Vector2(target_checkpoint.x, global_position.y))
+	add_sibling(new_arrow)
