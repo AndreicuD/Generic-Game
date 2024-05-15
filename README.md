@@ -2,26 +2,26 @@
 
 **Controale:**
 
--Tastatura:
-                                                                        -deplasare: WASD si sageti
-                                                                        -sarit: space
-                                                                        -interactiune: E
-                                                                        -dash: shift
-                                                                        -atac: click stanga sau 'J'
+Tastatura:
+-deplasare: WASD si sageti
+-sarit: space
+-interactiune: E
+-dash: shift
+-atac: click stanga sau 'J'
     
--Controller:
-        -deplasare: joystick stanga sau d-pad
-        -sarit: buton jos
-        -interactiune: buton dreapta
-        -dash: buton stanga
-        -atac: RT sau RB
-        -tinta cu arcul: joystick dreapta
+Controller:
+-deplasare: joystick stanga sau d-pad
+-sarit: buton jos
+-interactiune: buton dreapta
+-dash: buton stanga
+-atac: RT sau RB
+-tinta cu arcul: joystick dreapta
 
 **Tehnologia utilizata:**
 
-    -cod: Godot 4.2.1
-    -arta: Piskel, Photopea
-    -muzică: BeepBox
+-cod: Godot 4.2.1
+-arta: Piskel, Photopea
+-muzică: BeepBox
 
 În cazul în care au fost luate sprite-uri de pe internet, am avut grijă să aibă licenta de tip CC0.
 
