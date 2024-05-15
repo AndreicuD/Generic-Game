@@ -1,7 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://5r8vnqynqlfu"]
+[gd_scene load_steps=18 format=3 uid="uid://5r8vnqynqlfu"]
 
 [ext_resource type="Script" path="res://Player/Player_Arrow.gd" id="1_7lhm6"]
 [ext_resource type="Texture2D" uid="uid://c2ljlhqgtdkpo" path="res://Arta/Player/Arrow/arow.png" id="2_bm14t"]
+[ext_resource type="AudioStream" uid="uid://smx6xgu1ufah" path="res://Sounds/Hits/Armour Plate Hit Scrape Impact Thump-001.wav" id="3_1raoc"]
+[ext_resource type="AudioStream" uid="uid://dk6cpvr8t17qp" path="res://Sounds/Hits/Armour Plate Hit Scrape Impact Thump-002.wav" id="4_5ba0o"]
+[ext_resource type="AudioStream" uid="uid://c6mve2mbmlwgk" path="res://Sounds/Hits/Armour Plate Hit Scrape Impact Thump-003.wav" id="5_0q8qi"]
+[ext_resource type="AudioStream" uid="uid://cpbuddqdrv783" path="res://Sounds/Hits/arrow_hit-001.mp3" id="6_anie6"]
+[ext_resource type="AudioStream" uid="uid://c2o2gfyew77y6" path="res://Sounds/Hits/arrow_hit-002.mp3" id="7_q2gt5"]
+[ext_resource type="AudioStream" uid="uid://fop2n4o6083c" path="res://Sounds/Hits/arrow_hit-003.mp3" id="8_55jvr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o0k04"]
 atlas = ExtResource("2_bm14t")
@@ -49,7 +55,25 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpct3"]
 size = Vector2(32, 10)
 
-[node name="Arrow" type="CharacterBody2D"]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_tb5vb"]
+streams_count = 3
+stream_0/stream = ExtResource("3_1raoc")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("4_5ba0o")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("5_0q8qi")
+stream_2/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_qc5kl"]
+streams_count = 3
+stream_0/stream = ExtResource("6_anie6")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("7_q2gt5")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("8_55jvr")
+stream_2/weight = 1.0
+
+[node name="Arrow" type="CharacterBody2D" groups=["Projectile"]]
 z_index = 16
 collision_mask = 70
 script = ExtResource("1_7lhm6")
@@ -67,4 +91,20 @@ collision_mask = 70
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Coll_Check"]
 shape = SubResource("RectangleShape2D_hpct3")
 
+[node name="damage_AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_tb5vb")
+max_polyphony = 5
+bus = &"Hit_Sounds"
+
+[node name="hit_AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_qc5kl")
+max_polyphony = 5
+bus = &"Hit_Sounds"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
 [connection signal="body_entered" from="Coll_Check" to="." method="_on_coll_check_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -167,6 +167,9 @@ func choose_weapon(weapon_name : String):
 			Global.weapon = Global.Weapon.bow
 			Global.time_between_attacks = Global.bow_time_between_attacks
 			Global.DAMAGE = Global.bow_damage
+	print(weapon_name)
+	print(Global.weapon)
+	print(Global.DAMAGE)
 	attack_timer.set_wait_time(Global.time_between_attacks)
 
 func change_scale(x):

@@ -49,7 +49,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpct3"]
 size = Vector2(32, 10)
 
-[node name="Arrow" type="CharacterBody2D"]
+[node name="Arrow" type="CharacterBody2D" groups=["Projectile"]]
 z_index = 16
 scale = Vector2(0.61, 0.61)
 collision_layer = 66

@@ -66,7 +66,7 @@ func die():
 	is_dead = true
 	$CollisionShape2D.set_disabled(true)
 	$Dead_Timer.start()
-	#Global.has_killed_enemy()
+	Global.has_killed_enemy('bow')
 
 func _physics_process(delta):
 	if !is_dead:

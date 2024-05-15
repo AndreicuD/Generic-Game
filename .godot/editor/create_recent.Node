@@ -1,4 +1,9 @@
+Label
 Timer
+GridContainer
+TextureRect
+Panel
+Button
 CollisionShape2D
 AudioStreamPlayer
 Node2D
@@ -6,9 +11,4 @@ Area2D
 CharacterBody2D
 AnimatedSprite2D
 GPUParticles2D
-Panel
 Control
-Container
-TextureRect
-ColorRect
-CanvasLayer

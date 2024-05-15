@@ -225,10 +225,10 @@ size = Vector2(20, 12)
 size = Vector2(24, 61)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_wkj2t"]
-b = Vector2(-0.00011041, 15.25)
+b = Vector2(-0.00013756, 19)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_66k36"]
-b = Vector2(-6.33498e-05, 8.75)
+b = Vector2(-8.14498e-05, 11.25)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_mjglt"]
 streams_count = 3
@@ -297,8 +297,7 @@ trail_section_subdivisions = 1
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
 sprite_frames = SubResource("SpriteFrames_24ksa")
-animation = &"Dashing"
-frame_progress = 0.864001
+animation = &"Idle"
 
 [node name="Sprute" type="AnimatedSprite2D" parent="."]
 visible = false

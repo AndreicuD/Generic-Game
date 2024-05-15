@@ -72,8 +72,6 @@ collision_layer = 66
 collision_mask = 5
 platform_floor_layers = 4294967044
 script = ExtResource("1_5cry7")
-jump_power = 275.0
-checkpoints = [null]
 
 [node name="Blood_Particles" type="GPUParticles2D" parent="."]
 emitting = false

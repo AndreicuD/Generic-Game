@@ -157,22 +157,10 @@ texture_region_size = Vector2i(32, 32)
 2:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:4/0/physics_layer_0/angular_velocity = 0.0
 2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-3:4/next_alternative_id = 3
 3:4/0 = 0
 3:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:4/0/physics_layer_0/angular_velocity = 0.0
 3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, -7.57264, -16, 16)
-3:4/1 = 1
-3:4/1/flip_v = true
-3:4/1/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:4/1/physics_layer_0/angular_velocity = 0.0
-3:4/1/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-3:4/2 = 2
-3:4/2/flip_h = true
-3:4/2/flip_v = true
-3:4/2/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:4/2/physics_layer_0/angular_velocity = 0.0
-3:4/2/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 4:4/0 = 0
 4:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:4/0/physics_layer_0/angular_velocity = 0.0
@@ -268,11 +256,7 @@ texture_region_size = Vector2i(32, 32)
 4:1/0 = 0
 5:1/0 = 0
 6:1/0 = 0
-7:1/next_alternative_id = 2
 7:1/0 = 0
-7:1/1 = 1
-7:1/1/flip_h = true
-7:1/1/flip_v = true
 0:2/0 = 0
 1:2/0 = 0
 2:2/0 = 0
@@ -316,11 +300,7 @@ texture_region_size = Vector2i(32, 32)
 5:5/0/probability = 0.01
 6:5/0 = 0
 6:5/0/probability = 0.98
-7:5/next_alternative_id = 2
 7:5/0 = 0
-7:5/1 = 1
-7:5/1/flip_h = true
-7:5/1/flip_v = true
 0:6/0 = 0
 1:6/0 = 0
 2:6/0 = 0
@@ -1242,7 +1222,7 @@ layer_1/navigation_enabled = false
 layer_1/tile_data = PackedInt32Array(15, 393218, 5, -131057, 393218, 5, -65521, 393218, 5, -458758, 393218, 5, -393222, 262146, 5, -327686, 393218, 5, -262150, 327682, 5, -196614, 393218, 5, -131078, 393218, 5, -65542, 393218, 5, -6, 393218, 5, 65530, 393218, 5, 131066, 393218, 5, -458757, 393218, 5, -393221, 393218, 5, -327685, 393218, 5, -262149, 393218, 5, -196613, 393218, 5, -131077, 393218, 5, -65541, 393218, 5, -5, 393218, 5, 65531, 393218, 5, 131067, 393218, 5, -458756, 393218, 5, -393220, 393218, 5, -327684, 393218, 5, -262148, 393218, 5, -196612, 393218, 5, -131076, 393218, 5, -65540, 393218, 5, -4, 393218, 5, 65532, 393218, 5, 131068, 393218, 5, -458755, 393218, 5, -393219, 262146, 5, -327683, 393218, 5, -262147, 393218, 5, -196611, 393218, 5, -131075, 393218, 5, -65539, 327682, 5, -3, 393218, 5, 65533, 393218, 5, 131069, 393218, 5, -458754, 393218, 5, -393218, 393218, 5, -327682, 393218, 5, -262146, 393218, 5, -196610, 393218, 5, -131074, 393218, 5, -65538, 393218, 5, -2, 393218, 5, 65534, 393218, 5, 131070, 393218, 5, -458753, 393218, 5, -393217, 393218, 5, -327681, 393218, 5, -262145, 393218, 5, -196609, 393218, 5, -131073, 393218, 5, -65537, 262146, 5, -1, 393218, 5, 65535, 262146, 5, 131071, 393218, 5, -524288, 393218, 5, -458752, 393218, 5, -393216, 393218, 5, -327680, 393218, 5, -262144, 393218, 5, -196608, 393218, 5, -131072, 393218, 5, -65536, 393218, 5, 0, 393218, 5, 65536, 393218, 5, -524287, 393218, 5, -458751, 262146, 5, -393215, 393218, 5, -327679, 393218, 5, -262143, 393218, 5, -196607, 393218, 5, -131071, 393218, 5, -65535, 393218, 5, 1, 393218, 5, 65537, 393218, 5, -524286, 393218, 5, -458750, 262146, 5, -393214, 262146, 5, -327678, 393218, 5, -262142, 393218, 5, -196606, 393218, 5, -131070, 393218, 5, -65534, 393218, 5, 2, 393218, 5, 65538, 393218, 5, -524285, 393218, 5, -458749, 393218, 5, -393213, 393218, 5, -327677, 393218, 5, -262141, 393218, 5, -196605, 262146, 5, -131069, 393218, 5, -65533, 393218, 5, 3, 393218, 5, 65539, 393218, 5, -524284, 393218, 5, -458748, 393218, 5, -393212, 393218, 5, -327676, 393218, 5, -262140, 393218, 5, -196604, 393218, 5, -131068, 393218, 5, -65532, 393218, 5, 4, 393218, 5, 65540, 393218, 5, -524283, 393218, 5, -458747, 393218, 5, -393211, 393218, 5, -327675, 393218, 5, -262139, 393218, 5, -196603, 393218, 5, -131067, 393218, 5, -65531, 393218, 5, 5, 393218, 5, 65541, 393218, 5, -524282, 327682, 5, -458746, 327682, 5, -393210, 393218, 5, -327674, 262146, 5, -262138, 393218, 5, -196602, 327682, 5, -131066, 393218, 5, -65530, 393218, 5, 6, 393218, 5, 65542, 393218, 5, -524281, 393218, 5, -458745, 393218, 5, -393209, 393218, 5, -327673, 393218, 5, -262137, 393218, 5, -196601, 393218, 5, -131065, 327682, 5, -65529, 393218, 5, 7, 393218, 5, 65543, 393218, 5, -524280, 393218, 5, -458744, 393218, 5, -393208, 393218, 5, -327672, 393218, 5, -262136, 393218, 5, -196600, 393218, 5, -131064, 393218, 5, -65528, 393218, 5, 8, 393218, 5, 65544, 393218, 5, -524279, 393218, 5, -458743, 393218, 5, -393207, 262146, 5, -327671, 393218, 5, -262135, 393218, 5, -196599, 393218, 5, -131063, 393218, 5, -65527, 393218, 5, 9, 393218, 5, 65545, 393218, 5, -524278, 393218, 5, -458742, 393218, 5, -393206, 327682, 5, -327670, 393218, 5, -262134, 393218, 5, -196598, 393218, 5, -131062, 393218, 5, -65526, 393218, 5, 10, 327682, 5, 65546, 393218, 5, -524277, 393218, 5, -458741, 393218, 5, -393205, 393218, 5, -327669, 393218, 5, -262133, 327682, 5, -196597, 327682, 5, -131061, 393218, 5, -65525, 393218, 5, 11, 393218, 5, 65547, 393218, 5, -524276, 393218, 5, -458740, 327682, 5, -393204, 393218, 5, -327668, 393218, 5, -262132, 393218, 5, -196596, 393218, 5, -131060, 393218, 5, -65524, 393218, 5, 12, 327682, 5, 65548, 393218, 5, -524275, 393218, 5, -458739, 393218, 5, -393203, 393218, 5, -327667, 393218, 5, -262131, 327682, 5, -196595, 393218, 5, -131059, 393218, 5, -65523, 393218, 5, 13, 393218, 5, 65549, 393218, 5, -524274, 393218, 5, -458738, 393218, 5, -393202, 393218, 5, -327666, 393218, 5, -262130, 393218, 5, -196594, 393218, 5, -131058, 393218, 5, -65522, 393218, 5, 14, 393218, 5, 65550, 262146, 5, -524273, 393218, 5, -458737, 393218, 5, -393201, 393218, 5, -327665, 393218, 5, -262129, 393218, 5, -196593, 393218, 5, 65551, 393218, 5, -983036, 393218, 5, -917500, 393218, 5, -851964, 393218, 5, -786428, 393218, 5, -720892, 393218, 5, -655356, 393218, 5, -589820, 393218, 5, -983035, 393218, 5, -917499, 393218, 5, -851963, 393218, 5, -786427, 393218, 5, -720891, 393218, 5, -655355, 393218, 5, -589819, 393218, 5)
 layer_2/name = "Ground/Walls"
 layer_2/z_index = 1
-layer_2/tile_data = PackedInt32Array(131067, 65538, 0, 131068, 65538, 0, 131069, 65538, 0, 131070, 65538, 0, 131071, 65538, 0, 65536, 65538, 0, 65537, 65538, 0, 65539, 65538, 0, 65540, 327682, 6, 65541, 327682, 6, 65542, 327682, 6, 65543, 327682, 6, 65538, 65538, 0, 65544, 327682, 6, 65545, 327682, 6, 65546, 327682, 6, 65547, 327682, 6, 65548, 327682, 6, 65549, 327682, 6, 65550, 327682, 6, 65551, 65538, 1, -196614, 131074, 1, -65542, 131074, 1, -6, 131074, 1, 65530, 131074, 1, -262150, 131074, 1, -131078, 131074, 1, 131066, 2, 5, -327686, 131074, 1, -393201, 2, 1, -327665, 2, 1, -458757, 65538, 2, -458756, 65538, 2, -458755, 65538, 2, -458754, 65538, 2, -458753, 65538, 2, -524288, 65538, 2, -524287, 65538, 2, -524286, 65538, 2, -524285, 131074, 2, -524282, 2, 2, -524281, 65538, 2, -524280, 65538, 2, -524279, 65538, 2, -524278, 65538, 2, -524277, 65538, 2, -524276, 65538, 2, -524275, 65538, 2, -524274, 65538, 2, -524273, 131074, 3, -458737, 2, 1, -458758, 2, 3, -393222, 131074, 1, -262129, 2, 1, -131057, 65538, 1, -65521, 65538, 1, 15, 65538, 1, -917501, 131074, 1, -851965, 131074, 1, -786429, 131074, 1, -720893, 131074, 1, -655357, 131074, 1, -589821, 131074, 1, -983037, 131074, 1, -983034, 2, 1, -917498, 2, 1, -851962, 2, 1, -786426, 2, 1, -720890, 2, 1, -655354, 2, 1, -589818, 2, 1, 4, 262146, 6, -65531, 262146, 6, -131066, 262146, 6, -196601, 262146, 6, 5, 327682, 6, 6, 327682, 6, -65530, 327682, 6, 7, 327682, 6, -65529, 327682, 6, -131065, 327682, 6, -196600, 393218, 6, -196599, 393218, 6, -196598, 393218, 6, -196597, 393218, 6, -196596, 393218, 6, -196595, 393218, 6, -196594, 393218, 6, -131064, 327682, 6, -131063, 327682, 6, -131062, 327682, 6, -131061, 327682, 6, -131060, 327682, 6, -131059, 327682, 6, -131058, 327682, 6, -65522, 327682, 6, -65523, 327682, 6, -65524, 327682, 6, -65525, 327682, 6, -65526, 327682, 6, -65527, 327682, 6, -65528, 327682, 6, 9, 327682, 6, 10, 327682, 6, 11, 327682, 6, 12, 327682, 6, 13, 327682, 6, 14, 327682, 6, 8, 327682, 6, -196593, 131074, 5, 131087, 65538, 1, -131077, 196610, 4, -131076, 262146, 4, -131075, 262146, 4, -131074, 262146, 4, -131073, 262146, 4, -196608, 262146, 4, -589819, 196610, 131076, -589820, 196610, 65540)
+layer_2/tile_data = PackedInt32Array(131067, 65538, 0, 131068, 65538, 0, 131069, 65538, 0, 131070, 65538, 0, 131071, 65538, 0, 65536, 65538, 0, 65537, 65538, 0, 65539, 65538, 0, 65540, 327682, 6, 65541, 327682, 6, 65542, 327682, 6, 65543, 327682, 6, 65538, 65538, 0, 65544, 327682, 6, 65545, 327682, 6, 65546, 327682, 6, 65547, 327682, 6, 65548, 327682, 6, 65549, 327682, 6, 65550, 327682, 6, 65551, 65538, 1, -196614, 131074, 1, -65542, 131074, 1, -6, 131074, 1, 65530, 131074, 1, -262150, 131074, 1, -131078, 131074, 1, 131066, 2, 5, -327686, 131074, 1, -393201, 2, 1, -327665, 2, 1, -458757, 65538, 2, -458756, 65538, 2, -458755, 65538, 2, -458754, 65538, 2, -458753, 65538, 2, -524288, 65538, 2, -524287, 65538, 2, -524286, 65538, 2, -524285, 131074, 2, -524282, 2, 2, -524281, 65538, 2, -524280, 65538, 2, -524279, 65538, 2, -524278, 65538, 2, -524277, 65538, 2, -524276, 65538, 2, -524275, 65538, 2, -524274, 65538, 2, -524273, 131074, 3, -458737, 2, 1, -458758, 2, 3, -393222, 131074, 1, -262129, 2, 1, -131057, 65538, 1, -65521, 65538, 1, 15, 65538, 1, -917501, 131074, 1, -851965, 131074, 1, -786429, 131074, 1, -720893, 131074, 1, -655357, 131074, 1, -589821, 131074, 1, -983037, 131074, 1, -983034, 2, 1, -917498, 2, 1, -851962, 2, 1, -786426, 2, 1, -720890, 2, 1, -655354, 2, 1, -589818, 2, 1, 4, 262146, 6, -65531, 262146, 6, -131066, 262146, 6, -196601, 262146, 6, 5, 327682, 6, 6, 327682, 6, -65530, 327682, 6, 7, 327682, 6, -65529, 327682, 6, -131065, 327682, 6, -196600, 393218, 6, -196599, 393218, 6, -196598, 393218, 6, -196597, 393218, 6, -196596, 393218, 6, -196595, 393218, 6, -196594, 393218, 6, -131064, 327682, 6, -131063, 327682, 6, -131062, 327682, 6, -131061, 327682, 6, -131060, 327682, 6, -131059, 327682, 6, -131058, 327682, 6, -65522, 327682, 6, -65523, 327682, 6, -65524, 327682, 6, -65525, 327682, 6, -65526, 327682, 6, -65527, 327682, 6, -65528, 327682, 6, 9, 327682, 6, 10, 327682, 6, 11, 327682, 6, 12, 327682, 6, 13, 327682, 6, 14, 327682, 6, 8, 327682, 6, -196593, 131074, 5, 131087, 65538, 1)
 
 [node name="Chestii Estetice" type="Node2D" parent="."]
 
@@ -1251,13 +1231,12 @@ modulate = Color(0.709804, 0.709804, 0.709804, 1)
 tile_set = SubResource("TileSet_tncy7")
 format = 2
 layer_0/name = "Behind"
-layer_0/tile_data = PackedInt32Array(-196613, 262145, 2, -524283, 458753, 65539, -524284, 458753, 65539, -196609, 458753, 1, -393211, 327681, 3, -196608, 393217, 2, -393220, 393217, 3, -327684, 393217, 3, -262148, 458753, 65537, -458750, 393217, 3, -393214, 393217, 3, -327678, 393217, 3, -262142, 393217, 3, -196606, 393217, 3, -131070, 458753, 65537)
 layer_1/name = "Behind2"
 layer_1/z_index = 1
-layer_1/tile_data = PackedInt32Array(-524283, 458753, 2, -458747, 458753, 2, -393211, 458753, 2, -458748, 393217, 2, -393212, 393217, 2, -524284, 393217, 2, -327676, 262145, 4, -327675, 262145, 4)
+layer_1/tile_data = PackedInt32Array()
 layer_2/name = "In Front"
 layer_2/z_index = 20
-layer_2/tile_data = PackedInt32Array(-262144, 393217, 2, -327680, 393217, 2, -393216, 393217, 2, -458752, 393217, 2, -131077, 393217, 4, -393217, 458753, 4, -196611, 65537, 6, -262147, 458753, 5, -524284, 393217, 4, -196612, 393217, 1, -131075, 393217, 2, -65539, 393217, 2)
+layer_2/tile_data = PackedInt32Array()
 layer_3/name = "Detalii Background"
 layer_3/modulate = Color(0.721569, 0.721569, 0.721569, 1)
 layer_3/tile_data = PackedInt32Array()
@@ -1327,16 +1306,15 @@ position = Vector2(312, -128)
 script = ExtResource("8_rqgac")
 
 [node name="PopUp" type="CanvasLayer" parent="Weapons"]
-visible = false
 
 [node name="Panel" type="Panel" parent="Weapons/PopUp"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 128.0
-offset_top = 61.0
+offset_top = 112.0
 offset_right = -128.0
-offset_bottom = -53.0
+offset_bottom = -64.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -1383,10 +1361,12 @@ flat = true
 [node name="Spear_Panel" type="Panel" parent="Weapons/PopUp/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.125
-anchor_top = 0.244589
-anchor_right = 0.333333
-anchor_bottom = 0.854978
+anchor_left = 0.333333
+anchor_top = 0.275
+anchor_right = 0.541667
+anchor_bottom = 0.825
+offset_left = -160.0
+offset_right = -160.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
@@ -1397,15 +1377,15 @@ metadata/_edit_use_anchors_ = true
 [node name="Buy_Spear" type="Button" parent="Weapons/PopUp/Panel/Spear_Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.808511
+anchor_top = 0.71
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -0.0600128
 grow_horizontal = 2
 grow_vertical = 0
 text = "Buy
 "
 vertical_icon_alignment = 0
-metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Weapons/PopUp/Panel/Spear_Panel"]
 layout_mode = 1
@@ -1413,8 +1393,8 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -115.0
-offset_bottom = -27.0
+offset_top = -80.0
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_80bvi")
@@ -1432,9 +1412,9 @@ horizontal_alignment = 1
 [node name="Weapon_Cost" type="Label" parent="Weapons/PopUp/Panel/Spear_Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.716312
+anchor_top = 0.604545
 anchor_right = 1.0
-anchor_bottom = 0.820857
+anchor_bottom = 0.709091
 grow_horizontal = 2
 grow_vertical = 0
 text = "0"
@@ -1446,9 +1426,9 @@ metadata/_edit_use_anchors_ = true
 [node name="Cost_Label" type="Label" parent="Weapons/PopUp/Panel/Spear_Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.659574
+anchor_top = 0.536364
 anchor_right = 1.0
-anchor_bottom = 0.76412
+anchor_bottom = 0.640909
 grow_horizontal = 2
 grow_vertical = 0
 text = "Cost:"
@@ -1457,24 +1437,13 @@ horizontal_alignment = 1
 vertical_alignment = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Description" type="Label" parent="Weapons/PopUp/Panel/Spear_Panel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.05
-anchor_top = 0.404255
-anchor_right = 0.95
-anchor_bottom = 0.687943
-text = "Good range and a fast weapon, but weak."
-autowrap_mode = 2
-metadata/_edit_use_anchors_ = true
-
 [node name="Sword_Panel" type="Panel" parent="Weapons/PopUp/Panel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.635417
-anchor_top = 0.244589
+anchor_top = 0.275
 anchor_right = 0.84375
-anchor_bottom = 0.854978
+anchor_bottom = 0.825
 offset_left = -184.0
 offset_right = -184.0
 grow_horizontal = 2
@@ -1487,15 +1456,15 @@ metadata/_edit_use_anchors_ = true
 [node name="Buy_Sword" type="Button" parent="Weapons/PopUp/Panel/Sword_Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.808511
+anchor_top = 0.71
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -0.0600128
 grow_horizontal = 2
 grow_vertical = 0
 text = "Buy
 "
 vertical_icon_alignment = 0
-metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Weapons/PopUp/Panel/Sword_Panel"]
 layout_mode = 1
@@ -1503,8 +1472,8 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -115.0
-offset_bottom = -27.0
+offset_top = -80.0
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_80bvi")
@@ -1523,9 +1492,9 @@ horizontal_alignment = 1
 [node name="Weapon_Cost" type="Label" parent="Weapons/PopUp/Panel/Sword_Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.716312
+anchor_top = 0.604545
 anchor_right = 1.0
-anchor_bottom = 0.820857
+anchor_bottom = 0.709091
 grow_horizontal = 2
 grow_vertical = 0
 text = "0"
@@ -1537,9 +1506,9 @@ metadata/_edit_use_anchors_ = true
 [node name="Cost_Label" type="Label" parent="Weapons/PopUp/Panel/Sword_Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.659574
+anchor_top = 0.536364
 anchor_right = 1.0
-anchor_bottom = 0.76412
+anchor_bottom = 0.640909
 grow_horizontal = 2
 grow_vertical = 0
 text = "Cost:"
@@ -1548,24 +1517,13 @@ horizontal_alignment = 1
 vertical_alignment = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Description" type="Label" parent="Weapons/PopUp/Panel/Sword_Panel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.05
-anchor_top = 0.404255
-anchor_right = 0.95
-anchor_bottom = 0.687943
-text = "Great damage, but slow and with no range."
-autowrap_mode = 2
-metadata/_edit_use_anchors_ = true
-
 [node name="Bow_Panel" type="Panel" parent="Weapons/PopUp/Panel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
-anchor_top = 0.244589
+anchor_top = 0.275
 anchor_right = 1.20833
-anchor_bottom = 0.854978
+anchor_bottom = 0.825
 offset_left = -256.0
 offset_right = -256.0
 grow_horizontal = 2
@@ -1578,15 +1536,15 @@ metadata/_edit_use_anchors_ = true
 [node name="Buy_Bow" type="Button" parent="Weapons/PopUp/Panel/Bow_Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.808511
+anchor_top = 0.71
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -0.0600128
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 text = "Buy
 "
 vertical_icon_alignment = 0
-metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Weapons/PopUp/Panel/Bow_Panel"]
 layout_mode = 1
@@ -1594,8 +1552,8 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -115.0
-offset_bottom = -27.0
+offset_top = -80.0
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_80bvi")
@@ -1613,9 +1571,9 @@ horizontal_alignment = 1
 [node name="Weapon_Cost" type="Label" parent="Weapons/PopUp/Panel/Bow_Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.716312
+anchor_top = 0.604545
 anchor_right = 1.0
-anchor_bottom = 0.820857
+anchor_bottom = 0.709091
 grow_horizontal = 2
 grow_vertical = 0
 text = "0"
@@ -1627,9 +1585,9 @@ metadata/_edit_use_anchors_ = true
 [node name="Cost_Label" type="Label" parent="Weapons/PopUp/Panel/Bow_Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.659574
+anchor_top = 0.536364
 anchor_right = 1.0
-anchor_bottom = 0.76412
+anchor_bottom = 0.640909
 grow_horizontal = 2
 grow_vertical = 0
 text = "Cost:"
@@ -1637,15 +1595,6 @@ label_settings = SubResource("LabelSettings_sgw3s")
 horizontal_alignment = 1
 vertical_alignment = 2
 metadata/_edit_use_anchors_ = true
-
-[node name="Description" type="Label" parent="Weapons/PopUp/Panel/Bow_Panel"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 114.0
-offset_right = 152.0
-offset_bottom = 194.0
-text = "Slow and with okay damage, but excellent range."
-autowrap_mode = 2
 
 [node name="Container" type="Control" parent="Weapons/PopUp/Panel"]
 modulate = Color(0.764706, 0.592157, 0.427451, 1)
@@ -1701,9 +1650,9 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 632.0
-offset_top = 402.0
+offset_top = 340.0
 offset_right = 728.0
-offset_bottom = 442.0
+offset_bottom = 380.0
 grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("11_4jnyp")
@@ -1716,9 +1665,9 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 708.0
-offset_top = 422.0
+offset_top = 360.0
 offset_right = 804.0
-offset_bottom = 462.0
+offset_bottom = 400.0
 grow_horizontal = 0
 grow_vertical = 0
 rotation = -1.5708
@@ -1730,9 +1679,9 @@ flip_v = true
 layout_mode = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = 402.0
+offset_top = 340.0
 offset_right = 96.0
-offset_bottom = 442.0
+offset_bottom = 380.0
 grow_vertical = 0
 texture = ExtResource("11_4jnyp")
 flip_h = true
@@ -1742,9 +1691,9 @@ layout_mode = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 20.0
-offset_top = 326.0
+offset_top = 264.0
 offset_right = 116.0
-offset_bottom = 366.0
+offset_bottom = 304.0
 grow_vertical = 0
 rotation = 1.5708
 texture = ExtResource("11_4jnyp")

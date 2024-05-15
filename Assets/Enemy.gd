@@ -3,6 +3,8 @@ extends CharacterBody2D
 enum State {PASSIVE, ACTIVE}
 var state = State.PASSIVE
 
+@export var enemy_class : String = 'basic'
+
 @export var health = 120.0
 
 var can_move = true
@@ -59,7 +61,7 @@ func die():
 	is_dead = true
 	$CollisionShape2D.set_disabled(true)
 	$Dead_Timer.start()
-	#Global.has_killed_enemy()
+	Global.has_killed_enemy(enemy_class)
 
 func _physics_process(delta):
 	if !is_dead:

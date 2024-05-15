@@ -21,6 +21,11 @@ func _on_animation_player_animation_finished(anim_name):
 	match anim_name:
 		"Fade_In":
 			Global.reset_player_position_and_health()
+
+			#also clean the level of any projectiles
+			for projectile in get_tree().get_nodes_in_group('Projectile'):
+				projectile.queue_free()
+
 			current_level.queue_free()
 			current_level=next_level
 			add_child(current_level)

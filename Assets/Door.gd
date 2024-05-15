@@ -25,19 +25,19 @@ func _process(_delta):
 				if player.has_key == true:
 					player.has_key = false
 					get_tree().get_first_node_in_group("active_key").queue_free()
-					TransitionManager.play_transition("Fade_In")
-					await get_tree().create_timer(1).timeout
+					#TransitionManager.play_transition("Fade_In")
+					#await get_tree().create_timer(1).timeout
 					anim.play("opened")
-					TransitionManager.play_transition("Fade_Out")
+					#TransitionManager.play_transition("Fade_Out")
 					is_opened = true
 					$AudioStreamPlayer.play(0)
 				else:
 					PopUp.set_visible(true)
 			else:
-				TransitionManager.play_transition("Fade_In")
-				await get_tree().create_timer(1).timeout
+				#TransitionManager.play_transition("Fade_In")
+				#await get_tree().create_timer(1).timeout
 				anim.play("opened")
-				TransitionManager.play_transition("Fade_Out")
+				#TransitionManager.play_transition("Fade_Out")
 				is_opened = true
 				$AudioStreamPlayer.play(0)
 		elif is_opened:
