@@ -1,6 +1,6 @@
 # Generic Game
 
-**Controale:**
+## **Controale:**
 
     -Tastatura:
     
