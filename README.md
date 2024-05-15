@@ -20,10 +20,10 @@
     -tinta cu arcul: joystick dreapta
 
 **Tehnologia utilizata:**
-
--cod: Godot 4.2.1
--arta: Piskel, Photopea
--muzică: BeepBox
+    
+    -cod: Godot 4.2.1
+    -arta: Piskel, Photopea
+    -muzică: BeepBox
 
 În cazul în care au fost luate sprite-uri de pe internet, am avut grijă să aibă licenta de tip CC0.
 
