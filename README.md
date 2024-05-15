@@ -3,6 +3,7 @@
 **Controale:**
 
     -Tastatura:
+    
     -deplasare: WASD si sageti
     -sarit: space
     -interactiune: E
@@ -10,6 +11,7 @@
     -atac: click stanga sau 'J'
     
     -Controller:
+    
     -deplasare: joystick stanga sau d-pad
     -sarit: buton jos
     -interactiune: buton dreapta
