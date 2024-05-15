@@ -3,11 +3,11 @@
 **Controale:**
 
 -Tastatura:
-        -deplasare: WASD si sageti
-        -sarit: space
-        -interactiune: E
-        -dash: shift
-        -atac: click stanga sau 'J'
+                                                                        -deplasare: WASD si sageti
+                                                                        -sarit: space
+                                                                        -interactiune: E
+                                                                        -dash: shift
+                                                                        -atac: click stanga sau 'J'
     
 -Controller:
         -deplasare: joystick stanga sau d-pad
