@@ -20,6 +20,7 @@ func _on_buy_pressed():
 		Global.damage_level_1_upgrade = false
 		Global.DAMAGE_MULTIPLIER = Global.damage_level_2_upgrade_multiplier
 		Global.cards.erase(self)
+		queue_free()
 	else:
 		$Panel/Buy.text = \"Can't afford!\"
 "

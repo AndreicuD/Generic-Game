@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://c1mre2qrte5s2" path="res://Player/player.tscn" id="3_3i4ib"]
 [ext_resource type="Script" path="res://GlobalScripts/Transition_Manager.gd" id="3_8mv83"]
 [ext_resource type="Theme" uid="uid://beoh5k5sb22ui" path="res://Arta/Theme.tres" id="4_2mq4s"]
+[ext_resource type="PackedScene" uid="uid://dh8s4vwbpultd" path="res://Levels/Tutorial.tscn" id="4_f164h"]
 [ext_resource type="Theme" uid="uid://duqt24herp7yx" path="res://Arta/Butoane_Main_Men.tres" id="5_0uib4"]
 [ext_resource type="Texture2D" uid="uid://boe77fl22joes" path="res://Arta/Coin/1.png" id="5_4i4xl"]
-[ext_resource type="PackedScene" uid="uid://dasb6pgsbw6lt" path="res://Levels/Main_Room.tscn" id="6_8ggml"]
 [ext_resource type="Texture2D" uid="uid://l038qpuf334m" path="res://Arta/UI/ui1.png" id="6_mgr12"]
 [ext_resource type="Texture2D" uid="uid://dr5uau87lwcyw" path="res://Arta/Coin/2.png" id="6_mqvd6"]
 [ext_resource type="Texture2D" uid="uid://c1opeaqs3y30q" path="res://Arta/UI/ui2.png" id="7_d87i6"]
@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bwukmuvkhlehe" path="res://Arta/Coin/5.png" id="9_ipcu6"]
 [ext_resource type="Texture2D" uid="uid://bmyh5v5hvvciw" path="res://Arta/UI/ui4.png" id="9_vbs4x"]
 [ext_resource type="Texture2D" uid="uid://cq8sfkpjotau5" path="res://Arta/Coin/6.png" id="10_870an"]
-[ext_resource type="Script" path="res://Coins.gd" id="12_yurgm"]
+[ext_resource type="Script" path="res://GlobalScripts/Coins.gd" id="12_yurgm"]
 
 [sub_resource type="Animation" id="Animation_ewint"]
 resource_name = "Death_Fade_In"
@@ -132,52 +132,16 @@ script = ExtResource("1_75af8")
 
 [node name="Global" parent="." instance=ExtResource("2_al6ck")]
 
+[node name="Player" parent="." instance=ExtResource("3_3i4ib")]
+
+[node name="Tutorial" parent="." instance=ExtResource("4_f164h")]
+
 [node name="TransitionManager" type="AnimationPlayer" parent="." groups=["screen_animator"]]
 root_node = NodePath("../Fade")
 libraries = {
 "": SubResource("AnimationLibrary_4wr8q")
 }
 script = ExtResource("3_8mv83")
-
-[node name="Player" parent="." instance=ExtResource("3_3i4ib")]
-position = Vector2(-123, -33)
-
-[node name="Overlay manager" type="Node2D" parent="."]
-script = ExtResource("12_yurgm")
-hit80 = ExtResource("6_mgr12")
-hit60 = ExtResource("7_d87i6")
-hit40 = ExtResource("8_h7auy")
-hit20 = ExtResource("9_vbs4x")
-
-[node name="Overlay" type="CanvasLayer" parent="Overlay manager"]
-
-[node name="Coin" type="TextureRect" parent="Overlay manager/Overlay"]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -64.0
-offset_right = 64.0
-grow_vertical = 0
-texture = SubResource("AnimatedTexture_ficyk")
-
-[node name="Coins" type="Label" parent="Overlay manager/Overlay"]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 64.0
-offset_top = -64.0
-offset_right = 128.0
-grow_vertical = 0
-theme = ExtResource("5_0uib4")
-text = "1"
-vertical_alignment = 1
-
-[node name="Hit" type="TextureRect" parent="Overlay manager/Overlay"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Fade" type="CanvasLayer" parent="."]
 layer = 128
@@ -209,6 +173,41 @@ theme = ExtResource("4_2mq4s")
 theme_override_font_sizes/font_size = 156
 text = "You ded"
 
-[node name="Level1" parent="." instance=ExtResource("6_8ggml")]
+[node name="Overlay manager" type="Node2D" parent="."]
+script = ExtResource("12_yurgm")
+hit80 = ExtResource("6_mgr12")
+hit60 = ExtResource("7_d87i6")
+hit40 = ExtResource("8_h7auy")
+hit20 = ExtResource("9_vbs4x")
+
+[node name="Overlay" type="CanvasLayer" parent="Overlay manager" groups=["overlay"]]
+
+[node name="Coin" type="TextureRect" parent="Overlay manager/Overlay"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -64.0
+offset_right = 64.0
+grow_vertical = 0
+texture = SubResource("AnimatedTexture_ficyk")
+
+[node name="Coins" type="Label" parent="Overlay manager/Overlay"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = -64.0
+offset_right = 128.0
+grow_vertical = 0
+theme = ExtResource("5_0uib4")
+text = "1"
+vertical_alignment = 1
+
+[node name="Hit" type="TextureRect" parent="Overlay manager/Overlay"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="animation_finished" from="TransitionManager" to="." method="_on_animation_player_animation_finished"]

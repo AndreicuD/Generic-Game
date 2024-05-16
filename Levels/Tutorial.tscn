@@ -968,7 +968,7 @@ func _on_body_entered(body):
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xet6"]
 size = Vector2(560, 184)
 
-[node name="Tutorial" type="Node2D" groups=["Level"]]
+[node name="Tutorial" type="Node2D" groups=["Level", "tutorial"]]
 
 [node name="Nivel32x32" type="TileMap" parent="."]
 position = Vector2(0, 1)

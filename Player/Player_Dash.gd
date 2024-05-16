@@ -87,7 +87,11 @@ func _physics_process(delta):
 	is_moving_box = false
 
 	if Input.is_key_pressed(KEY_P):
-		print(Global.cards)
+		print('dash_orice_dir')
+		print(Global.can_dash_any_direction)
+		print('damage when dashing')
+		print(Global.take_less_damage_when_dashing)
+		print('---------------')
 
 	if Input.is_action_just_pressed("Attack") && can_attack:
 		can_attack = false

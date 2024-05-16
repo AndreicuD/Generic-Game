@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://drgppym1nj5lo"]
+[gd_scene load_steps=8 format=3 uid="uid://drgppym1nj5lo"]
 
 [ext_resource type="Script" path="res://GlobalScripts/Main_Menu.gd" id="1_3xeht"]
 [ext_resource type="Texture2D" uid="uid://cnbu51y8qasgj" path="res://Arta/Background.png" id="1_qqj5h"]
-[ext_resource type="PackedScene" uid="uid://b270mb2r5cgia" path="res://Game.tscn" id="2_o0wap"]
 [ext_resource type="Theme" uid="uid://duqt24herp7yx" path="res://Arta/Butoane_Main_Men.tres" id="2_p5kei"]
 [ext_resource type="FontFile" uid="uid://k1hdt5ygqgb6" path="res://Arta/UI/Salium.ttf" id="4_stxv6"]
 
@@ -44,7 +43,6 @@ _data = {
 
 [node name="Node2D" type="Node2D" groups=["Level"]]
 script = ExtResource("1_3xeht")
-global_scene = ExtResource("2_o0wap")
 
 [node name="Main Menu" type="Control" parent="."]
 top_level = true
@@ -260,13 +258,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
-[connection signal="pressed" from="Main Menu/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Main Menu/Play" to="Main Menu" method="_on_play_pressed"]
 [connection signal="pressed" from="Main Menu/Settings" to="Main Menu" method="_on_settings_pressed"]
-[connection signal="pressed" from="Main Menu/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Main Menu/Quit" to="Main Menu" method="_on_quit_pressed"]
 [connection signal="pressed" from="Main Menu/Settings_Canvas/Panel/Close_Settings" to="Main Menu" method="_on_close_settings_pressed"]
-[connection signal="pressed" from="Main Menu/Tutorial_Popup/Panel/Close_Tutorial_Popup" to="." method="_on_close_tutorial_popup_pressed"]
-[connection signal="pressed" from="Main Menu/Tutorial_Popup/Panel/Yes" to="." method="_on_tutorial_yes_pressed"]
-[connection signal="pressed" from="Main Menu/Tutorial_Popup/Panel/No" to="." method="_on_tutorial_no_pressed"]
+[connection signal="pressed" from="Main Menu/Tutorial_Popup/Panel/Close_Tutorial_Popup" to="Main Menu" method="_on_close_tutorial_popup_pressed"]
+[connection signal="pressed" from="Main Menu/Tutorial_Popup/Panel/Yes" to="Main Menu" method="_on_tutorial_yes_pressed"]
+[connection signal="pressed" from="Main Menu/Tutorial_Popup/Panel/No" to="Main Menu" method="_on_tutorial_no_pressed"]

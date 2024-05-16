@@ -1,14 +1,15 @@
+AnimationPlayer
+ColorRect
+Node2D
 Control
 CollisionShape2D
 Area2D
 Sprite2D
 AudioStreamPlayer
-Node2D
 TextureRect
 Label
 CanvasLayer
 Button
 CanvasModulate
 Panel
-ColorRect
 Timer

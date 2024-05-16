@@ -30,7 +30,7 @@ var bow_enemy_damage = 30
 
 var HEAL_MULTIPLIER = 0.0
 
-var CURRENCY = 9999
+var CURRENCY = 0
 var sword_cost = '0'
 var bow_cost = '100'
 var spear_cost = '200'
@@ -44,7 +44,7 @@ var default_max_health = 100
 var default_spawn_point = Vector2(0,0)
 
 var can_dash_horizontal : bool = true
-var can_dash_any_direction : bool = true
+var can_dash_any_direction : bool = false
 var dash_ability_cost = '50'
 var take_less_damage_when_dashing : bool = false
 var take_less_damage_when_dashing_multiplier = 0.5
@@ -198,6 +198,8 @@ func take_damage(damage):
 func has_killed_enemy(enemy_class : String):
 	enemy_class = enemy_class.to_lower()
 	var val
+	if(heal_when_kill_level_1 or heal_when_kill_level_2):
+		HEALTH += Global.HEAL_MULTIPLIER/100 * MAX_HEALTH
 	match enemy_class:
 		'basic':
 			val = randi_range(5, 10)

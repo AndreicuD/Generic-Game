@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://dasb6pgsbw6lt"]
+[gd_scene load_steps=20 format=3 uid="uid://dasb6pgsbw6lt"]
 
 [ext_resource type="TileSet" uid="uid://cekbvoha2cdui" path="res://Arta/Tilemap/Castle.tres" id="1_1r5jy"]
 [ext_resource type="Texture2D" uid="uid://bsk1l02nre8hs" path="res://Arta/Tilemap/sheet.png" id="1_j8teq"]
+[ext_resource type="PackedScene" uid="uid://c1mre2qrte5s2" path="res://Player/player.tscn" id="1_pu3hk"]
 [ext_resource type="Texture2D" uid="uid://dbon143upl8dl" path="res://Arta/InputButtons/controls_tilemap_white_packed.png" id="3_714kn"]
 [ext_resource type="Texture2D" uid="uid://ccj77lhvk6ov5" path="res://Arta/Sign.png" id="6_hgmgg"]
 [ext_resource type="PackedScene" uid="uid://baokw2tlcqpx1" path="res://Assets/door.tscn" id="6_tvf68"]
@@ -912,6 +913,8 @@ size = Vector2(1200, 328)
 size = Vector2(384, 128)
 
 [node name="Main_Room" type="Node2D" groups=["Level"]]
+
+[node name="Player" parent="." instance=ExtResource("1_pu3hk")]
 
 [node name="Nivel32x32" type="TileMap" parent="."]
 position = Vector2(0, 1)
