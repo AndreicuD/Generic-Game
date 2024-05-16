@@ -1,3 +1,4 @@
+Timer
 AnimationPlayer
 ColorRect
 Node2D
@@ -12,4 +13,3 @@ CanvasLayer
 Button
 CanvasModulate
 Panel
-Timer

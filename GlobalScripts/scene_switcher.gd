@@ -29,6 +29,12 @@ func _on_animation_player_animation_finished(anim_name):
 			current_level.queue_free()
 			current_level=next_level
 			add_child(current_level)
+
+			var Player = get_tree().get_first_node_in_group("Player")
+			Player.position.x = 0
+			Player.position.y = 0
+			if Player.has_method('reset_location()'):
+				Player.reset_location()
 			$TransitionManager.play_transition("Fade_Out")
 		"Fade_Out":
 			is_loading_level=false

@@ -1,6 +1,6 @@
 extends Area2D
 
-var levels = ['Level1']
+var levels = ['Level3', 'Level1', 'Level2']
 
 func _on_body_entered(body):
 	if(body.is_in_group('Player')):

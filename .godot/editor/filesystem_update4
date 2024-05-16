@@ -12,3 +12,11 @@ res://Player/player.tscn
 res://Assets/basic_enemy.tscn
 res://Assets/bow_enemy.tscn
 res://GlobalScripts/Main_Menu.gd
+res://Assets/Exit_Zone.gd
+res://Levels/Level1.tscn
+res://Levels/Level2.tscn
+res://Levels/Level3.tscn
+res://Player/Player_Dash.gd
+res://GlobalScripts/scene_switcher.gd
+res://GlobalScripts/Global.gd
+res://Levels/Tutorial.gd

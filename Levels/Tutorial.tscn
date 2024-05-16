@@ -1,6 +1,7 @@
-[gd_scene load_steps=30 format=3 uid="uid://dh8s4vwbpultd"]
+[gd_scene load_steps=31 format=3 uid="uid://dh8s4vwbpultd"]
 
 [ext_resource type="Script" path="res://Assets/Intro.gd" id="1_i6kdb"]
+[ext_resource type="Script" path="res://Levels/Tutorial.gd" id="1_qr8q0"]
 [ext_resource type="FontFile" uid="uid://bhw7vaathklta" path="res://Arta/cloister_black/CloisterBlack.ttf" id="2_2gjim"]
 [ext_resource type="TileSet" uid="uid://c543ku1ygqlva" path="res://Arta/Tilemap/Grass.tres" id="3_f4v8k"]
 [ext_resource type="Texture2D" uid="uid://bsk1l02nre8hs" path="res://Arta/Tilemap/sheet.png" id="4_kswsr"]
@@ -969,6 +970,8 @@ func _on_body_entered(body):
 size = Vector2(560, 184)
 
 [node name="Tutorial" type="Node2D" groups=["Level", "tutorial"]]
+position = Vector2(233.305, 0.924)
+script = ExtResource("1_qr8q0")
 
 [node name="Nivel32x32" type="TileMap" parent="."]
 position = Vector2(0, 1)

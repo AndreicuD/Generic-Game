@@ -144,7 +144,10 @@ func delete_save():
 #in level
 func reset_player_position_and_health():
 	var Player = get_tree().get_first_node_in_group("Player")
-	Player.position = default_spawn_point
+	Player.position.x = 0
+	Player.position.y = 0
+	if Player.has_method('reset_location()'):
+		Player.reset_location()
 	#if(Player.is_gravity_reversed):
 	#	Player.gravity_reverse()
 	HEALTH = MAX_HEALTH

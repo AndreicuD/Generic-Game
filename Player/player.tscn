@@ -575,6 +575,10 @@ position = Vector2(3, 16)
 stream = ExtResource("30_gmafg")
 volume_db = -5.621
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
+
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="animation_finished" from="AnimatedSprite2D/weapon" to="." method="_on_weapon_animation_finished"]
 [connection signal="timeout" from="Dead_Timer" to="." method="_on_dead_timer_timeout"]
@@ -585,3 +589,4 @@ volume_db = -5.621
 [connection signal="body_exited" from="Spear_Attack_Check" to="." method="_on_spear_attack_check_body_exited"]
 [connection signal="body_entered" from="Sword_Attack_Check" to="." method="_on_sword_attack_check_body_entered"]
 [connection signal="body_exited" from="Sword_Attack_Check" to="." method="_on_sword_attack_check_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_heal_timer_timeout"]

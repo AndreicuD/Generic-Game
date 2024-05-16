@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://GlobalScripts/scene_switcher.gd" id="1_75af8"]
 [ext_resource type="PackedScene" uid="uid://g1nb3d5trphu" path="res://GlobalScripts/Global.tscn" id="2_al6ck"]
 [ext_resource type="PackedScene" uid="uid://c1mre2qrte5s2" path="res://Player/player.tscn" id="3_3i4ib"]
+[ext_resource type="PackedScene" uid="uid://dasb6pgsbw6lt" path="res://Levels/Main_Room.tscn" id="3_5mi11"]
 [ext_resource type="Script" path="res://GlobalScripts/Transition_Manager.gd" id="3_8mv83"]
 [ext_resource type="Theme" uid="uid://beoh5k5sb22ui" path="res://Arta/Theme.tres" id="4_2mq4s"]
-[ext_resource type="PackedScene" uid="uid://dh8s4vwbpultd" path="res://Levels/Tutorial.tscn" id="4_f164h"]
 [ext_resource type="Theme" uid="uid://duqt24herp7yx" path="res://Arta/Butoane_Main_Men.tres" id="5_0uib4"]
 [ext_resource type="Texture2D" uid="uid://boe77fl22joes" path="res://Arta/Coin/1.png" id="5_4i4xl"]
 [ext_resource type="Texture2D" uid="uid://l038qpuf334m" path="res://Arta/UI/ui1.png" id="6_mgr12"]
@@ -132,9 +132,9 @@ script = ExtResource("1_75af8")
 
 [node name="Global" parent="." instance=ExtResource("2_al6ck")]
 
-[node name="Player" parent="." instance=ExtResource("3_3i4ib")]
+[node name="Main_Room" parent="." instance=ExtResource("3_5mi11")]
 
-[node name="Tutorial" parent="." instance=ExtResource("4_f164h")]
+[node name="Player" parent="." instance=ExtResource("3_3i4ib")]
 
 [node name="TransitionManager" type="AnimationPlayer" parent="." groups=["screen_animator"]]
 root_node = NodePath("../Fade")

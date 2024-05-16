@@ -86,12 +86,7 @@ func _input(event):
 func _physics_process(delta):
 	is_moving_box = false
 
-	if Input.is_key_pressed(KEY_P):
-		print('dash_orice_dir')
-		print(Global.can_dash_any_direction)
-		print('damage when dashing')
-		print(Global.take_less_damage_when_dashing)
-		print('---------------')
+	print(global_position)
 
 	if Input.is_action_just_pressed("Attack") && can_attack:
 		can_attack = false
@@ -292,3 +287,12 @@ func _on_dead_timer_timeout():
 	can_move = true
 	Global.is_player_dead = true
 	is_dead = false
+
+func _on_heal_timer_timeout():
+	Global.HEALTH += 20
+
+func reset_location():
+	print('matatasuidfhasolifuahsdofiajhdfosdghfopasdfg')
+	global_position = Vector2(0, 0)
+	position.x = 0
+	position.y = 0

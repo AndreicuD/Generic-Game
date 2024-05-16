@@ -13,7 +13,6 @@ config_version=5
 config/name="Vlad Tepes"
 run/main_scene="res://Game.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
-boot_splash/bg_color=Color(0.298039, 0.301961, 0.768627, 1)
 boot_splash/image="res://Arta/icon.png"
 boot_splash/fullsize=false
 boot_splash/use_filter=false

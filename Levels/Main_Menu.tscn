@@ -112,7 +112,7 @@ theme_override_constants/shadow_offset_x = 5
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("4_stxv6")
 theme_override_font_sizes/font_size = 66
-text = "Vladutz In Aventura"
+text = "Bloody Vlad"
 horizontal_alignment = 1
 vertical_alignment = 1
 
