@@ -17,5 +17,5 @@ func set_target_location(location):
 
 func _on_coll_check_body_entered(body):
 	if(body.has_method('damage')):
-		body.damage(Global.bow_enemy_damage)
+		body.damage(Global.bow_enemy_damage * Global.DAMAGE_TAKEN_MULTIPLIER)
 	queue_free()

@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://bqkdcvcop5k06"]
+[gd_scene load_steps=15 format=3 uid="uid://bqkdcvcop5k06"]
 
 [ext_resource type="Texture2D" uid="uid://ew73ofcu3nib" path="res://Arta/Coin/coin.png" id="1_xhnct"]
 [ext_resource type="Script" path="res://Assets/Coin.gd" id="2_sknaa"]
+[ext_resource type="AudioStream" uid="uid://cs2hf7jnc4ut" path="res://Sounds/pickupCoin.wav" id="3_ftou2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ejw76"]
 size = Vector2(14, 14)
@@ -104,5 +105,9 @@ libraries = {
 "": SubResource("AnimationLibrary_377m4")
 }
 autoplay = "default"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ftou2")
+volume_db = -11.881
 
 [connection signal="body_entered" from="." to="." method="_on_area_2d_body_entered"]

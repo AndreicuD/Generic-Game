@@ -1,5 +1,7 @@
 extends Node
 
+var scene_manager
+
 # PLAYER THINGS
 
 enum Weapon {spear, sword, bow}
@@ -26,7 +28,7 @@ var bow_enemy_damage = 30
 
 var HEAL_MULTIPLIER = 0.0
 
-var CURRENCY = 0
+var CURRENCY = 9999
 var sword_cost = '0'
 var bow_cost = '100'
 var spear_cost = '200'
@@ -40,21 +42,28 @@ var default_max_health = 100
 var default_spawn_point = Vector2(0,0)
 
 var can_dash_horizontal : bool = true
-var can_dash_any_direction : bool = false
+var can_dash_any_direction : bool = true
+var dash_ability_cost = '50'
 var take_less_damage_when_dashing : bool = false
 var take_less_damage_when_dashing_multiplier = 0.5
+var less_damage_when_dashing_cost = '75'
 var damage_when_dashing : bool = false
 var damage_when_dashing_multiplier = 0.5
+var do_damage_when_dashing_cost = '75'
 
 var damage_level_1_upgrade : bool = false
 var damage_level_1_upgrade_multiplier = 1.5
+var dmg_lvl1_cost = '65'
 var damage_level_2_upgrade : bool = false
 var damage_level_2_upgrade_multiplier = 2
+var dmg_lvl2_cost = '150'
 
 var heal_when_kill_level_1 : bool = false
-var heal_level_1_upgrade = 10.0
+var heal_level_1_upgrade = 20.0
+var heal_lvl1_cost = '75'
 var heal_when_kill_level_2 : bool = false
-var heal_level_2_upgrade = 20.0
+var heal_level_2_upgrade = 30.0
+var heal_lvl2_cost = '150'
 
 #----------------------------------------------------------
 
@@ -64,12 +73,10 @@ var has_save_file : bool = false
 func _ready():
 	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	#load_game()
-	pass
+	scene_manager = get_tree().get_first_node_in_group("scene_manager")
 
 func _physics_process(_delta):
-	#reset player if health is below 0
-	if(HEALTH<=0):
-		player_death()
+	pass
 
 #----------------------------------------------------------
 
@@ -146,12 +153,14 @@ func reset_player_to_checkpoint():
 	HEALTH = MAX_HEALTH
 
 func player_death():
-	reset_player_position_and_health()
-
-func death_timer_timeout():
-	TransitionManager.play_transition("Death_Fade_Out")
-	#is_player_dead = false
-	reset_player_position_and_health()
+	if is_player_dead:
+		var animator : AnimationPlayer = get_tree().get_first_node_in_group('screen_animator')
+		if !animator.is_playing():
+			animator.play_transition("Death_Fade_In")
+			await get_tree().create_timer(2).timeout
+			scene_manager.change_level('Main_Room')
+			get_tree().get_first_node_in_group('screen_animator').play_transition("Death_Fade_Out")
+	is_player_dead = false
 
 #----------------------------------------------------------
 

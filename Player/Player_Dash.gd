@@ -44,8 +44,10 @@ var can_attack = true
 @onready var sword_check = $Sword_Attack_Check
 @export var arrow : PackedScene
 
-var idle_anim
-var last_idle_anim
+@onready var blood = $Blood_Particles
+
+var idle_anim = 'Idle_sword'
+var last_idle_anim = 'Idle_sword'
 var weapon
 
 var has_key : bool = false
@@ -53,6 +55,27 @@ var jump_anim_played = false
 
 func _ready():
 	choose_weapon('sword')
+
+func damage(val):
+	blood.emitting = true
+	Global.HEALTH -= val
+	anim.rotation = -0.1
+	await get_tree().create_timer(0.05).timeout
+	anim.rotation = 0
+	if(Global.HEALTH <= 0):
+		print('spaanaasac')
+		die()
+
+func die():
+	anim.play('Dead')
+	velocity.y = 0
+	can_move = false
+	is_dead = true
+	velocity = Vector2(0, 0)
+	$CollisionShape2D_Dash.disabled = true
+	$CollisionShape2D_Normal.disabled = true
+	Global.is_player_dead = true
+	$Dead_Timer.start()
 
 func _input(event):
 	if(event is InputEventKey):
@@ -88,6 +111,7 @@ func _physics_process(delta):
 			var new_arrow = arrow.instantiate()
 			var target
 			if on_controller:
+				weapon_anim.look_at(target)
 				target = $Arrow_Spawn_Point/point.global_position + attack_direction * 100
 				if(target.x < $Arrow_Spawn_Point/point.global_position.x):
 					change_scale(-1)
@@ -97,6 +121,7 @@ func _physics_process(delta):
 				new_arrow.global_position = $Arrow_Spawn_Point/point.global_position
 				new_arrow.set_target_location(target)
 			else:
+				weapon_anim.look_at(get_global_mouse_position())
 				if(get_global_mouse_position().x < $Arrow_Spawn_Point/point.global_position.x):
 					change_scale(-1)
 				else:
@@ -106,8 +131,9 @@ func _physics_process(delta):
 				new_arrow.set_target_location(get_global_mouse_position())
 			add_sibling(new_arrow)
 			can_move = true
+			weapon_anim.rotation = 0
 
-	if !is_dashing:
+	if !is_dashing and !is_dead:
 		direction = Vector2(Input.get_axis("Left", "Right"), Input.get_axis("Up", "Down"))
 		attack_direction = Vector2(Input.get_axis("Bow_Controller_Left", "Bow_Controller_Right"), Input.get_axis("Bow_Controller_Up", "Bow_Controller_Down"))
 		velocity.y += gravity*delta
@@ -193,7 +219,7 @@ func choose_weapon(weapon_name : String):
 			Global.weapon = Global.Weapon.spear
 			Global.time_between_attacks = Global.spear_time_between_attacks
 			Global.DAMAGE = Global.spear_damage
-			idle_anim = 'Idle'
+			idle_anim = 'Idle_Spear'
 		'sword':
 			sword_check.monitoring = true
 			Global.weapon = Global.Weapon.sword
@@ -204,8 +230,9 @@ func choose_weapon(weapon_name : String):
 			Global.weapon = Global.Weapon.bow
 			Global.time_between_attacks = Global.bow_time_between_attacks
 			Global.DAMAGE = Global.bow_damage
-			idle_anim = 'Idle'
+			idle_anim = 'Idle_Bow'
 	attack_timer.set_wait_time(Global.time_between_attacks)
+	last_idle_anim = idle_anim
 
 func change_scale(x):
 	anim.scale.x = 1 if x>=0 else -1
@@ -252,10 +279,13 @@ func _on_sword_attack_check_body_exited(_body):
 func _on_time_between_attacks_timeout():
 	can_attack = true
 
-
 func _on_animated_sprite_2d_animation_looped():
 	anim.pause()
 
 func _on_weapon_animation_finished():
 	weapon_anim.set_visible(false)
 	idle_anim = last_idle_anim
+
+func _on_dead_timer_timeout():
+	$CollisionShape2D_Normal.disabled = false
+	Global.player_death()

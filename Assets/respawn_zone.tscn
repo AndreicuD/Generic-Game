@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://cf8dbf12ovh64"]
 
-[ext_resource type="Script" path="res://Assets/kill_zone.gd" id="1_r5krk"]
+[ext_resource type="Script" path="res://Assets/kill_zone.gd" id="1_07t1x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ebmhx"]
 size = Vector2(1112, 20)
 
-[node name="Area2D" type="Area2D" groups=["Danger"]]
+[node name="Respawn_Zone" type="Area2D" groups=["Danger"]]
 position = Vector2(172, 280)
 collision_layer = 2
-script = ExtResource("1_r5krk")
+script = ExtResource("1_07t1x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ebmhx")

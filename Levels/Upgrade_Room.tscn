@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bsk1l02nre8hs" path="res://Arta/Tilemap/sheet.png" id="1_wodof"]
 [ext_resource type="Texture2D" uid="uid://dbon143upl8dl" path="res://Arta/InputButtons/controls_tilemap_white_packed.png" id="2_8n114"]
-[ext_resource type="PackedScene" uid="uid://cf8dbf12ovh64" path="res://Assets/kill_zone.tscn" id="4_eslts"]
+[ext_resource type="PackedScene" uid="uid://cf8dbf12ovh64" path="res://Assets/respawn_zone.tscn" id="4_eslts"]
 [ext_resource type="PackedScene" uid="uid://baokw2tlcqpx1" path="res://Assets/door.tscn" id="6_5wsbf"]
 [ext_resource type="Script" path="res://Assets/Zone_Check.gd" id="6_rm453"]
 [ext_resource type="PackedScene" uid="uid://dc6ird4x0xlrq" path="res://Assets/torch.tscn" id="7_y21se"]

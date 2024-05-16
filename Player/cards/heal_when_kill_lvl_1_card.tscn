@@ -1,0 +1,119 @@
+[gd_scene load_steps=6 format=3 uid="uid://03wt3eaivcvv"]
+
+[ext_resource type="Texture2D" uid="uid://cg86ldftm7eup" path="res://Player/cards/heal_when_kill_lvl1.png" id="2_g2nkk"]
+[ext_resource type="Theme" uid="uid://duqt24herp7yx" path="res://Arta/Butoane_Main_Men.tres" id="3_6yhiy"]
+[ext_resource type="FontFile" uid="uid://bhw7vaathklta" path="res://Arta/cloister_black/CloisterBlack.ttf" id="4_f108d"]
+[ext_resource type="FontFile" uid="uid://kxlytf4h11di" path="res://Arta/UI/Augusta.ttf" id="4_qadvp"]
+
+[sub_resource type="GDScript" id="GDScript_hy7gl"]
+script/source = "extends Control
+
+func _ready():
+	$Panel/cost.text = Global.heal_lvl1_cost
+	$Panel/Buy.text = 'Buy'
+
+func _on_buy_pressed():
+	var abil_cost = $Panel/cost
+	var cost = int(abil_cost.text)
+	if Global.CURRENCY >= cost:
+		Global.CURRENCY -= cost
+		if !Global.heal_when_kill_level_2:
+			Global.heal_when_kill_level_1 = true
+	else:
+		$Panel/Buy.text = \"Can't afford!\"
+"
+
+[node name="Heal_when_kill_lvl1_Card" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_hy7gl")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 282.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.0
+offset_right = 48.0
+offset_bottom = 96.0
+grow_horizontal = 2
+texture = ExtResource("2_g2nkk")
+
+[node name="Desc" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -61.0
+offset_right = 72.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_6yhiy")
+theme_override_fonts/font = ExtResource("4_qadvp")
+theme_override_font_sizes/font_size = 17
+text = "Heal 20% of your health every time you kill an enemy. Does not stack with level 2 upgrade!"
+vertical_alignment = 1
+autowrap_mode = 3
+text_overrun_behavior = 2
+
+[node name="Cost_text" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -82.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_6yhiy")
+theme_override_font_sizes/font_size = 21
+text = "Cost:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="cost" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -58.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_f108d")
+theme_override_font_sizes/font_size = 16
+text = "75
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Buy" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_6yhiy")
+theme_override_font_sizes/font_size = 31
+text = "Buy"
+
+[connection signal="pressed" from="Panel/Buy" to="." method="_on_buy_pressed"]

@@ -1,0 +1,115 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5khrx4jiuygl"]
+
+[ext_resource type="Texture2D" uid="uid://264k5qp8rvxj" path="res://Player/cards/dash.png" id="1_p6ly4"]
+[ext_resource type="Theme" uid="uid://duqt24herp7yx" path="res://Arta/Butoane_Main_Men.tres" id="2_jwgoj"]
+[ext_resource type="FontFile" uid="uid://bhw7vaathklta" path="res://Arta/cloister_black/CloisterBlack.ttf" id="3_vssci"]
+
+[sub_resource type="GDScript" id="GDScript_1ekyj"]
+script/source = "extends Control
+
+func _ready():
+	$Panel/cost.text = Global.dash_ability_cost
+	$Panel/Buy.text = 'Buy'
+
+func _on_buy_pressed():
+	var abil_cost = $Panel/cost
+	var cost = int(abil_cost.text)
+	if Global.CURRENCY >= cost:
+		Global.CURRENCY -= cost
+		Global.can_dash_any_direction = true
+	else:
+		$Panel/Buy.text = \"Can't afford!\"
+"
+
+[node name="Dash_Card" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_1ekyj")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 282.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.0
+offset_right = 48.0
+offset_bottom = 96.0
+grow_horizontal = 2
+texture = ExtResource("1_p6ly4")
+
+[node name="Desc" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -61.0
+offset_right = 72.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_jwgoj")
+theme_override_font_sizes/font_size = 18
+text = "This ability allows you to dash in any direction, not just horizontally."
+vertical_alignment = 1
+autowrap_mode = 3
+text_overrun_behavior = 1
+
+[node name="Cost_text" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -82.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_jwgoj")
+theme_override_font_sizes/font_size = 21
+text = "Cost:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="cost" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -58.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_vssci")
+theme_override_font_sizes/font_size = 16
+text = "50"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Buy" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_jwgoj")
+theme_override_font_sizes/font_size = 31
+text = "Buy"
+
+[connection signal="pressed" from="Panel/Buy" to="." method="_on_buy_pressed"]

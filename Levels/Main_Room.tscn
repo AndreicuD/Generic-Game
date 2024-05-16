@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://baokw2tlcqpx1" path="res://Assets/door.tscn" id="6_tvf68"]
 [ext_resource type="Script" path="res://Assets/Zone_Check.gd" id="7_cr3wh"]
 [ext_resource type="PackedScene" uid="uid://dc6ird4x0xlrq" path="res://Assets/torch.tscn" id="7_giw5s"]
-[ext_resource type="PackedScene" uid="uid://cf8dbf12ovh64" path="res://Assets/kill_zone.tscn" id="7_u6rm1"]
+[ext_resource type="PackedScene" uid="uid://cf8dbf12ovh64" path="res://Assets/respawn_zone.tscn" id="7_u6rm1"]
 [ext_resource type="Script" path="res://Assets/Exit_Zone.gd" id="9_qk6sj"]
 [ext_resource type="FontFile" uid="uid://k1hdt5ygqgb6" path="res://Arta/UI/Salium.ttf" id="10_ckb4x"]
 

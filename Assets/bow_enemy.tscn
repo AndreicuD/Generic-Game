@@ -280,7 +280,9 @@ shape = SubResource("RectangleShape2D_ydcea")
 light_mask = 2
 position = Vector2(0, 0.5)
 sprite_frames = SubResource("SpriteFrames_fqesj")
-animation = &"Running"
+animation = &"Idle"
+frame = 1
+frame_progress = 0.108888
 
 [node name="excl_mark" type="Sprite2D" parent="."]
 visible = false

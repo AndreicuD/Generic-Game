@@ -45,7 +45,7 @@ collision_mode = 2
 size = Vector2(16, 64)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_6ubgm"]
-b = Vector2(-8.14498e-05, 11.25)
+b = Vector2(-8.68798e-05, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2seac"]
 atlas = ExtResource("3_ihsgk")
@@ -342,8 +342,7 @@ trail_section_subdivisions = 1
 shape = SubResource("RectangleShape2D_ydcea")
 
 [node name="Sword_Attack_Check" type="Area2D" parent="."]
-collision_mask = 66
-monitoring = false
+collision_layer = 16
 
 [node name="Attack Check" type="CollisionShape2D" parent="Sword_Attack_Check"]
 rotation = -1.5708
@@ -354,7 +353,7 @@ shape = SubResource("SegmentShape2D_6ubgm")
 light_mask = 2
 position = Vector2(0, 0.5)
 sprite_frames = SubResource("SpriteFrames_fqesj")
-animation = &"Idle_weapon"
+animation = &"Walking"
 
 [node name="weapon" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
 visible = false
@@ -368,6 +367,10 @@ frame_progress = 1.0
 visible = false
 position = Vector2(0, -48)
 texture = ExtResource("3_frlbg")
+
+[node name="attack_timer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
 
 [node name="Change_State_Cooldown" type="Timer" parent="."]
 wait_time = 0.5
@@ -423,6 +426,7 @@ shape = SubResource("RectangleShape2D_c1a0b")
 debug_color = Color(0.298039, 0, 0.113725, 0.419608)
 
 [connection signal="body_entered" from="Sword_Attack_Check" to="." method="_on_sword_attack_check_body_entered"]
+[connection signal="body_exited" from="Sword_Attack_Check" to="." method="_on_sword_attack_check_body_exited"]
 [connection signal="animation_finished" from="AnimatedSprite2D/weapon" to="." method="_on_weapon_animation_finished"]
 [connection signal="timeout" from="Change_State_Cooldown" to="." method="_on_change_state_cooldown_timeout"]
 [connection signal="timeout" from="Cooldown_Timer" to="." method="_on_cooldown_timer_timeout"]

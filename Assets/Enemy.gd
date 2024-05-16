@@ -20,6 +20,7 @@ var target_checkpoint : Vector2
 var curr_check_ind = 0
 var player
 
+@onready var attack_timer = $attack_timer
 @onready var cooldown_timer = $Cooldown_Timer
 #general cooldown for how much to sit at checkpint
 @onready var wait_before_jump_timer = $Wait_Before_Jump_Timer
@@ -39,6 +40,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var anim_idle = 'Idle_weapon'
 
+var can_attack = false
 @onready var blood : GPUParticles2D = $Blood_Particles
 
 func _ready():
@@ -89,13 +91,20 @@ func _physics_process(delta):
 				cooldown_timer.start()
 				curr_check_ind += 1
 				curr_check_ind %= checkpoints.size()
-		elif(state == State.ACTIVE):
+		elif state == State.ACTIVE:
 			anim.play('Running')
 			target_checkpoint = player.global_position
-			if(target_checkpoint.x - global_position.x > 5):
+			if(target_checkpoint.x - global_position.x > 30):
 				velocity.x = 1
-			elif(target_checkpoint.x - global_position.x < -5):
+			elif(target_checkpoint.x - global_position.x < -30):
 				velocity.x = -1
+			print(can_attack)
+			if attack_timer.is_stopped() and can_attack:
+				attack_timer.start()
+				anim_idle = 'Idle'
+				weapon_anim.set_visible(true)
+				weapon_anim.play('sword')
+				player.damage(Global.basic_enemy_damage * Global.DAMAGE_TAKEN_MULTIPLIER)
 
 	if velocity.x == 1:
 		check_for_player_to_follow_right.monitoring = true
@@ -114,6 +123,7 @@ func _physics_process(delta):
 		check_for_player_to_keep_following_left.monitoring = true
 	if velocity.x != 0:
 		anim.scale.x = velocity.x
+		$Sword_Attack_Check.scale.x = velocity.x
 
 	if(is_on_wall() && is_on_floor()):
 		can_move = false
@@ -153,15 +163,20 @@ func _on_check_for_player_to_keep_following_body_exited(body):
 			cooldown_timer.start()
 		state = State.PASSIVE
 
-
 func _on_dead_timer_timeout():
 	self.queue_free()
 
+var player_got_away = false
 func _on_sword_attack_check_body_entered(body):
-	anim_idle = 'Idle'
-	weapon_anim.set_visible(true)
-	weapon_anim.play('sword')
+	player_got_away = false
+	await get_tree().create_timer(0.4).timeout
+	if !player_got_away:
+		can_attack = true
+func _on_sword_attack_check_body_exited(_body):
+	player_got_away = true
+	can_attack = false
 
 func _on_weapon_animation_finished():
 	anim_idle = 'Idle_weapon'
 	weapon_anim.set_visible(false)
+

@@ -8,6 +8,7 @@ collision_layer = 32
 script = ExtResource("1_6pbb5")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 anchors_preset = 12

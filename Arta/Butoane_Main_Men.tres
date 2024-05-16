@@ -1,6 +1,14 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://duqt24herp7yx"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://duqt24herp7yx"]
 
 [ext_resource type="FontFile" uid="uid://k1hdt5ygqgb6" path="res://Arta/UI/Salium.ttf" id="1_1k20t"]
+[ext_resource type="FontFile" uid="uid://kxlytf4h11di" path="res://Arta/UI/Augusta.ttf" id="2_efonh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_11w7k"]
+bg_color = Color(0.176471, 0.133333, 0.113725, 0.827451)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
 
 [resource]
 Button/colors/font_color = Color(0.87451, 0.87451, 0.87451, 1)
@@ -9,3 +17,6 @@ Button/colors/font_outline_color = Color(0, 0, 0, 1)
 Button/constants/outline_size = 5
 Button/font_sizes/font_size = 60
 Button/fonts/font = ExtResource("1_1k20t")
+Label/font_sizes/font_size = 40
+Label/fonts/font = ExtResource("2_efonh")
+Panel/styles/panel = SubResource("StyleBoxFlat_11w7k")

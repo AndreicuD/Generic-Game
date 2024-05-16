@@ -1,11 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://cgecvepmfiyqw"]
+[gd_scene load_steps=18 format=3 uid="uid://cgecvepmfiyqw"]
 
 [ext_resource type="TileSet" uid="uid://c543ku1ygqlva" path="res://Arta/Tilemap/Grass.tres" id="1_7s7r8"]
 [ext_resource type="Script" path="res://Assets/Intro.gd" id="1_q1uug"]
 [ext_resource type="FontFile" uid="uid://bhw7vaathklta" path="res://Arta/cloister_black/CloisterBlack.ttf" id="1_t2toj"]
 [ext_resource type="Texture2D" uid="uid://bsk1l02nre8hs" path="res://Arta/Tilemap/sheet.png" id="2_andkc"]
+[ext_resource type="Theme" uid="uid://duqt24herp7yx" path="res://Arta/Butoane_Main_Men.tres" id="2_qc8jg"]
 [ext_resource type="Texture2D" uid="uid://dbon143upl8dl" path="res://Arta/InputButtons/controls_tilemap_white_packed.png" id="3_2v0hw"]
-[ext_resource type="PackedScene" uid="uid://cf8dbf12ovh64" path="res://Assets/kill_zone.tscn" id="5_7dxmi"]
+[ext_resource type="PackedScene" uid="uid://cf8dbf12ovh64" path="res://Assets/respawn_zone.tscn" id="5_7dxmi"]
 [ext_resource type="PackedScene" uid="uid://dundoq5yx4i4j" path="res://Assets/bow_enemy.tscn" id="6_djxjf"]
 [ext_resource type="PackedScene" uid="uid://qgox2rj7nweo" path="res://Assets/basic_enemy.tscn" id="7_8an5o"]
 [ext_resource type="Script" path="res://Assets/Zone_Check.gd" id="8_lhjcq"]
@@ -953,7 +954,7 @@ offset_top = -48.0
 offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_t2toj")
+theme = ExtResource("2_qc8jg")
 theme_override_font_sizes/font_size = 51
 text = "The Battle Of Turnu"
 horizontal_alignment = 1
@@ -967,6 +968,7 @@ anchor_right = 1.0
 anchor_bottom = 0.619792
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_qc8jg")
 theme_override_fonts/font = ExtResource("1_t2toj")
 theme_override_font_sizes/font_size = 31
 text = "June 1462"
