@@ -57,13 +57,13 @@ func _ready():
 	choose_weapon('sword')
 
 func damage(val):
+	$hit.play(0)
 	blood.emitting = true
 	Global.HEALTH -= val
 	anim.rotation = -0.1
 	await get_tree().create_timer(0.05).timeout
 	anim.rotation = 0
 	if(Global.HEALTH <= 0):
-		print('spaanaasac')
 		die()
 
 func die():
@@ -86,12 +86,8 @@ func _input(event):
 func _physics_process(delta):
 	is_moving_box = false
 
-	if Input.is_key_pressed(KEY_1):
-		choose_weapon('spear')
-	if Input.is_key_pressed(KEY_2):
-		choose_weapon('sword')
-	if Input.is_key_pressed(KEY_3):
-		choose_weapon('bow')
+	if Input.is_key_pressed(KEY_P):
+		print(Global.cards)
 
 	if Input.is_action_just_pressed("Attack") && can_attack:
 		can_attack = false
@@ -287,5 +283,8 @@ func _on_weapon_animation_finished():
 	idle_anim = last_idle_anim
 
 func _on_dead_timer_timeout():
-	$CollisionShape2D_Normal.disabled = false
 	Global.player_death()
+	$CollisionShape2D_Normal.disabled = false
+	can_move = true
+	Global.is_player_dead = true
+	is_dead = false

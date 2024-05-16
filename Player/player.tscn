@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://c1mre2qrte5s2"]
+[gd_scene load_steps=84 format=3 uid="uid://c1mre2qrte5s2"]
 
 [ext_resource type="Script" path="res://Player/Player_Dash.gd" id="1_fclto"]
 [ext_resource type="Texture2D" uid="uid://eiww8kcfd487" path="res://Arta/Vladutz.png" id="2_aqme3"]
@@ -29,6 +29,7 @@
 [ext_resource type="AudioStream" uid="uid://ybn7na64726" path="res://Sounds/Footsteps/Stone/Hardwood_Boots_FullStep_03.wav" id="18_w6w5x"]
 [ext_resource type="AudioStream" uid="uid://5wgocuj0v5nj" path="res://Sounds/Footsteps/Stone/Hardwood_Boots_FullStep_04.wav" id="19_e4wjt"]
 [ext_resource type="AudioStream" uid="uid://dvpxcl8nmww0k" path="res://Sounds/Footsteps/Stone/Hardwood_Boots_FullStep_05.wav" id="20_wcpwg"]
+[ext_resource type="AudioStream" uid="uid://csb636oqlwc5h" path="res://Sounds/Hits/hitHurt.wav" id="30_gmafg"]
 
 [sub_resource type="Curve" id="Curve_uppc4"]
 max_value = 3.0
@@ -569,6 +570,10 @@ position = Vector2(16, -16)
 
 [node name="point" type="Node2D" parent="Arrow_Spawn_Point"]
 position = Vector2(3, 16)
+
+[node name="hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("30_gmafg")
+volume_db = -5.621
 
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="animation_finished" from="AnimatedSprite2D/weapon" to="." method="_on_weapon_animation_finished"]

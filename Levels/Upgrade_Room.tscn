@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dhk8h6g77l7hl"]
+[gd_scene load_steps=47 format=3 uid="uid://dhk8h6g77l7hl"]
 
 [ext_resource type="Texture2D" uid="uid://bsk1l02nre8hs" path="res://Arta/Tilemap/sheet.png" id="1_wodof"]
 [ext_resource type="Texture2D" uid="uid://dbon143upl8dl" path="res://Arta/InputButtons/controls_tilemap_white_packed.png" id="2_8n114"]
@@ -17,6 +17,15 @@
 [ext_resource type="FontFile" uid="uid://bhw7vaathklta" path="res://Arta/cloister_black/CloisterBlack.ttf" id="11_vxjq0"]
 [ext_resource type="Texture2D" uid="uid://0tindcwxaqg5" path="res://Arta/UI/Bow.png" id="12_unanx"]
 [ext_resource type="Texture2D" uid="uid://drqns68gt8n16" path="res://Arta/Info Board/ExclamationMark-16x16-1.png.png" id="13_5v8ve"]
+[ext_resource type="Script" path="res://GlobalScripts/Altar.gd" id="18_65qhj"]
+[ext_resource type="Texture2D" uid="uid://bhcgo3no4dhik" path="res://Player/cards/altar.png" id="18_adajo"]
+[ext_resource type="PackedScene" uid="uid://c5khrx4jiuygl" path="res://Player/cards/dash_card.tscn" id="19_bkkox"]
+[ext_resource type="PackedScene" uid="uid://cjnkuvwy1il8o" path="res://Player/cards/dmg_lvl_1_card.tscn" id="20_bjgpi"]
+[ext_resource type="PackedScene" uid="uid://bxr424pl2qyra" path="res://Player/cards/dmg_lvl_2_card.tscn" id="21_maj6r"]
+[ext_resource type="PackedScene" uid="uid://br5lekkpc5ny1" path="res://Player/cards/do_dmg_when_dash_card.tscn" id="22_846jo"]
+[ext_resource type="PackedScene" uid="uid://03wt3eaivcvv" path="res://Player/cards/heal_when_kill_lvl_1_card.tscn" id="23_o77b1"]
+[ext_resource type="PackedScene" uid="uid://bcs3vru5owc3m" path="res://Player/cards/heal_when_kill_lvl_2_card.tscn" id="24_nd6pl"]
+[ext_resource type="PackedScene" uid="uid://batiwyls60ll2" path="res://Player/cards/less_dmg_dash_card.tscn" id="25_xe50t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pac0c"]
 texture = ExtResource("1_wodof")
@@ -1229,6 +1238,9 @@ gradient = SubResource("Gradient_2daq8")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wjwf1"]
+size = Vector2(64, 42)
+
 [node name="Upgrade_Room" type="Node2D" groups=["Level"]]
 
 [node name="Nivel32x32" type="TileMap" parent="."]
@@ -1326,6 +1338,7 @@ position = Vector2(312, -128)
 script = ExtResource("8_rqgac")
 
 [node name="PopUp" type="CanvasLayer" parent="Weapons"]
+visible = false
 
 [node name="Panel" type="Panel" parent="Weapons/PopUp"]
 anchors_preset = 15
@@ -1814,6 +1827,221 @@ color = Color(0.756863, 0, 0.0117647, 1)
 energy = 2.5
 texture = SubResource("GradientTexture2D_t30mj")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Altar" type="Area2D" parent="."]
+position = Vector2(416, -128)
+collision_layer = 32
+script = ExtResource("18_65qhj")
+cards = [ExtResource("19_bkkox"), ExtResource("20_bjgpi"), ExtResource("21_maj6r"), ExtResource("22_846jo"), ExtResource("23_o77b1"), ExtResource("24_nd6pl"), ExtResource("25_xe50t")]
+
+[node name="Altarsprite" type="Sprite2D" parent="Altar"]
+texture = ExtResource("18_adajo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Altar"]
+position = Vector2(0, 11)
+shape = SubResource("RectangleShape2D_wjwf1")
+
+[node name="PopUp" type="CanvasLayer" parent="Altar"]
+visible = false
+
+[node name="Panel" type="Panel" parent="Altar/PopUp"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 128.0
+offset_top = 61.0
+offset_right = -128.0
+offset_bottom = -53.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="Text" type="Label" parent="Altar/PopUp/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 32.0
+offset_right = -16.0
+offset_bottom = -280.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("10_nmpv7")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("10_heuvc")
+theme_override_font_sizes/font_size = 50
+text = "What ability do you want to buy?"
+horizontal_alignment = 1
+autowrap_mode = 3
+text_overrun_behavior = 3
+
+[node name="Ok Button" type="Button" parent="Altar/PopUp/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -27.0
+offset_top = -45.0
+offset_right = 27.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("10_nmpv7")
+theme_override_fonts/font = ExtResource("10_heuvc")
+theme_override_font_sizes/font_size = 31
+text = "OK"
+flat = true
+
+[node name="Space1" type="Control" parent="Altar/PopUp/Panel"]
+anchors_preset = 0
+anchor_left = 0.125
+anchor_top = 0.244589
+anchor_right = 0.333333
+anchor_bottom = 0.854978
+metadata/_edit_use_anchors_ = true
+
+[node name="Space2" type="Control" parent="Altar/PopUp/Panel"]
+anchors_preset = 0
+anchor_left = 0.395833
+anchor_top = 0.248918
+anchor_right = 0.604167
+anchor_bottom = 0.859307
+metadata/_edit_use_anchors_ = true
+
+[node name="Space3" type="Control" parent="Altar/PopUp/Panel"]
+anchors_preset = 0
+anchor_left = 0.666667
+anchor_top = 0.244589
+anchor_right = 0.875
+anchor_bottom = 0.854978
+metadata/_edit_use_anchors_ = true
+
+[node name="Container" type="Control" parent="Altar/PopUp/Panel"]
+modulate = Color(0.764706, 0.592157, 0.427451, 1)
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_lock_ = true
+
+[node name="RightUp" type="TextureRect" parent="Altar/PopUp/Panel/Container"]
+layout_mode = 2
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 632.0
+offset_top = -20.0
+offset_right = 728.0
+offset_bottom = 20.0
+grow_horizontal = 0
+texture = ExtResource("11_4jnyp")
+
+[node name="RightUp2" type="TextureRect" parent="Altar/PopUp/Panel/Container"]
+layout_mode = 2
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 707.755
+offset_top = 96.0
+offset_right = 803.755
+offset_bottom = 136.0
+grow_horizontal = 0
+rotation = -1.5708
+texture = ExtResource("11_4jnyp")
+
+[node name="LeftUp" type="TextureRect" parent="Altar/PopUp/Panel/Container"]
+layout_mode = 2
+offset_top = -20.0
+offset_right = 96.0
+offset_bottom = 20.0
+texture = ExtResource("11_4jnyp")
+flip_h = true
+
+[node name="LeftUp2" type="TextureRect" parent="Altar/PopUp/Panel/Container"]
+layout_mode = 2
+offset_left = 20.0
+offset_right = 116.0
+offset_bottom = 40.0
+rotation = 1.5708
+texture = ExtResource("11_4jnyp")
+flip_h = true
+
+[node name="RightDown" type="TextureRect" parent="Altar/PopUp/Panel/Container"]
+layout_mode = 2
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 632.0
+offset_top = 402.0
+offset_right = 728.0
+offset_bottom = 442.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("11_4jnyp")
+flip_v = true
+
+[node name="RightDown2" type="TextureRect" parent="Altar/PopUp/Panel/Container"]
+layout_mode = 2
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 708.0
+offset_top = 422.0
+offset_right = 804.0
+offset_bottom = 462.0
+grow_horizontal = 0
+grow_vertical = 0
+rotation = -1.5708
+texture = ExtResource("11_4jnyp")
+flip_h = true
+flip_v = true
+
+[node name="LeftDown" type="TextureRect" parent="Altar/PopUp/Panel/Container"]
+layout_mode = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = 402.0
+offset_right = 96.0
+offset_bottom = 442.0
+grow_vertical = 0
+texture = ExtResource("11_4jnyp")
+flip_h = true
+
+[node name="LeftDown2" type="TextureRect" parent="Altar/PopUp/Panel/Container"]
+layout_mode = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 326.0
+offset_right = 116.0
+offset_bottom = 366.0
+grow_vertical = 0
+rotation = 1.5708
+texture = ExtResource("11_4jnyp")
+flip_v = true
+
+[node name="Exclamation Mark" type="Sprite2D" parent="Altar"]
+visible = false
+z_index = 11
+position = Vector2(0, 64)
+texture = ExtResource("13_5v8ve")
+offset = Vector2(0, -80)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Altar/Exclamation Mark"]
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_nvdu0")
+}
+
+[node name="PointLight2D" type="PointLight2D" parent="Altar/Exclamation Mark"]
+position = Vector2(0, -80)
+color = Color(0.756863, 0, 0.0117647, 1)
+energy = 2.5
+texture = SubResource("GradientTexture2D_t30mj")
+
 [connection signal="body_entered" from="Castle_Zone" to="Castle_Zone" method="_on_body_entered"]
 [connection signal="body_exited" from="Castle_Zone" to="Castle_Zone" method="_on_body_exited"]
 [connection signal="body_entered" from="Weapons" to="Weapons" method="_on_area_2d_body_entered"]
@@ -1822,3 +2050,6 @@ texture = SubResource("GradientTexture2D_t30mj")
 [connection signal="pressed" from="Weapons/PopUp/Panel/Sword_Panel/Buy_Sword" to="Weapons" method="_on_buy_sword_pressed"]
 [connection signal="pressed" from="Weapons/PopUp/Panel/Bow_Panel/Buy_Bow" to="Weapons" method="_on_buy_bow_pressed"]
 [connection signal="pressed" from="Weapons/PopUp/Panel/Spear_Panel/Buy_Spear" to="Weapons" method="_on_buy_spear_pressed"]
+[connection signal="body_entered" from="Altar" to="Altar" method="_on_body_entered"]
+[connection signal="body_exited" from="Altar" to="Altar" method="_on_body_exited"]
+[connection signal="pressed" from="Altar/PopUp/Panel/Ok Button" to="Altar" method="_on_ok_button_pressed"]

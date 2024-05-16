@@ -98,7 +98,6 @@ func _physics_process(delta):
 				velocity.x = 1
 			elif(target_checkpoint.x - global_position.x < -30):
 				velocity.x = -1
-			print(can_attack)
 			if attack_timer.is_stopped() and can_attack:
 				attack_timer.start()
 				anim_idle = 'Idle'

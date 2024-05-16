@@ -7,6 +7,8 @@ var scene_manager
 enum Weapon {spear, sword, bow}
 var weapon = Weapon.spear
 
+var cards = []
+
 var HEALTH = 100
 var MAX_HEALTH = 100
 
@@ -157,9 +159,9 @@ func player_death():
 		var animator : AnimationPlayer = get_tree().get_first_node_in_group('screen_animator')
 		if !animator.is_playing():
 			animator.play_transition("Death_Fade_In")
-			await get_tree().create_timer(2).timeout
 			scene_manager.change_level('Main_Room')
-			get_tree().get_first_node_in_group('screen_animator').play_transition("Death_Fade_Out")
+			await get_tree().create_timer(2).timeout
+			animator.play_transition("Death_Fade_Out")
 	is_player_dead = false
 
 #----------------------------------------------------------

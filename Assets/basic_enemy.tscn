@@ -1,11 +1,11 @@
-[gd_scene load_steps=49 format=3 uid="uid://qgox2rj7nweo"]
+[gd_scene load_steps=50 format=3 uid="uid://qgox2rj7nweo"]
 
 [ext_resource type="Script" path="res://Assets/Enemy.gd" id="1_5cry7"]
-[ext_resource type="Texture2D" uid="uid://d2pku8huvp2tt" path="res://Arta/Torch/sheet.png" id="2_0k5jk"]
 [ext_resource type="Texture2D" uid="uid://cjgtyf4daoen6" path="res://Arta/Enemies/Basic Idle Weapon.png" id="3_88j7c"]
 [ext_resource type="Texture2D" uid="uid://dnx6c27cm6nih" path="res://Arta/Enemies/Basic Run.png" id="3_dafuv"]
 [ext_resource type="Texture2D" uid="uid://drqns68gt8n16" path="res://Arta/Info Board/ExclamationMark-16x16-1.png.png" id="3_frlbg"]
 [ext_resource type="Texture2D" uid="uid://b5o8l5m08xjwx" path="res://Arta/Enemies/Basic Idle.png" id="3_ihsgk"]
+[ext_resource type="Texture2D" uid="uid://1w28uuhnpyth" path="res://Arta/Enemies/dead.png" id="5_l8bmx"]
 [ext_resource type="Texture2D" uid="uid://otvo8etf0co" path="res://Arta/Player/SabieSerios.png" id="5_ow4p5"]
 
 [sub_resource type="Curve" id="Curve_5mwr6"]
@@ -159,6 +159,10 @@ region = Rect2(96, 128, 48, 64)
 atlas = ExtResource("3_dafuv")
 region = Rect2(144, 128, 48, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_31hx0"]
+atlas = ExtResource("5_l8bmx")
+region = Rect2(0, 0, 64, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_fqesj"]
 animations = [{
 "frames": [{
@@ -267,11 +271,11 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_0k5jk")
+"texture": SubResource("AtlasTexture_31hx0")
 }],
 "loop": true,
 "name": &"dead",
-"speed": 5.0
+"speed": 1.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rlwv8"]
@@ -353,7 +357,7 @@ shape = SubResource("SegmentShape2D_6ubgm")
 light_mask = 2
 position = Vector2(0, 0.5)
 sprite_frames = SubResource("SpriteFrames_fqesj")
-animation = &"Walking"
+animation = &"dead"
 
 [node name="weapon" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
 visible = false

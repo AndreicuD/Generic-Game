@@ -17,6 +17,7 @@ func _on_buy_pressed():
 	if Global.CURRENCY >= cost:
 		Global.CURRENCY -= cost
 		Global.damage_when_dashing = true
+		Global.cards.erase(self)
 	else:
 		$Panel/Buy.text = \"Can't afford!\"
 "

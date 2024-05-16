@@ -1,11 +1,11 @@
-[gd_scene load_steps=39 format=3 uid="uid://dundoq5yx4i4j"]
+[gd_scene load_steps=40 format=3 uid="uid://dundoq5yx4i4j"]
 
 [ext_resource type="Script" path="res://Assets/bow_enemy.gd" id="1_pynan"]
 [ext_resource type="PackedScene" uid="uid://knrylrr4rfq1" path="res://Assets/enemy_arrow.tscn" id="2_55p7u"]
-[ext_resource type="Texture2D" uid="uid://d2pku8huvp2tt" path="res://Arta/Torch/sheet.png" id="2_mwu1e"]
 [ext_resource type="Texture2D" uid="uid://jop7tnpf8rt0" path="res://Arta/Enemies/Bow Idle.png" id="3_e0nju"]
 [ext_resource type="Texture2D" uid="uid://b1mykq0fskt37" path="res://Arta/Enemies/Bow Run.png" id="4_ofh0c"]
 [ext_resource type="Texture2D" uid="uid://drqns68gt8n16" path="res://Arta/Info Board/ExclamationMark-16x16-1.png.png" id="4_pl3gp"]
+[ext_resource type="Texture2D" uid="uid://1w28uuhnpyth" path="res://Arta/Enemies/dead.png" id="5_vnv7m"]
 
 [sub_resource type="Curve" id="Curve_5mwr6"]
 max_value = 3.0
@@ -147,6 +147,10 @@ region = Rect2(96, 128, 48, 64)
 atlas = ExtResource("4_ofh0c")
 region = Rect2(144, 128, 48, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyjj6"]
+atlas = ExtResource("5_vnv7m")
+region = Rect2(0, 0, 64, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_fqesj"]
 animations = [{
 "frames": [{
@@ -244,7 +248,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_mwu1e")
+"texture": SubResource("AtlasTexture_qyjj6")
 }],
 "loop": true,
 "name": &"dead",
@@ -280,9 +284,7 @@ shape = SubResource("RectangleShape2D_ydcea")
 light_mask = 2
 position = Vector2(0, 0.5)
 sprite_frames = SubResource("SpriteFrames_fqesj")
-animation = &"Idle"
-frame = 1
-frame_progress = 0.108888
+animation = &"dead"
 
 [node name="excl_mark" type="Sprite2D" parent="."]
 visible = false

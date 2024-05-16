@@ -1,0 +1,200 @@
+[gd_scene load_steps=21 format=3 uid="uid://b270mb2r5cgia"]
+
+[ext_resource type="Script" path="res://GlobalScripts/scene_switcher.gd" id="1_75af8"]
+[ext_resource type="PackedScene" uid="uid://g1nb3d5trphu" path="res://GlobalScripts/Global.tscn" id="2_al6ck"]
+[ext_resource type="PackedScene" uid="uid://c1mre2qrte5s2" path="res://Player/player.tscn" id="3_3i4ib"]
+[ext_resource type="Script" path="res://GlobalScripts/Transition_Manager.gd" id="3_8mv83"]
+[ext_resource type="Theme" uid="uid://beoh5k5sb22ui" path="res://Arta/Theme.tres" id="4_2mq4s"]
+[ext_resource type="Theme" uid="uid://duqt24herp7yx" path="res://Arta/Butoane_Main_Men.tres" id="5_0uib4"]
+[ext_resource type="Texture2D" uid="uid://boe77fl22joes" path="res://Arta/Coin/1.png" id="5_4i4xl"]
+[ext_resource type="PackedScene" uid="uid://dasb6pgsbw6lt" path="res://Levels/Main_Room.tscn" id="6_8ggml"]
+[ext_resource type="Texture2D" uid="uid://dr5uau87lwcyw" path="res://Arta/Coin/2.png" id="6_mqvd6"]
+[ext_resource type="Texture2D" uid="uid://dnh7jcx7e0x4g" path="res://Arta/Coin/3.png" id="7_yvh5q"]
+[ext_resource type="Texture2D" uid="uid://mosb8ga2jicv" path="res://Arta/Coin/4.png" id="8_y4ylc"]
+[ext_resource type="Texture2D" uid="uid://bwukmuvkhlehe" path="res://Arta/Coin/5.png" id="9_ipcu6"]
+[ext_resource type="Texture2D" uid="uid://cq8sfkpjotau5" path="res://Arta/Coin/6.png" id="10_870an"]
+[ext_resource type="Script" path="res://Coins.gd" id="12_yurgm"]
+
+[sub_resource type="Animation" id="Animation_ewint"]
+resource_name = "Death_Fade_In"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dead_Text:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BlackScreen:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_l8fyw"]
+resource_name = "Death_Fade_Out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackScreen:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dead_Text:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8m04h"]
+resource_name = "Fade_In"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackScreen:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ga6uh"]
+resource_name = "Fade_Out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackScreen:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4wr8q"]
+_data = {
+"Death_Fade_In": SubResource("Animation_ewint"),
+"Death_Fade_Out": SubResource("Animation_l8fyw"),
+"Fade_In": SubResource("Animation_8m04h"),
+"Fade_Out": SubResource("Animation_ga6uh")
+}
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_ficyk"]
+frames = 7
+frame_0/texture = ExtResource("5_4i4xl")
+frame_1/texture = ExtResource("6_mqvd6")
+frame_1/duration = 0.1
+frame_2/texture = ExtResource("7_yvh5q")
+frame_2/duration = 0.1
+frame_3/texture = ExtResource("8_y4ylc")
+frame_3/duration = 0.1
+frame_4/texture = ExtResource("9_ipcu6")
+frame_4/duration = 0.1
+frame_5/texture = ExtResource("10_870an")
+frame_5/duration = 0.1
+frame_6/texture = ExtResource("5_4i4xl")
+frame_6/duration = 0.1
+
+[node name="SceneManager" type="Node" groups=["scene_manager"]]
+script = ExtResource("1_75af8")
+
+[node name="Global" parent="." instance=ExtResource("2_al6ck")]
+
+[node name="TransitionManager" type="AnimationPlayer" parent="." groups=["screen_animator"]]
+root_node = NodePath("../Fade")
+libraries = {
+"": SubResource("AnimationLibrary_4wr8q")
+}
+script = ExtResource("3_8mv83")
+
+[node name="Player" parent="." instance=ExtResource("3_3i4ib")]
+position = Vector2(-123, -33)
+
+[node name="Overlay" type="CanvasLayer" parent="."]
+script = ExtResource("12_yurgm")
+
+[node name="Coin" type="TextureRect" parent="Overlay"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -64.0
+offset_right = 64.0
+grow_vertical = 0
+texture = SubResource("AnimatedTexture_ficyk")
+
+[node name="Coins" type="Label" parent="Overlay"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = -64.0
+offset_right = 128.0
+grow_vertical = 0
+theme = ExtResource("5_0uib4")
+text = "1"
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Overlay"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Fade" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="BlackScreen" type="ColorRect" parent="Fade"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Dead_Text" type="Label" parent="Fade"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("4_2mq4s")
+theme_override_font_sizes/font_size = 156
+text = "You ded"
+
+[node name="Level1" parent="." instance=ExtResource("6_8ggml")]
+
+[connection signal="animation_finished" from="TransitionManager" to="." method="_on_animation_player_animation_finished"]

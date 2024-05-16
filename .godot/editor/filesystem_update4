@@ -28,3 +28,6 @@ res://Player/cards/dmg_lvl_2_card.tscn
 res://Assets/respawn_zone.tscn
 res://Assets/coin.tscn
 res://Assets/Coin.gd
+res://Coins.gd
+res://GlobalScripts/Altar.gd
+res://Assets/Exit_Zone.gd

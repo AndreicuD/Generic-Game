@@ -1,5 +1,6 @@
-res://Player/cards
 res://Arta/Enemies
+res://
+res://Player/cards
 res://Arta/Player
 res://Player
 res://Arta
@@ -14,5 +15,4 @@ res://Arta/Tilemap
 res://Arta/cloister_black
 res://Arta/InputButtons
 res://GlobalScripts
-res://
 D:/jocurile mele/VVVVVV-game/VVVVVV-style-game

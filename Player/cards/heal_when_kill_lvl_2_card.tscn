@@ -20,6 +20,7 @@ func _on_buy_pressed():
 
 		Global.heal_when_kill_level_1 = false
 		Global.heal_when_kill_level_2 = true
+		Global.cards.erase(self)
 	else:
 		$Panel/Buy.text = \"Can't afford!\"
 "
