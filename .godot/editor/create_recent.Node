@@ -1,3 +1,5 @@
+AudioStreamPlayer
+AudioStreamPlayer2D
 Timer
 AnimationPlayer
 ColorRect
@@ -6,10 +8,7 @@ Control
 CollisionShape2D
 Area2D
 Sprite2D
-AudioStreamPlayer
 TextureRect
 Label
 CanvasLayer
 Button
-CanvasModulate
-Panel

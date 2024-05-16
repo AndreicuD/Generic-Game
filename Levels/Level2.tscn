@@ -61,7 +61,6 @@ func _on_body_entered(body):
 size = Vector2(560, 184)
 
 [node name="Tutorial" type="Node2D" groups=["Level"]]
-position = Vector2(560, 0.92)
 
 [node name="Nivel32x32" type="TileMap" parent="."]
 position = Vector2(0, 1)
@@ -141,7 +140,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("5_o7q2r")
 theme_override_font_sizes/font_size = 51
-text = "The Battle of"
+text = "The Night Attack at Targoviste"
 horizontal_alignment = 1
 vertical_alignment = 1
 

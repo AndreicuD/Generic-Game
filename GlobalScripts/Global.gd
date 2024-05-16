@@ -144,10 +144,7 @@ func delete_save():
 #in level
 func reset_player_position_and_health():
 	var Player = get_tree().get_first_node_in_group("Player")
-	Player.position.x = 0
-	Player.position.y = 0
-	if Player.has_method('reset_location()'):
-		Player.reset_location()
+	Player.position = default_spawn_point
 	#if(Player.is_gravity_reversed):
 	#	Player.gravity_reverse()
 	HEALTH = MAX_HEALTH
@@ -158,14 +155,11 @@ func reset_player_to_checkpoint():
 	HEALTH = MAX_HEALTH
 
 func player_death():
-	if is_player_dead:
-		var animator : AnimationPlayer = get_tree().get_first_node_in_group('screen_animator')
-		if !animator.is_playing():
-			animator.play_transition("Death_Fade_In")
-			scene_manager.change_level('Main_Room')
-			await get_tree().create_timer(2).timeout
-			animator.play_transition("Death_Fade_Out")
-	is_player_dead = false
+	#var animator : AnimationPlayer = get_tree().get_first_node_in_group('screen_animator')
+	#animator.play_transition("Death_Fade_In")
+	scene_manager.change_level('Main_Room')
+	#await get_tree().create_timer(2).timeout
+	#animator.play_transition("Death_Fade_Out")
 
 #----------------------------------------------------------
 

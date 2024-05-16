@@ -61,7 +61,6 @@ func _on_body_entered(body):
 size = Vector2(560, 184)
 
 [node name="ceva" type="Node2D" groups=["Level"]]
-position = Vector2(560, 0.92)
 
 [node name="Nivel32x32" type="TileMap" parent="."]
 tile_set = ExtResource("1_4ynwx")
@@ -118,7 +117,6 @@ centered = false
 flip_v = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("4_ls63d")
 
 [node name="Negru" type="ColorRect" parent="CanvasLayer"]

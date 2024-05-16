@@ -74,7 +74,6 @@ func die():
 	velocity = Vector2(0, 0)
 	$CollisionShape2D_Dash.disabled = true
 	$CollisionShape2D_Normal.disabled = true
-	Global.is_player_dead = true
 	$Dead_Timer.start()
 
 func _input(event):
@@ -85,8 +84,6 @@ func _input(event):
 
 func _physics_process(delta):
 	is_moving_box = false
-
-	print(global_position)
 
 	if Input.is_action_just_pressed("Attack") && can_attack:
 		can_attack = false
@@ -285,14 +282,12 @@ func _on_dead_timer_timeout():
 	Global.player_death()
 	$CollisionShape2D_Normal.disabled = false
 	can_move = true
-	Global.is_player_dead = true
 	is_dead = false
 
 func _on_heal_timer_timeout():
 	Global.HEALTH += 20
 
 func reset_location():
-	print('matatasuidfhasolifuahsdofiajhdfosdghfopasdfg')
 	global_position = Vector2(0, 0)
 	position.x = 0
 	position.y = 0

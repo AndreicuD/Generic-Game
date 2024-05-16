@@ -9,10 +9,10 @@ var is_active : bool = false
 var player
 var is_opened : bool = false
 
-var TransitionManager
+var scene_manager
 
 func _ready():
-	TransitionManager = get_tree().get_first_node_in_group('screen_animator')
+	scene_manager = get_tree().get_first_node_in_group("scene_manager")
 	if needs_key:
 		anim.play("closed_key")
 	else:
@@ -41,7 +41,8 @@ func _process(_delta):
 				is_opened = true
 				$AudioStreamPlayer.play(0)
 		elif is_opened:
-			get_tree().get_first_node_in_group("scene_manager").change_level(wanted_level)
+			print('spanac23')
+			scene_manager.change_level(wanted_level)
 
 func _on_body_entered(body):
 	if body.is_in_group("Player"):

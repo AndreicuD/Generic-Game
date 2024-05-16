@@ -1,7 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://b270mb2r5cgia"]
+[gd_scene load_steps=26 format=3 uid="uid://b270mb2r5cgia"]
 
 [ext_resource type="Script" path="res://GlobalScripts/scene_switcher.gd" id="1_75af8"]
 [ext_resource type="PackedScene" uid="uid://g1nb3d5trphu" path="res://GlobalScripts/Global.tscn" id="2_al6ck"]
+[ext_resource type="AudioStream" uid="uid://byvackwnr56fp" path="res://Sounds/music/LOop.mp3" id="2_ljcj1"]
 [ext_resource type="PackedScene" uid="uid://c1mre2qrte5s2" path="res://Player/player.tscn" id="3_3i4ib"]
 [ext_resource type="PackedScene" uid="uid://dasb6pgsbw6lt" path="res://Levels/Main_Room.tscn" id="3_5mi11"]
 [ext_resource type="Script" path="res://GlobalScripts/Transition_Manager.gd" id="3_8mv83"]
@@ -130,9 +131,11 @@ frame_6/duration = 0.1
 [node name="SceneManager" type="Node" groups=["scene_manager"]]
 script = ExtResource("1_75af8")
 
-[node name="Global" parent="." instance=ExtResource("2_al6ck")]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ljcj1")
+autoplay = true
 
-[node name="Main_Room" parent="." instance=ExtResource("3_5mi11")]
+[node name="Global" parent="." instance=ExtResource("2_al6ck")]
 
 [node name="Player" parent="." instance=ExtResource("3_3i4ib")]
 
@@ -145,7 +148,6 @@ script = ExtResource("3_8mv83")
 
 [node name="Fade" type="CanvasLayer" parent="."]
 layer = 128
-visible = false
 
 [node name="BlackScreen" type="ColorRect" parent="Fade"]
 anchors_preset = 15
@@ -154,9 +156,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0)
 
 [node name="Dead_Text" type="Label" parent="Fade"]
+visible = false
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -209,5 +213,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Main_Room" parent="." instance=ExtResource("3_5mi11")]
 
 [connection signal="animation_finished" from="TransitionManager" to="." method="_on_animation_player_animation_finished"]

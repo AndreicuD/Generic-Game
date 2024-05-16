@@ -970,7 +970,6 @@ func _on_body_entered(body):
 size = Vector2(560, 184)
 
 [node name="Tutorial" type="Node2D" groups=["Level", "tutorial"]]
-position = Vector2(233.305, 0.924)
 script = ExtResource("1_qr8q0")
 
 [node name="Nivel32x32" type="TileMap" parent="."]
